@@ -1,0 +1,290 @@
+#go-top {
+    font-size: vwPC(145);
+    display: inline-block;
+    z-index: 20;
+    color: #fff;
+    width: vwPC(180);
+    height: vwPC(180);
+    line-height: 30px;
+    text-align: center;
+    background: #80bbe3;
+    background-size: 300% auto;
+    position: fixed;
+    bottom: vwPC(107);
+    right: vwPC(130);
+    cursor: pointer;
+    border-radius: 0;
+    border: 2px solid transparent;
+}
+
+footer {
+    text-align: center;
+}
+
+
+.ft-logo-brand {
+    position: relative;
+    background: #5A8CC9;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: vwSP(169px);
+
+    .ft-brand {
+        font-size: vwSP(24px);
+        font-weight: bold;
+
+        img {
+            vertical-align: middle;
+            margin-right: vwSP(27.3px);
+        }
+    }
+
+    .go-top {
+        font-family: 'Roboto Condensed', sans-serif;
+        position: absolute;
+        top: vwSP(25px);
+        right: vwSP(28.8);
+        font-size: vwSP(19.77px);
+        img {
+            width: vwSP(35.55px);
+            height: vwSP(59.3px);
+        }
+    }
+}
+
+.ft-top {
+    background: #5A8CC9;
+}
+
+.ft-menu {
+    li {
+        a {
+            display: block;
+            font-size: vwSP(30);
+            color: #fff;
+            padding: vwSP(26px) 0;
+            &:hover{
+                color: #d8d8d8;
+            }
+        }
+    }
+}
+
+
+.ft-bot {
+    background: url(../img/cloud-bg.png);
+    min-height: vwSP(540px);
+    padding-top: vwSP(30px);
+
+    .ft-contact {
+        margin-bottom: vwSP(43px);
+
+        a {
+            color: #fff;
+            font-size: vwSP(30px);
+        }
+    }
+
+    .ft-logo {
+        img {
+            margin-right: vwSP(-37px);
+        }
+    }
+}
+
+.copy-r {
+    font-family: 'roboto condensed', sans-serif;
+    font-size: vwSP(20);
+    color: #fff;
+    text-align: center;
+    background: #5A8CC9;
+    padding-top: vwSP(63px);
+    padding-bottom: vwSP(165px);
+    margin-top: vwSP(68px);
+
+    a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            color: #ccc;
+        }
+    }
+}
+
+@include pc() {
+    #go-top {
+        font-size: vwPC(50);
+        width: vwPC(60);
+        height: vwPC(60);
+    }
+
+    footer {
+        text-align: left;
+    }
+
+    .ft-wrapper {
+        position: relative;
+        display: flex;
+    }
+
+    .floatright-pc {
+        float: right;
+        width: vwPC(640px);
+    }
+
+    .ft-top {
+        flex: 0 0 65.27%;
+        height: unset;
+        padding-top: vwPC(85px);
+
+        .ft-logo-brand {
+            height: unset;
+            display: block;
+            padding-left: vwPC(10px);
+            margin-bottom: vwPC(27px);
+
+            .ft-brand {
+                display: block;
+                margin-bottom: -13px;
+
+                img {
+                    width: vwPC(70px);
+                    height: vwPC(60px);
+                    margin-right: 0px;
+                    vertical-align: sub;
+                }
+
+                span {
+                    font-size: vwPC(20px);
+                }
+            }
+        }
+    }
+
+    .ft-menu {
+        font-size: 0;
+        border-top: 1px solid transparentize(#fff, .8);
+        border-bottom: 1px solid transparentize(#fff, .8);
+        margin-bottom: vwPC(217px);
+        li {
+            display: inline-block;
+
+            a {
+                font-size: vwPC(16px);
+                padding: vwPC(16px) vwPC(28px) vwPC(14);
+            }
+        }
+    }
+
+    .ft-bot {
+        background-size: 100% 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        min-height: vwPC(60px);
+        padding: 0;
+        padding-left: vwPC(20px);
+        .ft-logo {
+            margin-top: auto;
+            margin-bottom: vwPC(-55px);
+        }
+    }
+
+    .copy-r {
+        background: 0;
+        font-size: vwPC(12px);
+        text-align: left;
+        padding: 0;
+        margin-top: auto;
+        margin-bottom: vwPC(40px);
+    }
+}
+
+@include lg() {
+    #go-top {
+        font-size: (50px);
+        width: (60px);
+        height: (60px);
+    }
+
+    .ft-wrapper {
+        position: relative;
+        display: flex;
+    }
+
+    .floatright-pc {
+        float: right;
+        width: (640px);
+    }
+
+    .ft-top {
+        flex: 0 0 65.27%;
+        height: unset;
+        padding-top: (85px);
+
+        .ft-logo-brand {
+            height: unset;
+            display: block;
+            padding-left: (10px);
+            margin-bottom: (27px);
+
+            .ft-brand {
+                display: block;
+                margin-bottom: -13px;
+
+                img {
+                    width: (70px);
+                    height: (60px);
+                    margin-right: 0px;
+                    vertical-align: sub;
+                }
+
+                span {
+                    font-size: (20px);
+                }
+            }
+        }
+    }
+
+    .ft-menu {
+        font-size: 0;
+        border-top: 1px solid transparentize(#fff, .8);
+        border-bottom: 1px solid transparentize(#fff, .8);
+        margin-bottom: (217px);
+        li {
+            display: inline-block;
+
+            a {
+                font-size: (16px);
+                padding: (16px) (28px) (14px);
+            }
+        }
+    }
+
+    .ft-logo {
+        font-size: 0;
+    }
+
+    .ft-bot {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        min-height: (60px);
+        padding: 0;
+        padding-left: (20px);
+        .ft-logo {
+            margin-top: auto;
+        }
+    }
+
+    .copy-r {
+        font-size: (12px);
+        text-align: left;
+        margin-top: auto;
+        margin-bottom: (40px);
+    }
+}

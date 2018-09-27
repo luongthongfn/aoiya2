@@ -1,0 +1,505 @@
+// @import "../import/_variable";
+// @import "../import/_mixin";
+// @import "../import/_function";
+// @import "../import/_placeholder";
+
+//@import "../import/_fonts";
+%title {
+    font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif; 
+    font-size: vwSP(32);
+    font-weight: 900;
+    line-height: 1;
+    color: #5A8CC9;
+    text-transform: uppercase;
+    margin-bottom: vwSP(0px);
+}
+
+%subtitle {
+    color: #002040;
+    font-size: vwSP(24);
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+}
+
+%title2 {
+    color: #00008f;
+    font-size: vwSP(40px);
+    font-weight: bold;
+}
+
+%subtitle2 {
+    font-size: vwSP(35px);
+    font-weight: bold;
+
+    &.bird {
+        &-l:before {
+            content: url(../img/pp-bird-l.png);
+            vertical-align: sub;
+            margin-right: 5px;
+        }
+
+        &-r:after {
+            content: url(../img/pp-bird.png);
+            vertical-align: sub;
+            margin-left: 5px;
+        }
+    }
+}
+
+
+.title {
+    @extend %title;
+}
+
+.subtitle {
+    @extend %subtitle;
+}
+
+.title2 {
+    @extend %title2;
+}
+
+.subtitle2 {
+    @extend %subtitle2;
+}
+
+.heading {
+    padding: vwSP(60) 0;
+}
+.container{
+    margin-left: auto;
+    margin-right: auto;
+}
+.container{
+    margin-left: auto;
+    margin-right: auto;
+}
+%wrapper1 {
+    width: vwSP(608);
+}
+
+%wrapper2 {
+    width: vwSP(635);
+}
+
+%wrapper3 {
+    width: vwSP(630px);
+}
+
+.title-bg {
+    // background: url(../img/title-bg.png) no-repeat;
+    // background-position: 61.2% 68%;
+    // background-size: contain;
+    position: relative;
+    padding: vwSP(75px) 0 vwSP(81px);
+    margin-bottom: vwSP(30px);
+    &:after{
+        content: '';
+        background: url(../img/title-bg.png) no-repeat center/contain;
+        position: absolute;
+        z-index: -1;
+        top: vwSP(89px);
+        left: vwSP(337px);
+        width: vwSP(200px);
+        height: vwSP(100px);
+    }
+}
+
+.read-more {
+    font-size: vwSP(28);
+    color: #fff;
+    display: inline-block;
+    background: #002040;
+    text-align: center;
+    border-radius: vwSP(10);
+    text-decoration: none;
+    padding: vwSP(26) vwSP(71) vwSP(24);
+    margin: vwSP(42) 0 vwPC(51);
+
+    &:hover {
+        @include brightness(1.2)
+    }
+}
+
+.block-page-name {
+    display: flex;
+    position: relative;
+    height: vwSP(300px);
+    overflow: hidden;
+
+    .half {
+        width: 50%;
+        background: url(../../img/mes-banner-l.png) no-repeat;
+        background-size: cover;
+        background-position: center center 0;
+    }
+
+    .page-name {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+        left: 50%;
+        @include translate(-50%, 0);
+        width: vwSP(320px);
+        height: vwSP(169px);
+        background: transparentize(#fff, .1);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+
+        h2 {
+            position: relative;
+            font-size: vwSP(25px);
+            color: #00008f;
+            text-align: center;
+            font-weight: bold;
+
+            &:after {
+                content: '';
+                position: relative;
+                display: block;
+                width: 90%;
+                top: vwSP(5px);
+                left: 50%;
+                @include translate(-50%);
+                border-bottom: 2px solid #add4c9;
+            }
+        }
+    }
+}
+
+.pagination {
+    display: flex;
+    background: linear-gradient(#92b3dc, #5a8dc9);
+    margin: vwSP(40px);
+    border-radius: vwSP(100px);
+    overflow: hidden;
+    clear: both;
+    box-shadow: 0 5px 10px transparentize(#000, .8);
+    .entry{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        height: vwSP(118px);
+        padding: vwSP(33px);
+        .eng{
+            font-size: vwSP(45px);
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            margin-left: auto;
+        }
+        .fa{
+            font-size: vwSP(45px);
+            color: #fff;
+            margin-left: auto;
+        }
+    }
+    .prev,
+    .next {
+        display: flex;
+        align-items: center;
+        width: 50%;
+        height: vwSP(120px);
+        padding: vwSP(20px);
+
+        .fa {
+            color: #fff;
+            font-size: vwSP(50px);
+        }
+
+        .eng {
+            color: #fff;
+            font-size: vwSP(40px);
+            padding: 0 vwSP(10px);
+        }
+
+        .jpn {
+            font-size: vwSP(20px);
+            color: #add4c9;
+        }
+    }
+
+    .prev {
+        justify-content: flex-end;
+        border-right: 2px solid #9bbadf;
+
+        .fa {
+            margin-right: auto;
+        }
+    }
+
+    .next {
+        border-left: 2px solid #5781bf;
+
+        .fa {
+            margin-left: auto;
+        }
+    }
+}
+
+/*
+*        pc
+*/
+@include pc() {
+    .title {
+        font-family:'arial', sans-serif;
+        font-weight: normal;
+        font-size: vwPC(24px);
+    }
+
+    .subtitle {
+        font-size: vwPC(13px);
+        margin-top: vwPC(10px);
+    }
+
+    .title2 {
+        font-size: vwPC(30px);
+    }
+
+    .subtitle2 {
+        font-size: vwPC(20px);
+    }
+
+    .heading {
+        padding: vwPC(60) 0;
+    }
+
+    .title-bg {
+        padding: vwPC(60) 0;
+        margin-bottom: 0;
+        &:after{
+            top: vwPC(70px);
+            left: vwPC(695px);
+            width: vwPC(137px);
+            height: vwPC(68px);
+        }
+    }
+
+    %wrapper1 {
+        width: vwPC(800px);
+    }
+
+    %wrapper2 {
+        width: vwPC(1002px);
+    }
+
+    %wrapper3 {
+        width: vwPC(1000px);
+    }
+
+    .block-page-name {
+        height: vwPC(300px);
+        border-bottom: 2px solid #00008f;
+
+        .page-name {
+            width: vwPC(234px);
+            height: vwPC(121px);
+
+            h2 {
+                font-size: vwPC(18px);
+                margin-top: vwPC(20px);
+
+                &:after {
+                    top: vwPC(5px);
+                }
+            }
+        }
+    }
+
+    .pagination {
+        width: vwPC(700px);
+        margin: auto;
+        border-radius: vwPC(100px);
+        .entry{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            height: vwPC(80px);
+            padding: vwPC(33px);
+            .eng{
+                font-size: vwPC(30px);
+                font-weight: bold;
+                text-transform: uppercase;
+                color: #fff;
+                margin-left: auto;
+            }
+            .fa{
+                font-size: vwPC(45px);
+                color: #fff;
+                margin-left: auto;
+            }
+        }
+        .prev,
+        .next, {
+            height: vwPC(80px);
+            padding: vwPC(20px);
+
+            .fa {
+                font-size: vwPC(50px);
+            }
+
+            .eng {
+                font-size: vwPC(20px);
+                padding: 0 vwPC(10px);
+            }
+
+            .jpn {
+                font-size: vwPC(20px);
+                color: #add4c9;
+            }
+        }
+
+        .prev {
+            justify-content: flex-end;
+            border-right: 2px solid #9bbadf;
+
+            .fa {
+                margin-right: auto;
+            }
+        }
+
+        .next {
+            border-left: 2px solid #5781bf;
+
+            .fa {
+                margin-left: auto;
+            }
+        }
+    }
+
+}
+
+/*
+*        lg
+*/
+@include lg() {
+    .read-more {
+        font-size: 18px;
+        padding: 22px 76px 19px;
+        border-radius: 5px;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .title2 {
+        font-size: 30px;
+    }
+
+    .subtitle2 {
+        font-size: (20px);
+    }
+    .title-bg {
+        padding: (60px) 0;
+        margin-bottom: 0;
+        &:after{
+            top: (70px);
+            left: 48.5%;
+            width: (137px);
+            height: (68px);
+        }
+    }
+    .heading {
+        padding: 60px 0;
+    }
+
+    %wrapper1 {
+        width: (800px);
+    }
+
+    %wrapper3 {
+        width: 1000px;
+    }
+
+    %wrapper2 {
+        width: (1002px);
+    }
+
+    .block-page-name {
+        height: (300px);
+        border-bottom: 2px solid #00008f;
+
+        .page-name {
+            width: (234px);
+            height: (121px);
+
+            h2 {
+                font-size: (18px);
+                margin-top: (20px);
+
+                &:after {
+                    top: (5px);
+                }
+            }
+        }
+    }
+
+    .pagination {
+        width: (700px);
+        margin: auto;
+        border-radius: (100px);
+        .entry{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            height: (80px);
+            padding: (33px);
+            .eng{
+                font-size: (30px);
+                font-weight: bold;
+                text-transform: uppercase;
+                color: #fff;
+                margin-left: auto;
+            }
+            .fa{
+                font-size: (45px);
+                color: #fff;
+                margin-left: auto;
+            }
+        }
+        .prev,
+        .next {
+            height: (80px);
+            padding: (20px);
+
+            .fa {
+                font-size: (50px);
+            }
+
+            .eng {
+                font-size: (20px);
+                padding: 0 (10px);
+            }
+
+            .jpn {
+                font-size: (20px);
+                color: #add4c9;
+            }
+        }
+
+        .prev {
+            justify-content: flex-end;
+            border-right: 2px solid #9bbadf;
+
+            .fa {
+                margin-right: auto;
+            }
+        }
+
+        .next {
+            border-left: 2px solid #5781bf;
+
+            .fa {
+                margin-left: auto;
+            }
+        }
+    }
+}
