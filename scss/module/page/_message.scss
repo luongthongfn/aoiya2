@@ -1,0 +1,598 @@
+.focus {
+    background: url(../img/mes-focus-bg.png);
+    margin: vwSP(60px) 0;
+    .container{
+        @extend %wrapper3;
+    }
+    &--bg {
+        background: transparentize(#fff, .4);
+        padding: vwSP(60px) 0;
+    }
+
+    .has-image {
+        text-align: center;
+        padding: 0 vwSP(65px);
+
+        img {
+            border: 3px solid #fff;
+            box-shadow: 0 0 5px transparentize(#000, .8);
+        }
+    }
+
+    &--name {
+        display: inline-block;
+        font-size: vwSP(20px);
+        padding: vwSP(20px) 0;
+        border-bottom: 2px solid #add4c9;
+        margin-bottom: vwSP(20px);
+
+        span {
+            font-size: vwSP(40px);
+            font-weight: bold;
+        }
+    }
+
+    &--name2 {
+        font-size: vwSP(25px);
+        color: #00008b;
+        margin-bottom: vwSP(50px);
+    }
+
+    &--txt {
+        h3 {
+            font-size: vwSP(30px);
+            padding: vwSP(20px) vwSP(30px);
+            border-bottom: 2px solid #add4c9;
+            margin-bottom: vwSP(20px);
+        }
+
+        p {
+            font-size: vwSP(20px);
+            padding: vwSP(20px) vwSP(30px);
+        }
+    }
+}
+
+.message-part {
+    .container{
+        @extend %wrapper3;
+    }
+    .message-post {
+        margin-bottom: vwSP(60px);
+        overflow: hidden;
+
+        &:nth-child(odd) {
+            .message-post-header {
+                .flag {
+                    float: left;
+                    padding-right: vwSP(60px);
+                    padding-left: vwSP(35px);
+                    border-top-right-radius: vwSP(200px);
+                    border-bottom-right-radius: vwSP(200px);
+
+                    &:before {
+                        left: 0;
+                    }
+
+                    &--number {
+                        order: 1;
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            .message-post-header {
+                .flag {
+                    float: right;
+                    padding-right: vwSP(35px);
+                    padding-left: vwSP(60px);
+                    border-top-left-radius: vwSP(200px);
+                    border-bottom-left-radius: vwSP(200px);
+
+                    &:before {
+                        right: 0;
+                    }
+
+                    &--number {
+                        // order: 1;
+                        margin-right: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .message-post-header {
+        .flag {
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: #fff;
+            width: vwSP(354px);
+            background: url(../img/mes-title-bg.png);
+            padding: vwSP(20px);
+
+            &:before {
+                content: '';
+                position: absolute;
+                display: block;
+                top: 0;
+                width: 2px;
+                height: 300px;
+                background: #5a8cc9;
+            }
+
+            &:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+
+            &--number {
+                display: inline-block;
+                font-size: vwSP(80px);
+            }
+
+            &--txt {
+                display: inline-block;
+
+                &--big {
+                    font-family: 'aria', sans-serif;
+                    font-size: vwSP(50px);
+                }
+
+                &--small {
+                    font-size: vwSP(25px);
+                    position: relative;
+                    display: block;
+                    color: #00008b;
+                    text-align: center;
+
+                    &:after {
+                        content: '';
+                        background: url(../img/mes-title-bird.png) no-repeat;
+                        background-position: center center;
+                        background-size: contain;
+                        display: inline-block;
+                        width: vwSP(43px);
+                        height: vwSP(34px);
+                        vertical-align: middle;
+                        margin: 0 vwSP(5px);
+                    }
+                }
+            }
+        }
+
+        h3 {
+            font-size: vwSP(30px);
+            font-weight: bold;
+            padding: vwSP(20px);
+            clear: both;
+        }
+    }
+
+    .message-post-txt {
+        clear: both;
+        font-size: vwSP(18px);
+        padding: 0 vwSP(20px);
+    }
+}
+
+
+
+//pc screen
+@include pc() {
+    .focus {
+        background: url(../img/mes-focus-bg.png);
+        margin: vwPC(30px) 0;
+
+        &--bg {
+            background: transparentize(#fff, .4);
+            padding: vwPC(60px) 0;
+            overflow: auto;
+        }
+
+        .has-image {
+            float: left;
+            width: vwPC(500px);
+            padding: 0 vwPC(114px);
+
+            img {
+                border: 3px solid #fff;
+                box-shadow: 0 0 5px transparentize(#000, .8);
+            }
+        }
+
+        &--name {
+            font-size: vwPC(16px);
+            padding: vwPC(10px) 0;
+            margin-bottom: vwPC(20px);
+
+            span {
+                font-size: vwPC(30px);
+                vertical-align: middle;
+                font-weight: bold;
+            }
+        }
+
+        &--name2 {
+            font-size: vwPC(20px);
+            color: #00008b;
+            margin-bottom: vwPC(10px);
+        }
+
+        &--txt {
+            overflow: hidden;
+
+            h3 {
+                font-size: vwPC(30px);
+                padding: vwPC(20px) vwPC(30px);
+                padding-left: 0;
+                border-bottom: 2px solid #add4c9;
+                margin-bottom: vwPC(20px);
+            }
+
+            p {
+                font-size: vwPC(20px);
+                padding: vwPC(20px) vwPC(30px);
+                padding-left: 0;
+            }
+        }
+    }
+
+    .message-part {
+        .message-post {
+            margin-bottom: vwPC(60px);
+            min-height: vwPC(300px);
+
+            &:nth-child(odd) {
+                .message-post-header {
+                    .flag {
+
+                        padding-right: vwPC(30px);
+                        padding-left: vwPC(35px);
+                        margin-right: 40px;
+                        border-top-right-radius: vwPC(200px);
+                        border-bottom-right-radius: vwPC(200px);
+
+                        &:before {
+                            left: 0;
+                        }
+
+                        &--number {
+                            order: 1;
+                            margin-left: auto;
+                        }
+
+                        &--txt {
+                            &--small {
+                                font-size: vwPC(14px);
+                                text-align: right;
+
+                                &:after {
+                                    top: vwPC(-20px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+                .message-post-header {
+                    .flag {
+                        float: right;
+                        padding-right: vwPC(35px);
+                        padding-left: vwPC(30px);
+                        margin-left: 40px;
+                        border-top-left-radius: vwPC(200px);
+                        border-bottom-left-radius: vwPC(200px);
+
+                        &:before {
+                            right: 0;
+                        }
+
+                        &--number {
+                            margin-right: auto;
+                        }
+
+                        &--txt {
+                            &--small {
+                                font-size: vwPC(14px);
+                                text-align: left;
+
+                                &:after {
+                                    top: vwPC(-30px);
+                                    right: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .message-post-header {
+            .flag {
+                display: flex;
+                align-items: center;
+                position: relative;
+                color: #fff;
+                width: vwPC(290px);
+                background: url(../img/mes-title-bg.png);
+                padding: vwPC(20px);
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    width: 2px;
+                    height: 300px;
+                    background: #5a8cc9;
+                }
+
+                &:after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+
+                &--number {
+                    display: inline-block;
+                    font-size: vwPC(50px);
+                }
+
+                &--txt {
+                    display: inline-block;
+
+                    &--big {
+                        font-family: 'aria', sans-serif;
+                        font-size: vwPC(40px);
+                    }
+
+                    &--small {
+                        font-size: vwPC(20px);
+                        position: relative;
+                        display: block;
+                        color: #00008b;
+                        text-align: center;
+
+                        &:after {
+                            width: vwPC(43px);
+                            height: vwPC(34px);
+                            position: absolute;
+                            margin: 0 vwPC(5px);
+                        }
+                    }
+                }
+            }
+
+            h3 {
+                font-size: vwPC(30px);
+                font-weight: bold;
+                padding: vwPC(20px);
+                clear: none;
+            }
+        }
+
+        .message-post-txt {
+            font-size: vwPC(18px);
+            padding: 0 vwPC(40px);
+            padding-top: vwPC(40px);
+        }
+    }
+
+
+
+}
+
+//large screen
+@include lg() {
+    .focus {
+        background: url(../img/mes-focus-bg.png);
+        margin: (30px) 0;
+
+        &--bg {
+            background: transparentize(#fff, .4);
+            padding: (60px) 0;
+            overflow: auto;
+        }
+
+        .has-image {
+            float: left;
+            width: (500px);
+            padding: 0 (114px);
+
+            img {
+                border: 3px solid #fff;
+                box-shadow: 0 0 5px transparentize(#000, .8);
+            }
+        }
+
+        &--name {
+            font-size: (16px);
+            padding: (10px) 0;
+            margin-bottom: (20px);
+
+            span {
+                font-size: (30px);
+                vertical-align: middle;
+                font-weight: bold;
+            }
+        }
+
+        &--name2 {
+            font-size: (20px);
+            color: #00008b;
+            margin-bottom: (10px);
+        }
+
+        &--txt {
+            overflow: hidden;
+
+            h3 {
+                font-size: (30px);
+                padding: (20px) (30px);
+                padding-left: 0;
+                border-bottom: 2px solid #add4c9;
+                margin-bottom: (20px);
+            }
+
+            p {
+                font-size: (20px);
+                padding: (20px) (30px);
+                padding-left: 0;
+            }
+        }
+    }
+
+    .message-part {
+        .message-post {
+            margin-bottom: (60px);
+            min-height: (300px);
+
+            &:nth-child(odd) {
+                .message-post-header {
+                    .flag {
+
+                        padding-right: (30px);
+                        padding-left: (35px);
+                        margin-right: 40px;
+                        border-top-right-radius: (200px);
+                        border-bottom-right-radius: (200px);
+
+                        &:before {
+                            left: 0;
+                        }
+
+                        &--number {
+                            order: 1;
+                            margin-left: auto;
+                        }
+
+                        &--txt {
+                            &--small {
+                                font-size: (14px);
+                                text-align: right;
+
+                                &:after {
+                                    top: (-20px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+                .message-post-header {
+                    .flag {
+                        float: right;
+                        padding-right: (35px);
+                        padding-left: (30px);
+                        margin-left: 40px;
+                        border-top-left-radius: (200px);
+                        border-bottom-left-radius: (200px);
+
+                        &:before {
+                            right: 0;
+                        }
+
+                        &--number {
+                            margin-right: auto;
+                        }
+
+                        &--txt {
+                            &--small {
+                                font-size: (14px);
+                                text-align: left;
+
+                                &:after {
+                                    top: (-30px);
+                                    right: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .message-post-header {
+            .flag {
+                display: flex;
+                align-items: center;
+                position: relative;
+                color: #fff;
+                width: (290px);
+                background: url(../img/mes-title-bg.png);
+                padding: (20px);
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    width: 2px;
+                    height: 300px;
+                    background: #5a8cc9;
+                }
+
+                &:after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+
+                &--number {
+                    display: inline-block;
+                    font-size: (50px);
+                }
+
+                &--txt {
+                    display: inline-block;
+
+                    &--big {
+                        font-family: 'aria', sans-serif;
+                        font-size: (40px);
+                    }
+
+                    &--small {
+                        font-size: (20px);
+                        position: relative;
+                        display: block;
+                        color: #00008b;
+                        text-align: center;
+
+                        &:after {
+                            width: (43px);
+                            height: (34px);
+                            position: absolute;
+                            margin: 0 (5px);
+                        }
+                    }
+                }
+            }
+
+            h3 {
+                color: #393939;
+                font-size: (30px);
+                font-weight: bold;
+                padding: (20px);
+                clear: none;
+            }
+        }
+
+        .message-post-txt {
+            font-size: (18px);
+            color: #393939;
+            padding: 0 (40px);
+            padding-top: (40px);
+        }
+    }
+
+
+}

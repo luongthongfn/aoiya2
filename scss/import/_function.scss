@@ -1,0 +1,24 @@
+//convert px to vw unit
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+@function vwSP($pixel){
+  //define 1unit vw
+  $vw: 750/100;
+  $pixel: strip-unit($pixel);
+  @return ($pixel / $vw) * 1 +vw;
+}
+//convert px to vw unit
+@function vwPC($pixel){
+  //define 1unit vw
+  $vw: 1440/100;
+  $pixel: strip-unit($pixel);
+  @return ($pixel / $vw) * 1 +vw;
+}
+
+
