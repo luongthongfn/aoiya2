@@ -21,7 +21,7 @@ if (isset($_POST['send_mail'])) {
         $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
         $mail->SMTPAuth = true; // Enable SMTP authentication
         $mail->Username = 'webtestwav@gmail.com'; // SMTP username
-        $mail->Password = 'dcshafsbisacpzzw'; // SMTP password/security app token
+        $mail->Password = 'qweqweqwe1@'; // SMTP password/security app token
         $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 465; // TCP port to connect to
 
