@@ -1,17 +1,18 @@
 #go-top {
     font-size: vwPC(145);
-    display: inline-block;
+    // display: inline-block;
+    display: none;
     z-index: 20;
     color: #fff;
     width: vwPC(180);
     height: vwPC(180);
     line-height: 30px;
     text-align: center;
-    background: #80bbe3;
+    background: #93BAE1;
     background-size: 300% auto;
     position: fixed;
     bottom: vwPC(107);
-    right: vwPC(130);
+    right: vwPC(220);
     cursor: pointer;
     border-radius: 0;
     border: 2px solid transparent;
@@ -48,6 +49,7 @@ footer {
         top: vwSP(25px);
         right: vwSP(28.8);
         font-size: vwSP(19.77px);
+
         img {
             width: vwSP(35.55px);
             height: vwSP(59.3px);
@@ -66,7 +68,8 @@ footer {
             font-size: vwSP(30);
             color: #fff;
             padding: vwSP(26px) 0;
-            &:hover{
+
+            &:hover {
                 color: #d8d8d8;
             }
         }
@@ -170,6 +173,7 @@ footer {
         border-top: 1px solid transparentize(#fff, .8);
         border-bottom: 1px solid transparentize(#fff, .8);
         margin-bottom: vwPC(217px);
+
         li {
             display: inline-block;
 
@@ -188,6 +192,7 @@ footer {
         min-height: vwPC(60px);
         padding: 0;
         padding-left: vwPC(20px);
+
         .ft-logo {
             margin-top: auto;
             margin-bottom: vwPC(-55px);
@@ -255,6 +260,7 @@ footer {
         border-top: 1px solid transparentize(#fff, .8);
         border-bottom: 1px solid transparentize(#fff, .8);
         margin-bottom: (217px);
+
         li {
             display: inline-block;
 
@@ -276,6 +282,7 @@ footer {
         min-height: (60px);
         padding: 0;
         padding-left: (20px);
+
         .ft-logo {
             margin-top: auto;
         }

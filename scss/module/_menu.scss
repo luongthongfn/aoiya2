@@ -84,11 +84,14 @@
 
 nav.nav-container {
     position: absolute;
+    z-index: 10;
+    left: 0;
     top: 100%;
     width: 100%;
     height: 100vh;
     background-color: #5A8CC9;
     @include translate(100%, 0);
+    // border: 100px solid red;
     transition: all .3s;
 
     ul {

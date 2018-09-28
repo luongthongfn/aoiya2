@@ -1,22 +1,28 @@
 (function ($) {
+    //doccument.ready
     $(function () {
+        //go-top button
         $("#go-top, .go-top").click(function () {
             $("html, body").animate({
                 scrollTop: 0
             }, "slow");
             return false;
         });
+        $posToShow = $('.slide').height() - $(window).height() + 200;
         $(window).scroll(function () {
-            if ($(window).scrollTop() >= 800) {
+            if ($(window).scrollTop() >= $posToShow) {
                 $('#go-top').show();
             } else {
                 $('#go-top').hide();
             }
         });
 
+
+        //mobile nav button
         $(document).on('click', '.nav-toggle', function () {
             $('#menu').toggleClass('is-active');
         })
+
         //----sticky-header
         if ($('.sticky-header').length) {
             var _this = $('.sticky-header');
@@ -99,10 +105,10 @@
             $('.required-notice').remove();
             var required = $('.contact--form input, .contact--form select, .contact--form textarea').filter('[required]:visible');
             var checkRequired = true;
-            var requiredText = '<span class="required-notice">required!</span>';
-            var requiredEmail = '<span class="required-notice">Wrong email!</span>';
+            var requiredText = '<span class="required-notice">※この項目は必須です。</span>';
+            var requiredEmail = '<span class="required-notice">有効なメールアドレスを入力してください。</span>';
 
-            //loop field
+            //loop field, validate
             required.each((i, elem) => {
                 var $elem = $(elem);
                 $elem.attr('style', '');
@@ -129,29 +135,43 @@
             if (!checkRequired) {
                 return;
             }
-            var _this = $(this);
-            $('#js_mail_result').addClass('show');
 
-            $.ajax({
-                url: 'gmail.php',
-                type: 'POST',
-                data: {
-                    send_mail: true,
-                    request: $('#request').val(),
-                    name: $('#name').val(),
-                    company: $('#company').val(),
-                    email: $('#email').val(),
-                    question: $('#question').val(),
+            //dialog confirm send mail
+            var popup = new Popup({
+                'type': 'submit',
+                'title': 'この内容を送信してもよろしいですか',
+                'text': '',
+                'submitvalue': '送信',
+                'cancelvalue': 'キャンセル',
+                'cancelbutton': true,
+                'submitCallBack': function () {
+                    $('.contact-submit .fa').addClass('fa-spinner');
+                    $.ajax({
+                        url: 'http://aoiya.192.168.0.165.xip.io/gmail.php',
+                        type: 'POST',
+                        data: {
+                            send_mail: true,
+                            request: $('#request').val(),
+                            name: $('#name').val(),
+                            company: $('#company').val(),
+                            email: $('#email').val(),
+                            question: $('#question').val(),
+                        },
+                        success: function (res) {
+                            $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-check');
+                            document.getElementsByClassName("contact--form")[0].reset();
+                        },
+                        error: function (xhr, status, err) {
+                            console.log(xhr, status, err);
+                            $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-exclamation');
+                        }
+                    })
+                    
                 },
-                success: function (res) {
-                    $("#js_mail_result").html('<div class="mail_result">' + res + '<input type="reset" class="contact_reset" value="Done!"/></div>');
-                },
-                error: function (xhr, status, err) {
-                    $("#js_mail_result").html('<div class="mail_result">' + status + ': Something wrong!' + '<input type="reset" class="contact_reset" value="request again"/></div>');
-                    console.log(xhr, status, err);
+                'closeCallBack': function () {
+                    $('#js_mail_result').removeClass('show');
                 }
             })
-
         })
         $(document).on('click', '.contact_reset', function () {
             $('#js_mail_result').removeClass('show')
@@ -193,11 +213,7 @@
             margin: 0,
         });
     })
-
-
-
 })(jQuery)
-
 
 //maps
 function myMap() {
@@ -209,8 +225,7 @@ function myMap() {
     var mapProp = {
         center: new google.maps.LatLng(myLatLng),
         zoom: 16,
-        styles: [
-            {
+        styles: [{
                 elementType: 'labels.text.fill',
                 stylers: [{
                     color: '#7c9eb0'
@@ -228,7 +243,7 @@ function myMap() {
                     color: '#98bbce'
                 }]
             },
-            
+
             // {
             //   featureType: '-----------------',
             //   elementType: 'geometry.fill',
@@ -271,7 +286,7 @@ function myMap() {
                 }]
             },
         ]
-        
+
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
     var marker = new google.maps.Marker({
