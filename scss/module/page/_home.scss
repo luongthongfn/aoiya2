@@ -364,6 +364,7 @@
     }
 
     #js_contact_confirm {
+        display: none;
         position: absolute;
         top: 0;
         left: 0;
@@ -372,7 +373,9 @@
         background: transparentize(#000, .2);
         color: #fff;
         padding-top: vwSP(52px);
-
+        &.show{
+            display: block;
+        }
         .review-content {
             margin-bottom: vwSP(9px);
         }
@@ -674,12 +677,12 @@
                     padding-bottom: unset;
                 }
 
-                select {
-                    // appearance: none;
-                    // border: solid 7px #ff0000;
-                    // outline: #17406B solid thick;
-                    // outline-offset: -5px;
-                }
+                // select {
+                //     appearance: none;
+                //     border: solid 7px #ff0000;
+                //     outline: #17406B solid thick;
+                //     outline-offset: -5px;
+                // }
 
                 textarea {
                     height: unset;
@@ -726,7 +729,7 @@
             }
         }
         #js_contact_confirm {
-            padding-top: vwPC(39px);
+            padding-top: vwPC(42px);
 
             .review-content {
                 display: flex;

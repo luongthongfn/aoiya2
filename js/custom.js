@@ -100,14 +100,66 @@
 
     //contact-form
     $(function () {
+
+        var $reqVal,
+            $nameVal,
+            $companyVal,
+            $emailVal,
+            $questionVal;
+        //dialog confirm send mail
+        var submitCallBack = function () {
+            $('.contact-submit .fa').addClass('fa-spinner');
+
+            $.ajax({
+                url: 'http://aoiya.192.168.0.165.xip.io/gmail.php',
+                type: 'POST',
+                data: {
+                    send_mail: true,
+                    request  : $reqVal,
+                    name     : $nameVal,
+                    company  : $companyVal,
+                    email    : $emailVal,
+                    question : $questionVal,
+                },
+                success: function (res) {
+                    $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-check');
+                    document.getElementsByClassName("contact--form")[0].reset();
+                },
+                error: function (xhr, status, err) {
+                    console.log(xhr, status, err);
+                    $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-exclamation');
+                }
+            })
+
+        }
+
+        var closeCallBack = function () {
+            $('#js_mail_result').removeClass('show');
+        }
+
+        var setPreviewValue = function () {
+            $reqVal = $('#request').val();
+            $nameVal = $('#name').val();
+            $companyVal = $('#company').val();
+            $emailVal = $('#email').val();
+            $questionVal = $('#question').val();
+
+            $('.review-request .review-text').text($reqVal);
+            $('.review-name .review-text').text($nameVal);
+            $('.review-company .review-text').text($companyVal);
+            $('.review-email .review-text').text($emailVal);
+            $('.review-question .review-text').text($questionVal);
+        }
+
+        //add event
         $('#contact-submit').click(function (e) {
             e.preventDefault();
             $('.required-notice').remove();
             var required = $('.contact--form input, .contact--form select, .contact--form textarea').filter('[required]:visible');
-            var checkRequired = true;
             var requiredText = '<span class="required-notice">※この項目は必須です。</span>';
             var requiredEmail = '<span class="required-notice">有効なメールアドレスを入力してください。</span>';
-
+            var checkRequired = true;
+            
             //loop field, validate
             required.each((i, elem) => {
                 var $elem = $(elem);
@@ -136,42 +188,16 @@
                 return;
             }
 
-            //dialog confirm send mail
-            var popup = new Popup({
-                'type': 'submit',
-                'title': 'この内容を送信してもよろしいですか',
-                'text': '',
-                'submitvalue': '送信',
-                'cancelvalue': 'キャンセル',
-                'cancelbutton': true,
-                'submitCallBack': function () {
-                    $('.contact-submit .fa').addClass('fa-spinner');
-                    $.ajax({
-                        url: 'http://aoiya.192.168.0.165.xip.io/gmail.php',
-                        type: 'POST',
-                        data: {
-                            send_mail: true,
-                            request: $('#request').val(),
-                            name: $('#name').val(),
-                            company: $('#company').val(),
-                            email: $('#email').val(),
-                            question: $('#question').val(),
-                        },
-                        success: function (res) {
-                            $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-check');
-                            document.getElementsByClassName("contact--form")[0].reset();
-                        },
-                        error: function (xhr, status, err) {
-                            console.log(xhr, status, err);
-                            $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-exclamation');
-                        }
-                    })
-                    
-                },
-                'closeCallBack': function () {
-                    $('#js_mail_result').removeClass('show');
-                }
-            })
+            setPreviewValue();
+            $('#js_contact_confirm').addClass('show');
+        })
+        $('.btn_accept_send').click(function () {
+            submitCallBack();
+            $('#js_contact_confirm').removeClass('show');
+        })
+        $('.btn_cancel_send').click(function () {
+            closeCallBack();
+            $('#js_contact_confirm').removeClass('show');
         })
         $(document).on('click', '.contact_reset', function () {
             $('#js_mail_result').removeClass('show')

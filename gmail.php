@@ -5,10 +5,10 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
 if (isset($_POST['send_mail'])) {
-    $request  = $_POST['request'];
-    $name     = $_POST['name'];
-    $company  = $_POST['company'];
-    $email    = $_POST['email'];
+    $request = $_POST['request'];
+    $name = $_POST['name'];
+    $company = $_POST['company'];
+    $email = $_POST['email'];
     $question = $_POST['question'];
 
     //Load composer's autoloader
@@ -33,19 +33,65 @@ if (isset($_POST['send_mail'])) {
         //Content
         $mail->isHTML(true); // Set email format to HTML
         $mail->Subject = $request;
-        $mail->Body =   'Request: '.$request.'<br>'
-                        .'name: '  .$name.'<br>'
-                        .'company: '.$company.'<br>'
-                        .'email: '.$email.'<br>'
-                        .'Request: '.$question.'<br>';
-        $mail->AltBody = $question.'from: '.$company;
+        $mail->Body = 'Request: ' . $request . '<br>'
+            . 'name: ' . $name . '<br>'
+            . 'company: ' . $company . '<br>'
+            . 'email: ' . $email . '<br>'
+            . 'Request: ' . $question . '<br>';
+
+        $mail->AltBody = 'Request: ' . $request . '; ' . 'name: ' . $name . '; ' . 'company: ' . $company . '; ' . 'email: ' . $email . '; ' . 'Request: ' . $question . '; ';
+
+        $mail->send();
+        logMail();
+        replyMail($name, $email);
+        echo 'success!';
+
+    } catch (Exception $e) {
+
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    }
+}
+function replyMail($name, $email)
+{
+    try {
+        //Server settings
+        // $mail->SMTPDebug = 2; // Enable verbose debug output
+        $mail->isSMTP(); // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true; // Enable SMTP authentication
+        $mail->Username = 'webtestwav@gmail.com'; // SMTP username
+        $mail->Password = 'qweqweqwe1@'; // SMTP password/security app token
+        $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 465; // TCP port to connect to
+
+        //Recipients
+        $mail->setFrom($email, 'aoiya');
+        // $mail->addAddress('kanemitsu@wiredgroup.co.jp'); // Add a recipient
+        $mail->addAddress($email); // Add a recipient
+
+        //Content
+        $mail->isHTML(true); // Set email format to HTML
+        $mail->Subject = $request;
+        $mail->Body = 'thankyou for asdasd';
+
+        $mail->AltBody = 'asdasd';
 
         $mail->send();
         echo 'success!';
 
     } catch (Exception $e) {
-        
+
         echo 'Message could not be sent.';
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     }
+}
+
+function logMail()
+{
+    $file = fopen('logmail.txt','a');
+    $log = 'log\n';
+    
+    fwrite($file, $log);
+    fclose($file);
 }
