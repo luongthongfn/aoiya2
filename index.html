@@ -35,6 +35,7 @@
                         <li><a href="" class="logo-pc show-pc"><img class="" src="img/logo-header-pc.png" alt="alt_text"></a></li>
                         <li><a href="#outline" class="go-to">会社概要</a></li>
                         <li><a href="#access" class="go-to">アクセス</a></li>
+                        <li><a href="#contact" class="go-to show-sp">お問い合わせ</a></li>
                     </ul>
                 </nav>
                 <a href="#contact" class="contact-header go-to show-pc"><i class="fa fa-envelope"></i> お問い合わせ</a>
@@ -326,11 +327,11 @@
                 <div class="contact--wrapper container">
                     <h3 class="form-name">※全て必須項目です</h3>
                     <!-- ajax form url in custom.js-->
-                    <form class="contact--form" action="" method="POST">
+                    <form class="contact--form" id="contact--form" action="" method="POST">
                         <label>
                             <span>お問い合わせ項目</span>
                             <select name="request" id="request" value="" required>
-                                <option value="0">項目を選択してください</option>
+                                <option value="">項目を選択してください</option>
                                 <option value="select2">Lorem ipsum dolor sit.1</option>
                                 <option value="select3">Lorem ipsum dolor sit.2</option>
                                 <option value="select4">Lorem ipsum dolor sit.3</option>
@@ -356,6 +357,9 @@
                         <button type="submit" class="contact-submit" id="contact-submit">送信<i class="fa fa-spin"></i></button>
 
                     </form>
+                    <script>
+                        
+                    </script>
 
                 </div>
                 <div id="js_contact_confirm">
@@ -391,10 +395,12 @@
                             </p>
                         </div>
 
-                        <div class="confirm-title">上記内容で送信しますか？</div>
-                        <div class="confirm-btn">
-                            <button class="btn_cancel_send">キャンセル</button>
-                            <button class="btn_accept_send">送信</button>
+                        <div class="review-bottom">
+                            <div class="confirm-title">上記内容で送信しますか？</div>
+                            <div class="confirm-btn">
+                                <button class="btn_cancel_send">キャンセル</button>
+                                <button class="btn_accept_send">送信</button>
+                            </div>
                         </div>
                     </div>
 
@@ -408,7 +414,7 @@
     </div><!-- End #content-->
 
     <footer>
-
+        <a href="" id="go-top" class="show-pc"><i class="fa fa-angle-up"></i></a>
         <div class="ft-wrapper">
 
             <div class="ft-top">
@@ -458,11 +464,10 @@
 
     </footer>
 
-    <a href="" id="go-top" class="show-pc"><i class="fa fa-angle-up"></i></a>
+    <!-- <a href="" id="go-top" class="show-pc"><i class="fa fa-angle-up"></i></a> -->
 
     <!-- footer library -->
-    <!-- <link rel="stylesheet" href="css/popup.css"> -->
-    <!-- <script src="js/popup.js"></script> -->
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA4GSO0mBdxjmaNM-e30bVTrz_RrSeJJA&callback=myMap"></script>

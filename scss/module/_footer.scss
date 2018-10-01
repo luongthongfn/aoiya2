@@ -19,7 +19,13 @@
 }
 
 footer {
+    position: relative;
     text-align: center;
+    #go-top{
+        position: absolute;
+        z-index: 0;
+        bottom: 100%;
+    }
 }
 
 

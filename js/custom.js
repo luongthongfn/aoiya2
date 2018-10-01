@@ -106,20 +106,21 @@
             $companyVal,
             $emailVal,
             $questionVal;
+
         //dialog confirm send mail
         var submitCallBack = function () {
-            $('.contact-submit .fa').addClass('fa-spinner');
+            $('.contact-submit .fa').addClass('fa-spin fa-spinner');
 
             $.ajax({
-                url: 'http://aoiya.192.168.0.165.xip.io/gmail.php',
+                url: 'gmail.php',
                 type: 'POST',
                 data: {
                     send_mail: true,
-                    request  : $reqVal,
-                    name     : $nameVal,
-                    company  : $companyVal,
-                    email    : $emailVal,
-                    question : $questionVal,
+                    request: $reqVal,
+                    name: $nameVal,
+                    company: $companyVal,
+                    email: $emailVal,
+                    question: $questionVal,
                 },
                 success: function (res) {
                     $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-check');
@@ -151,54 +152,71 @@
             $('.review-question .review-text').text($questionVal);
         }
 
-        //add event
-        $('#contact-submit').click(function (e) {
-            e.preventDefault();
-            $('.required-notice').remove();
-            var required = $('.contact--form input, .contact--form select, .contact--form textarea').filter('[required]:visible');
-            var requiredText = '<span class="required-notice">※この項目は必須です。</span>';
-            var requiredEmail = '<span class="required-notice">有効なメールアドレスを入力してください。</span>';
-            var checkRequired = true;
-            
-            //loop field, validate
-            required.each((i, elem) => {
-                var $elem = $(elem);
-                $elem.attr('style', '');
-                var value = $elem.val();
-                if (!value || value == "0") {
-                    checkRequired = false;
-                    $elem.css('border-color', '#ff0000');
-                    $elem.before(requiredText);
-                }
-
-                // validateEmail
-                if ($elem.attr("type") == "email") {
-                    var emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                    if (!emailRegex.test(value)) {
-                        checkRequired = false;
-                        $elem.css('border-color', '#ff0000');
-                        $elem.before(requiredEmail);
-                    }
-                }
-
-            });
-
-            //return if required field  empty
-            if (!checkRequired) {
-                return;
+        //validate
+        $.validator.setDefaults({
+            submitHandler: function () {
+                alert("submitted!");
             }
+        });
+        $("#contact--form").validate({
+            rules: {
+                request: "required",
+                name: "required",
+                company: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                question: {
+                    required: true,
+                    minlength: 2
+                }
+            },
+            messages: {
+                request: "お問い合わせ項目を選択してください。",
+                name   : "お名前を入力してください。",
+                company: "貴社名を入力してください。",
+                email  : "メールアドレスを入力してください。",
+                question: {
+                    required: "お問い合わせ内容を入力してください。",
+                    minlength: "少なくとも二文字以上"
+                }
+            },
+            errorElement: "span",
+            errorPlacement: function (error, element) {
+                // Add the `help-block` class to the error element
+                error.addClass("required-notice");
 
-            setPreviewValue();
-            $('#js_contact_confirm').addClass('show');
-        })
+                if (element.prop("type") === "checkbox") {
+                    error.insertAfter(element.parent("label"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass("has-error");
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass("has-error")
+            },
+            submitHandler: function () {
+                setPreviewValue();
+                $('#js_contact_confirm').addClass('show');
+            }
+        });
+        
+        // --------------------- add event ---------------------------------
+        // --------------------- add event ---------------------------------
         $('.btn_accept_send').click(function () {
             submitCallBack();
             $('#js_contact_confirm').removeClass('show');
         })
+
         $('.btn_cancel_send').click(function () {
             closeCallBack();
             $('#js_contact_confirm').removeClass('show');
         })
+
         $(document).on('click', '.contact_reset', function () {
             $('#js_mail_result').removeClass('show')
         })

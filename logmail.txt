@@ -1,1 +1,10 @@
-logloglog\nlog\n
+---log: Monday 1st of October 2018 02:53:23 PM: --log content: Request: select2<br>name: test1<br>company: test2<br>email: thonglv@wav.vn<br>Request: test3<br>
+---log: Monday 1st of October 2018 02:57:11 PM--log content:  Request: select3<br>name: test2<br>company: test2sf<br>email: thongvl@wav.vn<br>Request: thongvl@wav.vnthongvl@wav.vn<br>
+---log: Monday 1st of October 2018 02:59:03 PM--log content: Request: select2<br>name: test4<br>company: test4<br>email: thongvl@wav.vn<br>Request: thongvl@wav.vnthongvl@wav.vnthongvl@wav.vnthongvl@wav.vn<br>
+---log: Monday 1st of October 2018 03:01:01 PM--log content: Request: select2<br>name: test4<br>company: test4<br>email: luongthongvfu@gmail.com<br>Request: luongthongvfu@gmail.comluongthongvfu@gmail.comluongthongvfu@gmail.com<br>
+---log: Monday 1st of October 2018 03:12:08 PM--log content: Request: select4<br>name: Giang<br>company: nhân viên<br>email: giangnt@wav.vn<br>Request: hello<br>
+---log: Monday 1st of October 2018 03:17:57 PM--log content: Request: select4<br>name: hu<br>company: hu<br>email: hu@gmail.com<br>Request: hu<br>
+---log: Monday 1st of October 2018 03:47:54 PM--log content: お問い合わせ項目: select4<br>お名前: hu<br>貴社名/部署名: hu<br>メールアドレス: giangnt@gmail.com<br>お問い合わせ内容: HELLO. EVERYONE. TODAY im very happy to be here and talk with u about myself<br>
+---log: Monday 1st of October 2018 03:49:29 PM--log content: お問い合わせ項目: select5<br>お名前: giang<br>貴社名/部署名: nhân viên<br>メールアドレス: giangnt@wav.vn<br>お問い合わせ内容: hellú<br>
+---log: Monday 1st of October 2018 05:00:36 PM--log content: お問い合わせ項目: select2<br>お名前: qwe<br>貴社名/部署名: qwe<br>メールアドレス: thpnglv@wav.vn<br>お問い合わせ内容: weqwe<br>
+---log: Monday 1st of October 2018 05:04:51 PM--log content: お問い合わせ項目: select2<br>お名前: qwe<br>貴社名/部署名: qweqweqw<br>メールアドレス: thonglv@wav.vn<br>お問い合わせ内容: sdsfdf<br>
