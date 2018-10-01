@@ -8,3 +8,4 @@
 ---log: Monday 1st of October 2018 03:49:29 PM--log content: お問い合わせ項目: select5<br>お名前: giang<br>貴社名/部署名: nhân viên<br>メールアドレス: giangnt@wav.vn<br>お問い合わせ内容: hellú<br>
 ---log: Monday 1st of October 2018 05:00:36 PM--log content: お問い合わせ項目: select2<br>お名前: qwe<br>貴社名/部署名: qwe<br>メールアドレス: thpnglv@wav.vn<br>お問い合わせ内容: weqwe<br>
 ---log: Monday 1st of October 2018 05:04:51 PM--log content: お問い合わせ項目: select2<br>お名前: qwe<br>貴社名/部署名: qweqweqw<br>メールアドレス: thonglv@wav.vn<br>お問い合わせ内容: sdsfdf<br>
+---log: 01/10/2018 05:54:09 PM--log content: お問い合わせ項目: select2<br>お名前: qweqwe<br>貴社名/部署名: qeqweq<br>メールアドレス: thonglv@wav.vn<br>お問い合わせ内容: qwqweqwe<br>

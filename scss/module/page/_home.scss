@@ -271,6 +271,11 @@
                 border-color: #ff0000;
             }
         }
+        select{
+            &.has-error{
+                color: #ff0000;
+            }
+        }
 
         select,
         input {
