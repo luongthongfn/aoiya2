@@ -362,7 +362,8 @@
         }
 
     }
-    #js_contact_confirm{
+
+    #js_contact_confirm {
         position: absolute;
         top: 0;
         left: 0;
@@ -371,18 +372,60 @@
         background: transparentize(#000, .2);
         color: #fff;
         padding-top: vwSP(52px);
-        .review-content{
+
+        .review-content {
             margin-bottom: vwSP(9px);
         }
-        
-        .review-title{
+
+        .review-title {
             font-size: vwSP(28px);
             font-weight: bold;
             padding-bottom: vwSP(10px);
         }
-        .review-text{
+
+        .review-text {
+            display: flex;
+            align-items: center;
             height: vwSP(58px);
-            margin: 1px;
+            padding: 0 vwSP(25px);
+            border: 1px solid transparent;
+        }
+
+        .review-question {
+            .review-text {
+                height: vwSP(170px);
+                align-items: flex-start;
+                padding-top: vwSP(20px);
+            }
+        }
+
+        .confirm-title {
+            font-size: vwSP(32px);
+            font-weight: bold;
+            text-align: center;
+
+        }
+
+        .confirm-btn {
+            text-align: center;
+            margin-top: vwSP(85px);
+            .btn {
+                &_cancel_send,
+                &_accept_send {
+                    font-size: vwSP(30px);
+                    font-weight: bold;
+                    color: #fff;
+                    background: #5A8CC9;
+                    padding: vwSP(11px) vwSP(52px) vwSP(14px);
+                    border: 0;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 5px transparentize(#000, .75);
+                    margin-right: vwSP(40px);
+                    &:hover{
+                        background: #1d6192;
+                    }
+                }
+            }
         }
     }
 }
@@ -682,6 +725,55 @@
                 }
             }
         }
+        #js_contact_confirm {
+            padding-top: vwPC(39px);
+
+            .review-content {
+                display: flex;
+                justify-content: flex-end;
+                
+                margin-bottom: vwPC(16px);
+            }
+    
+            .review-title {
+                font-size: vwPC(16px);
+                padding-top: 13px;
+                padding-bottom: vwPC(0px);
+            }
+    
+            .review-text {
+                height: vwPC(45px);
+                flex: 0 0 vwPC(400px);
+                margin-left: vwPC(20px);
+                padding: 0 23px;
+                // border-color: #000;
+                
+            }
+    
+            .review-question {
+                .review-text {
+                    height: vwPC(80px);
+                    align-items: flex-start;
+                    padding: 10px;
+                }
+            }
+    
+            .confirm-title {
+                font-size: vwPC(32px);
+            }
+    
+            .confirm-btn {
+                margin-top: vwPC(70px);
+                .btn {
+                    &_cancel_send,
+                    &_accept_send {
+                        font-size: vwPC(22px);
+                        padding: vwPC(11px) vwPC(52px) vwPC(14px);
+                        margin-right: vwPC(40px);
+                    }
+                }
+            }
+        }
     }
 
     .view-map {
@@ -883,10 +975,14 @@
                 input,
                 select,
                 textarea {
+                    height: (45px);
                     font-size: (16px);
                     flex: 0 0 (400px);
                     padding: (10px) (19px) (8px);
                     margin-left: (20px);
+                }
+                textarea{
+                    height: unset;
                 }
             }
 
@@ -947,6 +1043,55 @@
 
                     &:hover {
                         background: #1d6192;
+                    }
+                }
+            }
+        }
+        #js_contact_confirm {
+            padding-top: (39px);
+
+            .review-content {
+                display: flex;
+                justify-content: flex-end;
+                
+                margin-bottom: (16px);
+            }
+    
+            .review-title {
+                font-size: (16px);
+                padding-top: 13px;
+                padding-bottom: (0px);
+            }
+    
+            .review-text {
+                height: (45px);
+                flex: 0 0 (400px);
+                margin-left: (20px);
+                padding: 0 23px;
+                // border-color: #000;
+                
+            }
+    
+            .review-question {
+                .review-text {
+                    height: (80px);
+                    align-items: flex-start;
+                    padding: 10px;
+                }
+            }
+    
+            .confirm-title {
+                font-size: (32px);
+            }
+    
+            .confirm-btn {
+                margin-top: (70px);
+                .btn {
+                    &_cancel_send,
+                    &_accept_send {
+                        font-size: (22px);
+                        padding: (11px) (52px) (14px);
+                        margin-right: (40px);
                     }
                 }
             }

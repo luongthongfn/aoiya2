@@ -33,7 +33,11 @@ if (isset($_POST['send_mail'])) {
         //Content
         $mail->isHTML(true); // Set email format to HTML
         $mail->Subject = $request;
-        $mail->Body = $question.'<hr>'.$company;
+        $mail->Body =   'Request: '.$request.'<br>'
+                        .'name: '  .$name.'<br>'
+                        .'company: '.$company.'<br>'
+                        .'email: '.$email.'<br>'
+                        .'Request: '.$question.'<br>';
         $mail->AltBody = $question.'from: '.$company;
 
         $mail->send();
