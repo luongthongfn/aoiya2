@@ -47,6 +47,10 @@ footer {
             vertical-align: middle;
             margin-right: vwSP(27.3px);
         }
+        span{
+            position: relative;
+            top: vwSP(10px);
+        }
     }
 
     .go-top {
@@ -169,6 +173,7 @@ footer {
 
                 span {
                     font-size: vwPC(20px);
+                    top: 0;
                 }
             }
         }

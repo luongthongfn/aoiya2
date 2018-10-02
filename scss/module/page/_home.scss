@@ -16,7 +16,7 @@
 
 .bussiness {
     .container {
-        @extend %wrapper3;
+        @extend %wrapper1;
     }
 
     .bussiness-top {
@@ -286,9 +286,12 @@
         select{
             &.has-error{
                 color: #ff0000;
+                font-weight: bold;
+                text-align: right;
             }
             option{
                 color: #000;
+                font-weight: normal;
             }
         }
 
@@ -727,6 +730,7 @@
 
                 textarea {
                     height: unset;
+                    width: 1px;
                 }
             }
 
