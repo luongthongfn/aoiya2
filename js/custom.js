@@ -184,8 +184,9 @@
                 }
             },
             errorElement: "span",
+            errorContainer: '',
             errorPlacement: function (error, element) {
-                // Add the `help-block` class to the error element
+                // Add the class to the error element
                 error.addClass("required-notice");
 
                 if (element.prop("type") === "checkbox") {
@@ -195,9 +196,11 @@
                 }
             },
             highlight: function (element, errorClass, validClass) {
+                $(element).parents('#contact').addClass('form-error');
                 $(element).addClass("has-error");
             },
             unhighlight: function (element, errorClass, validClass) {
+                $(element).parents('#contact').removeClass('form-error');
                 $(element).removeClass("has-error")
             },
             submitHandler: function () {

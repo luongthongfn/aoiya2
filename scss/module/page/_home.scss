@@ -237,9 +237,21 @@
         margin-bottom: vwSP(20);
     }
 
+    &.form-error{
+        .notice-error{
+            display: block;
+        }
+    }
+    .notice-error{
+        display: none;
+        color: #ff0000;
+        font-size: vwSP(24px);
+        font-weight: bold;
+        margin-top: vwSP(-48px);
+        margin-bottom: vwSP(15px);
+    }
     &--form {
         position: relative;
-
         label {
             position: relative;
             display: flex;
@@ -274,6 +286,9 @@
         select{
             &.has-error{
                 color: #ff0000;
+            }
+            option{
+                color: #000;
             }
         }
 
@@ -669,7 +684,12 @@
             margin-bottom: vwPC(20px);
             
         }
-
+        
+        .notice-error{
+            font-size: vwPC(16px);
+            margin-top: vwPC(-10px);
+            margin-bottom: vwPC(15px);
+        }
         &--form {
             clear: both;
             label {
@@ -985,7 +1005,11 @@
             font-size: (12px);
             margin-bottom: (20px);
         }
-
+        .notice-error{
+            font-size: (16px);
+            margin-top: (-10px);
+            margin-bottom: (15px);
+        }
         &--form {
             label {
                 display: flex;
