@@ -39,7 +39,9 @@ function sendMail($title, $content, $nTo, $mTo, $diachicc = '')
     $mail->Subject = $title;
     $mail->MsgHTML($body);
     $address = $mTo;
+    
     $mail->AddAddress($address, $nTo); // Add a recipient
+    
     // $mail->AddReplyTo($email, 'Aoiya');
     if (!$mail->Send()) {
         return 0;
@@ -55,7 +57,7 @@ if (isset($_POST['send_mail'])) {
     $email = $_POST['email'];
     $question = $_POST['question'];
     try {
-        // $mail->addAddress('kanemitsu@wiredgroup.co.jp'); // Add a recipient
+        
 
         //Content
         $content = 'お問い合わせ項目: ' . $request . '<br>'
@@ -63,8 +65,8 @@ if (isset($_POST['send_mail'])) {
             . '貴社名/部署名: ' . $company . '<br>'
             . 'メールアドレス: ' . $email . '<br>'
             . 'お問い合わせ内容: ' . $question . '<br>';
-
-        if (sendMail($request, $content, $name, 'webtestwav@gmail.com')) {
+        // 'kanemitsu@wiredgroup.co.jp'; // Add a recipient
+        if (sendMail($request, $content, $name, 'kanemitsu@wiredgroup.co.jp')) {
             // if receive then auto reply
             sendMail('title reply', '$content reply', '$name', $email);
         }
