@@ -1,19 +1,22 @@
-
-var gulp         = require('gulp'),
-    sass         = require('gulp-sass'),
-    bulkSass     = require('gulp-sass-bulk-import'),
-    sourcemaps   = require('gulp-sourcemaps'),
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    bulkSass = require('gulp-sass-bulk-import'),
+    sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
-    browserSync  = require('browser-sync').create(),
+    includeTag = require('gulp-include-tag'),
+    browserSync = require('browser-sync').create(),
+    htmlbeautify = require('gulp-html-beautify'),
 
-    rootProjectPath = '', /*path from root*/
+
+    rootProjectPath = '',
+    /*path from root*/
     currentPath = '.',
-    sassPath ,
-    cssPath ,
-    cssDestPath ,
-    imgPath ,
-    htmlPath ,
-    jsPath ;
+    sassPath,
+    cssPath,
+    cssDestPath,
+    imgPath,
+    htmlPath,
+    jsPath;
 
 
 
@@ -24,6 +27,7 @@ gulp.task('setPath', function () {
     // console.log("~~",process.argv,'~~');
     rootProjectPath = rootProjectPath + process.argv[3];
     sassPath = (currentPath || rootProjectPath) + '/scss/**/*.scss';
+    includePath = (currentPath || rootProjectPath) + '/layouts/**/*.html';
     cssPath = (currentPath || rootProjectPath) + '/css/**/*/.css';
     cssDestPath = (currentPath || rootProjectPath) + '/css';
     imgPath = (currentPath || rootProjectPath) + '/img';
@@ -31,35 +35,51 @@ gulp.task('setPath', function () {
     jsPath = (currentPath || rootProjectPath) + '/js/*.js';
 });
 
-
-gulp.task('watch', ['setPath','sass'], function () {
-    // Static Server + watching scss/html/js files
-    browserSync.init({
-        server: currentPath || rootProjectPath,
-        reloadDelay: 200
-    });
-
-    gulp.watch(sassPath, ['sass']);
-    // gulp.watch(cssPath).on('change', browserSync.reload);
-    gulp.watch(sassPath).on('change', browserSync.reload);
-    gulp.watch(imgPath).on('change', browserSync.reload);
-    gulp.watch(htmlPath).on('change', browserSync.reload);
-    gulp.watch(jsPath).on('change', browserSync.reload);
-
-});
-
-
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function () {
     return gulp.src(sassPath)
-        .pipe( bulkSass() )
+        .pipe(bulkSass())
         .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(autoprefixer({ browsers: ['last 5 version', '> 5%'] }))
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }).on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 5 version', '> 5%']
+        }))
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest(cssDestPath))
         .pipe(browserSync.stream());
 });
-gulp.task('build', ['setPath','sass']);
+
+
+gulp.task('include', function () {
+    return gulp.src('layouts/page/*.html')
+        .pipe(includeTag())
+        .pipe(htmlbeautify({
+            indentSize: 4
+        }))
+        .pipe(gulp.dest('./'))
+        .pipe(browserSync.stream());
+});
+
+
+// watch
+gulp.task('watch', ['setPath', 'sass', 'include'], function () {
+    // Static Server + watching scss/html/js files
+    browserSync.init({
+        server: currentPath || rootProjectPath,
+        reloadDelay: 500
+    });
+
+    gulp.watch(sassPath, ['sass']);
+    gulp.watch(includePath, ['include']);
+    // gulp.watch(cssPath).on('change', browserSync.reload);
+    gulp.watch(sassPath).on('change', browserSync.reload);
+    gulp.watch(imgPath).on('change', browserSync.reload);
+    // gulp.watch(htmlPath).on('change', browserSync.reload);
+    gulp.watch(jsPath).on('change', browserSync.reload);
+
+});
+
+gulp.task('build', ['setPath', 'sass']);
 gulp.task('default', ['watch']);
-  

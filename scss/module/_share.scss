@@ -5,7 +5,7 @@
 
 //@import "../import/_fonts";
 %title {
-    font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif; 
+    font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
     font-size: vwSP(32);
     font-weight: 900;
     line-height: 1;
@@ -25,26 +25,39 @@
 }
 
 %title2 {
-    color: #00008f;
-    font-size: vwSP(40px);
+    font-size: vwSP(32px);
+    line-height: vwSP(43px);
     font-weight: bold;
+    color: #00008f;
 }
 
 %subtitle2 {
-    font-size: vwSP(35px);
+    font-family: 'Aorora Mincho', '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+    font-size: vwSP(24px);
     font-weight: bold;
+    position: relative;
+    display: inline-block;
 
     &.bird {
         &-l:before {
-            content: url(../img/pp-bird-l.png);
-            vertical-align: sub;
-            margin-right: 5px;
+            content: '';
+            position: absolute;
+            top: vwSP(7px);
+            right: calc(100% + 0px);
+            width: vwSP(36px);
+            height: vwSP(35px);
+            background: url(../img/pp-bird-l.png) no-repeat center/contain;
+            
         }
 
         &-r:after {
-            content: url(../img/pp-bird.png);
-            vertical-align: sub;
-            margin-left: 5px;
+            content: '';
+            position: absolute;
+            top: vwSP(-5px);
+            left: calc(100% + 4px);
+            width: vwSP(36px);
+            height: vwSP(39px);
+            background: url(../img/pp-bird.png) no-repeat center/contain;
         }
     }
 }
@@ -67,16 +80,19 @@
 }
 
 .heading {
-    padding: vwSP(60) 0;
+    padding: vwSP(60) 0 vwSP(40px);
 }
-.container{
+
+.container {
     margin-left: auto;
     margin-right: auto;
 }
-.container{
+
+.container {
     margin-left: auto;
     margin-right: auto;
 }
+
 %wrapper1 {
     width: vwSP(608);
 }
@@ -96,7 +112,8 @@
     position: relative;
     padding: vwSP(75px) 0 vwSP(81px);
     margin-bottom: vwSP(30px);
-    &:after{
+
+    &:after {
         content: '';
         background: url(../img/title-bg.png) no-repeat center/contain;
         position: absolute;
@@ -179,25 +196,29 @@
     overflow: hidden;
     clear: both;
     box-shadow: 0 5px 10px transparentize(#000, .8);
-    .entry{
+
+    .entry {
         display: flex;
         width: 100%;
         align-items: center;
         height: vwSP(118px);
         padding: vwSP(33px);
-        .eng{
+
+        .eng {
             font-size: vwSP(45px);
             font-weight: bold;
             text-transform: uppercase;
             color: #fff;
             margin-left: auto;
         }
-        .fa{
+
+        .fa {
             font-size: vwSP(45px);
             color: #fff;
             margin-left: auto;
         }
     }
+
     .prev,
     .next {
         display: flex;
@@ -246,7 +267,7 @@
 */
 @include pc() {
     .title {
-        font-family:'arial', sans-serif;
+        font-family: 'arial', sans-serif;
         font-weight: normal;
         font-size: vwPC(24px);
     }
@@ -271,7 +292,8 @@
     .title-bg {
         padding: vwPC(60) 0;
         margin-bottom: 0;
-        &:after{
+
+        &:after {
             top: vwPC(70px);
             left: vwPC(695px);
             width: vwPC(137px);
@@ -314,27 +336,32 @@
         width: vwPC(700px);
         margin: auto;
         border-radius: vwPC(100px);
-        .entry{
+
+        .entry {
             display: flex;
             width: 100%;
             align-items: center;
             height: vwPC(80px);
             padding: vwPC(33px);
-            .eng{
+
+            .eng {
                 font-size: vwPC(30px);
                 font-weight: bold;
                 text-transform: uppercase;
                 color: #fff;
                 margin-left: auto;
             }
-            .fa{
+
+            .fa {
                 font-size: vwPC(45px);
                 color: #fff;
                 margin-left: auto;
             }
         }
+
         .prev,
-        .next, {
+        .next,
+            {
             height: vwPC(80px);
             padding: vwPC(20px);
 
@@ -398,16 +425,19 @@
     .subtitle2 {
         font-size: (20px);
     }
+
     .title-bg {
         padding: (60px) 0;
         margin-bottom: 0;
-        &:after{
+
+        &:after {
             top: (70px);
             left: 48.5%;
             width: (137px);
             height: (68px);
         }
     }
+
     .heading {
         padding: 60px 0;
     }
@@ -447,25 +477,29 @@
         width: (700px);
         margin: auto;
         border-radius: (100px);
-        .entry{
+
+        .entry {
             display: flex;
             width: 100%;
             align-items: center;
             height: (80px);
             padding: (33px);
-            .eng{
+
+            .eng {
                 font-size: (30px);
                 font-weight: bold;
                 text-transform: uppercase;
                 color: #fff;
                 margin-left: auto;
             }
-            .fa{
+
+            .fa {
                 font-size: (45px);
                 color: #fff;
                 margin-left: auto;
             }
         }
+
         .prev,
         .next {
             height: (80px);

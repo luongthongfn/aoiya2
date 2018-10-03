@@ -17,23 +17,25 @@
 }
 
 .navbar2 {
-    position: fixed;
+    // position: fixed;
+    position: relative;
     z-index: 10;
     display: flex;
     background: #fff;
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 0 5px transparentize(#000, .8);
+    // box-shadow: 0 0 5px transparentize(#000, .8);
 
     .logo {
-        padding: vwSP(11px) vwSP(15px) vwSP(5px);
+        padding: vwSP(11px) vwSP(15px) vwSP(0px);
 
         img {
             width: vwSP(62px);
             height: vwSP(50px);
         }
     }
+
 }
 
 //menu animation
@@ -117,11 +119,11 @@ nav.nav-container {
             display: block;
             text-align: left;
 
-            +li {
-                a {
-                    // border-top: 2px solid #707070;
-                }
-            }
+            // +li {
+            //     a {
+            //         border-top: 2px solid #707070;
+            //     }
+            // }
 
             a {
                 display: block;
