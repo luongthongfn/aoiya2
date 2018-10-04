@@ -338,6 +338,7 @@ footer {
             background-color: #5a8cc9;
             flex-basis: 63.9%;
             .ft-logo-brand {
+                
                 margin-bottom: 10px;
 
                 .show-pc {
@@ -345,6 +346,7 @@ footer {
                 }
 
                 .ft-brand {
+                    font-size: 0;
                     margin-bottom: 10px;
 
                     img {
@@ -376,7 +378,7 @@ footer {
             padding-top: 0;
 
             .ft-logo {
-                margin-top: (247px);
+                margin-top: (221px);
 
                 img {
                     width: (233px);
