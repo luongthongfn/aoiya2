@@ -1,4 +1,5 @@
-#go-top {
+#go-top,
+.gotop-sp {
     font-size: vwPC(145);
     // display: inline-block;
     display: none;
@@ -18,16 +19,48 @@
     border: 2px solid transparent;
 }
 
+.gotop-sp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5A8CC9;
+    position: absolute;
+    bottom: 100%;
+    right: vwSP(61px);
+    width: vwSP(75px);
+    height: vwSP(75px);
+
+    .fa {
+        font-size: vwSP(40px);
+    }
+}
+
 footer {
     position: relative;
     text-align: center;
-    #go-top{
+
+    #go-top {
         position: absolute;
         z-index: 0;
         bottom: 100%;
     }
 }
 
+.footer2 {
+    .ft-bot {
+        padding-top: vwSP(60px);
+        background-image: url(../img/ft2-bg.png);
+        background-size: cover;
+
+        .ft-logo {
+            margin-top: vwSP(43px);
+        }
+
+        .copy-r {
+            padding-bottom: vwSP(182px);
+        }
+    }
+}
 
 .ft-logo-brand {
     position: relative;
@@ -45,9 +78,11 @@ footer {
 
         img {
             vertical-align: middle;
+            width: vwSP(100px);
             margin-right: vwSP(27.3px);
         }
-        span{
+
+        span {
             position: relative;
             top: vwSP(10px);
         }
@@ -129,7 +164,9 @@ footer {
 }
 
 @include pc() {
-    #go-top {
+
+    #go-top,
+    .go-top {
         font-size: vwPC(50);
         width: vwPC(60);
         height: vwPC(60);
@@ -137,6 +174,65 @@ footer {
 
     footer {
         text-align: left;
+    }
+
+    .footer2 {
+        .go-top {
+            right: vwPC(220px);
+
+            .fa {
+                font-size: vwPC(30px);
+            }
+        }
+
+        .ft-top {
+            background-color: #5a8cc9;
+            flex-basis: 63.9%;
+
+            .ft-logo-brand {
+                margin-bottom: vwPC(10px);
+                .show-pc {
+                    font-size: vwPC(16px);
+                }
+                .ft-brand {
+                    margin-bottom: vwPC(10px);
+
+                    img {
+                        width: vwPC(93px);
+                        height: vwPC(76px);
+                    }
+                }
+            }
+        }
+
+        .floatright-pc {
+            width: vwPC(600px);
+        }
+
+        .ft-menu {
+            text-align: center;
+
+            // border-color: #fff;
+            li {
+                a {
+                    font-weight: bold;
+                    padding: vwPC(13px) vwPC(50px) vwPC(13px);
+                }
+            }
+        }
+
+        .ft-bot {
+            padding-left: 0;
+
+            .ft-logo {
+                margin-top: vwPC(107px);
+
+                img {
+                    width: vwPC(233px);
+                    height: vwPC(83px);
+                }
+            }
+        }
     }
 
     .ft-wrapper {
@@ -159,7 +255,7 @@ footer {
             display: block;
             padding-left: vwPC(10px);
             margin-bottom: vwPC(27px);
-
+            
             .ft-brand {
                 display: block;
                 margin-bottom: -13px;
@@ -221,10 +317,73 @@ footer {
 }
 
 @include lg() {
-    #go-top {
+
+    #go-top,
+    .go-top {
         font-size: (50px);
         width: (60px);
         height: (60px);
+    }
+
+    .footer2 {
+        .go-top {
+            right: (220px);
+
+            .fa {
+                font-size: (30px);
+            }
+        }
+
+        .ft-top {
+            background-color: #5a8cc9;
+            flex-basis: 63.9%;
+            .ft-logo-brand {
+                margin-bottom: 10px;
+
+                .show-pc {
+                    font-size: (16px);
+                }
+
+                .ft-brand {
+                    margin-bottom: 10px;
+
+                    img {
+                        width: 93px;
+                        height: 76px;
+                    }
+                }
+            }
+        }
+
+        .floatright-pc {
+            width: 600px;
+        }
+
+        .ft-menu {
+            text-align: center;
+
+            // border-color: #fff;
+            li {
+                a {
+                    font-weight: bold;
+                    padding: (13px) (50px) (13px);
+                }
+            }
+        }
+
+        .ft-bot {
+            padding-left: 0;
+            padding-top: 0;
+
+            .ft-logo {
+                margin-top: (247px);
+
+                img {
+                    width: (233px);
+                    height: (83px);
+                }
+            }
+        }
     }
 
     .ft-wrapper {

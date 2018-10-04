@@ -130,6 +130,7 @@ header {
 .banner {
     font-size: 0;
     .box-name {
+        font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
         font-size: vwSP(30px);
         z-index: 2;
         position: absolute;
@@ -141,7 +142,7 @@ header {
         h2 {
             position: relative;
             font-size: vwSP(40px);
-            white-space: pre-line;
+            // white-space: pre-line;
             color: #00008b;
             margin-bottom: vwSP(20px);
             text-shadow: 0 5px 15px transparentize(#040000, .7);
@@ -158,7 +159,7 @@ header {
         }
         p{
             font-size: vwSP(26px);
-            white-space: pre-line;
+            // white-space: pre-line;
         }
     }
 }
@@ -167,33 +168,25 @@ header {
 @include pc() {
     .header-list {
         li {
-            padding: 0 vwPC(10px);
+            padding: 0 vwPC(42px);
 
             a {
-                font-size: vwPC(18px);
+                font-size: vwPC(16px);
             }
         }
     }
 
     .header-entry {
-        font-size: vwPC(18px);
+        font-size: vwPC(24px);
         background: #00008b;
         color: #fff;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 vwPC(15px);
+        padding: 0 vwPC(54px);
 
         .fa {
             margin-right: vwPC(7px);
-        }
-    }
-
-    .slide {
-        .box-name {
-            h2 {
-                font-size: vwPC(60px);
-            }
         }
     }
 
@@ -203,31 +196,36 @@ header {
             z-index: 2;
             position: absolute;
             max-width: 55%;
-            top: 50%;
-            left: 6%;
+            top: 43%;
+            left: 11.5%;
             @include translate(0, -50%);
 
             h2 {
                 position: relative;
-                font-size: vwPC(40px);
+                font-size: vwPC(50px);
+                line-height: vwPC(70px);
                 color: #00008b;
-                margin-bottom: vwPC(20px);
+                margin-bottom: vwPC(35px);
 
                 &:after {
                     content: '';
                     position: absolute;
                     display: block;
                     width: 1000px;
-                    right: 0;
+                    right: vwPC(196px);
                     bottom: -10px;
                     border-bottom: 2px solid #add4c9;
                 }
 
             }
+            p{
+                font-size: vwPC(26px);
+            }
         }
     }
 
     .scrolldown {
+        font-size: vwPC(13px);
         display: inline-block;
         text-align: center;
         position: absolute;
@@ -254,17 +252,17 @@ header {
 
     .header-list {
         li {
-            padding: 0 (10px);
+            padding: 0 (42px);
 
             a {
-                font-size: (18px);
+                font-size: (16px);
             }
         }
     }
 
     .header-entry {
-        font-size: (18px);
-        padding: 0 (15px);
+        font-size: (24px);
+        padding: 0 (54px);
 
         .fa {
             margin-right: (7px);
