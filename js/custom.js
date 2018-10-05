@@ -8,6 +8,7 @@
             }, "slow");
             return false;
         });
+        
         $posToShow = $('.slide').height() - $(window).height() + 200;
         $(window).scroll(function () {
             if ($(window).scrollTop() >= $posToShow) {

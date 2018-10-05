@@ -89,7 +89,7 @@ header {
     }
 }
 
-.slide {
+.banner {
     position: relative;
 
     >img {
@@ -113,7 +113,7 @@ header {
                 content: '';
                 position: absolute;
                 display: block;
-                width: 1000px;
+                width: 10000px;
                 right: 0;
                 bottom: -10px;
                 border-bottom: 2px solid #add4c9;
@@ -150,7 +150,7 @@ header {
                 content: '';
                 position: absolute;
                 display: block;
-                width: 1000px;
+                width: 10000px;
                 right: vwSP(30px);
                 bottom: vwSP(-10px);
                 border-bottom: 2px solid #add4c9;
@@ -201,22 +201,9 @@ header {
             @include translate(0, -50%);
 
             h2 {
-                position: relative;
                 font-size: vwPC(50px);
                 line-height: vwPC(70px);
-                color: #00008b;
                 margin-bottom: vwPC(35px);
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    display: block;
-                    width: 1000px;
-                    right: vwPC(196px);
-                    bottom: -10px;
-                    border-bottom: 2px solid #add4c9;
-                }
-
             }
             p{
                 font-size: vwPC(26px);
@@ -285,13 +272,15 @@ header {
             h2 {
                 font-size: (40px);
                 margin-bottom: (20px);
-
+                line-height: 70px;
                 &:after {
-                    width: 1000px;
                     right: 0;
                     bottom: -10px;
                 }
 
+            }
+            p{
+                font-size: (26px);
             }
         }
     }

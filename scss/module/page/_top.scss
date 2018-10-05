@@ -18,7 +18,10 @@
             top: 50%;
             left: 50%;
             @include translate(-50%, -50%);
-
+            img{
+                width: vwSP(68px);
+                height: vwSP(58px);
+            }
             span {
                 font-family: 'roboto condensed', sans-serif;
                 font-size: vwSP(14px);
@@ -113,7 +116,7 @@
                 }
 
                 p {
-                    font-size: 20px;
+                    font-size: vwSP(20px);
                 }
             }
 
@@ -263,6 +266,10 @@
 
         &--click {
             .dp-mid-center {
+                img{
+                    width: vwPC(68px);
+                    height: vwPC(58px);
+                }
                 span {
                     font-size: vwPC(14px);
                 }
@@ -435,6 +442,10 @@
 
         &--click {
             .dp-mid-center {
+                img{
+                    width: unset;
+                    height: unset;
+                }
                 span {
                     font-size: (14px);
                 }
