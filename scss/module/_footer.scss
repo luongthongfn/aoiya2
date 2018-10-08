@@ -47,7 +47,11 @@ footer {
 }
 
 .footer2 {
+    .ft-top{
+        background: #5A8CC9;
+    }
     .ft-bot {
+        font-size: 0;
         padding-top: vwSP(60px);
         background-image: url(../img/ft2-bg.png);
         background-size: cover;
@@ -57,6 +61,7 @@ footer {
         }
 
         .copy-r {
+            background: #5A8CC9;
             padding-bottom: vwSP(182px);
         }
     }
@@ -64,7 +69,7 @@ footer {
 
 .ft-logo-brand {
     position: relative;
-    background: #5A8CC9;
+    // background: #5A8CC9;
     color: #fff;
     display: flex;
     flex-wrap: wrap;
@@ -74,7 +79,7 @@ footer {
 
     .ft-brand {
         font-size: vwSP(24px);
-        font-weight: bold;
+        // font-weight: bold;
 
         img {
             vertical-align: middle;
@@ -103,7 +108,7 @@ footer {
 }
 
 .ft-top {
-    background: #5A8CC9;
+    background: #358dcc;
 }
 
 .ft-menu {
@@ -117,6 +122,11 @@ footer {
             &:hover {
                 color: #d8d8d8;
             }
+        }
+        .go-top{
+            width: unset;
+            height: unset;
+            right: unset;
         }
     }
 }
@@ -148,7 +158,7 @@ footer {
     font-size: vwSP(20);
     color: #fff;
     text-align: center;
-    background: #5A8CC9;
+    background: #358dcc;
     padding-top: vwSP(63px);
     padding-bottom: vwSP(165px);
     margin-top: vwSP(68px);
@@ -223,9 +233,10 @@ footer {
 
         .ft-bot {
             padding-left: 0;
-
+            padding-top: 0;
             .ft-logo {
-                margin-top: vwPC(107px);
+                font-size: 0;
+                margin-top: vwPC(220px);
 
                 img {
                     width: vwPC(233px);
@@ -374,11 +385,8 @@ footer {
         }
 
         .ft-bot {
-            padding-left: 0;
-            padding-top: 0;
-
             .ft-logo {
-                margin-top: (221px);
+                margin-top: (217px);
 
                 img {
                     width: (233px);

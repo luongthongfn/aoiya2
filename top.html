@@ -12,20 +12,22 @@
 
 </head>
 
-<body>
+<body ontouchstart>
     <header>
         <section id="menu">
-            <div class="navbar2 sticky-header clearfix">
+            <div class="navbar2 sticky-header fixed clearfix">
                 <a class="logo" href=""><img src="img/logo.png" alt=""></a>
                 <ul class="header-list">
-                    <li><a href="">ホーム</a></li>
-                    <li><a href="">メッセージ</a></li>
-                    <li><a href="">葵屋とは</a></li>
+                    <li><a href="" class="go-top">ホーム</a></li>
+                    <li><a href="#mesage" class="go-to">メッセージ</a></li>
+                    <li><a href="#about" class="go-to">葵屋とは</a></li>
                 </ul>
                 <!--mobi button-->
                 <div class="header-entry">
-                    <i class="fa fa-sign-in"></i>
-                    ENTRY
+                    <a href="">
+                        <i class="fa fa-sign-in"></i>
+                        <span>ENTRY</span>
+                    </a>
                 </div>
                 <!--/mobi button-->
             </div>
@@ -36,15 +38,10 @@
             <img src="img/top-main-bg-pc.jpg" alt="" class="show-pc w1">
             <div class="box-name">
                 <!-- <img src="img/box-name.png" alt=""> -->
-                <h2>
-                    やり遂げた先にしか 見えない世界が、ここにはある
-                </h2>
-                <p>
-                    人の想いをつなぐビジネス。
-                    よりよい仕組みや価値を社会に
-                    広く届けることをビジネスの本質だと
-                    捉えて、成長を続けている
-                </p>
+                <h2> やり遂げた先にしか <br class="show-sp">見えない <br class="show-pc">世界が、<br class="show-sp">ここにはある。 </h2>
+
+                <p> 人の想いをつなぐビジネス。
+                    よりよい仕組みや価値を社会に<br class="show-sp"> 広く届けること<br class="show-pc">をビジネスの本質だと<br class="show-sp"> 捉えて、<br class="show-pc">成長を続けている。 </p>
             </div>
             <a href="#bussiness" class="show-pc scrolldown go-to">
                 <span>SCROLL</span> <br>
@@ -55,7 +52,7 @@
 
     <div id="content">
 
-        <section class="message">
+        <section class="message" id="mesage">
             <div class="heading text-center">
                 <h2 class="title2">メッセージ</h2>
                 <p class="subtitle2 bird-r">Message</p>
@@ -74,7 +71,7 @@
             </div>
         </section>
 
-        <section class="about" id="bussiness">
+        <section class="about" id="about">
             <div class="heading text-center">
                 <h2 class="title2">葵屋とは </h2>
                 <p class="subtitle2 bird-l">About</p>
@@ -159,7 +156,7 @@
 
         </section>
 
-        <section class="work">
+        <section class="work" id="work">
             <div class="heading text-center">
                 <h2 class="title2">募集職種 </h2>
                 <p class="subtitle2 bird-r">Work</p>
@@ -189,7 +186,8 @@
                                 OPERATOR</span>
                         </div>
                         <div class="work--entry--txt">
-                            <h3>コンテンツ オペレーター採用</h3>
+                            <h3>コンテンツ
+                                オペレーター採用</h3>
                             <p>
                                 自分が直接関わっているサービスを成長させることができるオペレーターの強み。
 
@@ -229,22 +227,21 @@
                         <div class="ft-brand">
                             <img src="img/logo-ft.png" class="show-sp" alt="alt_text">
                             <img src="img/logo.png" class="show-pc" alt="alt_text">
-                            <span>葵屋 株式会社
-                            </span>
+                            <span><b>葵屋</b> 株式会社 </span>
                         </div>
                         <!-- <a class="go-top show-sp">
                             <img src="img/arrow-up.png" alt="alt_text">
                             <p>PAGE TOP</p>
                         </a> -->
                         <div class="show-pc">
-                            〒210−0023 神奈川県川崎市川崎区小川町15-13 川崎トーセイビル 8F <br>
+                            〒210−0023 神奈川県川崎市川崎区小川町15-13 川崎トーセイビル 8階 <br>
                             TEL. 044-221-9662 MAIL. info@aoiyakk.com
                         </div>
                     </div>
                     <ul class="ft-menu show-pc">
-                        <li><a href="">ホーム</a></li>
-                        <li><a href="">メッセージ</a></li>
-                        <li><a href="">葵屋とは</a></li>
+                        <li><a href="" class="go-top">ホーム</a></li>
+                        <li><a href="#mesage" class="go-to">メッセージ</a></li>
+                        <li><a href="#about" class="go-to">葵屋とは</a></li>
                     </ul>
                 </div>
             </div>
@@ -252,8 +249,8 @@
 
             <section class="ft-bot">
                 <ul class="ft-menu show-sp">
-                    <li><a href="">メッセージ</a></li>
-                    <li><a href="">葵屋とは</a></li>
+                    <li><a href="#mesage" class="go-to">メッセージ</a></li>
+                    <li><a href="#about" class="go-to">葵屋とは</a></li>
                     <li><a href="">仕事紹介</a></li>
                 </ul>
 

@@ -17,15 +17,15 @@
 }
 
 .navbar2 {
-    // position: fixed;
-    position: relative;
+    position: fixed;
+    // position: relative;
     z-index: 10;
     display: flex;
     background: #fff;
     top: 0;
     left: 0;
     right: 0;
-    // box-shadow: 0 0 5px transparentize(#000, .8);
+    box-shadow: 0 0 5px transparentize(#000, .84);
 
     .logo {
         padding: vwSP(11px) vwSP(15px) vwSP(0px);

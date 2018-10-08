@@ -223,6 +223,7 @@
                 color: #add4c9;
                 text-align: center;
                 margin-bottom: vwSP(10px);
+                white-space: pre-line;
             }
 
             p {
@@ -353,7 +354,8 @@
             justify-content: space-around;
             padding: 0 vwPC(29.5px);
             margin: auto;
-            @include clear()
+            @include clear();
+            box-shadow: 0 10px 20px transparentize(#040000, .7);
         }
 
         &--bg {
@@ -395,6 +397,7 @@
 
                 h3 {
                     color: #add4c9;
+                    white-space: unset;
                     font-size: vwPC(16px);
                     line-height: vwPC(30px);
                     text-align: center;

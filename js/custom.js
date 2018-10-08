@@ -1,5 +1,5 @@
 (function ($) {
-
+    
     $(function () {
         //go-top button
         $("#go-top, .go-top").click(function () {
