@@ -1,5 +1,5 @@
 (function ($) {
-    
+
     $(function () {
         //go-top button
         $("#go-top, .go-top").click(function () {
@@ -176,9 +176,9 @@
             messages: {
                 // request: "お問い合わせ項目を選択してください。",
                 request: "",
-                name   : "お名前を入力してください。",
+                name: "お名前を入力してください。",
                 company: "貴社名を入力してください。",
-                email  : "メールアドレスを入力してください。",
+                email: "メールアドレスを入力してください。",
                 question: {
                     required: "お問い合わせ内容を入力してください。",
                     minlength: "少なくとも二文字以上"
@@ -208,7 +208,7 @@
                 $('#js_contact_confirm').addClass('show');
             }
         });
-        
+
         // --------------------- add event ---------------------------------
         // --------------------- add event ---------------------------------
         $('.btn_accept_send').click(function () {
@@ -265,82 +265,86 @@
 
 //maps
 function myMap() {
-    var myLatLng = {
-        lat: 35.527735,
-        lng: 139.699773
-    };
 
-    var mapProp = {
-        center: new google.maps.LatLng(myLatLng),
-        zoom: 16,
-        styles: [{
-                elementType: 'labels.text.fill',
-                stylers: [{
-                    color: '#7c9eb0'
-                }]
-            },
-            {
-                elementType: 'geometry.fill',
-                stylers: [{
-                    color: '#ecf1f3'
-                }]
-            },
-            {
-                elementType: 'geometry.stroke',
-                stylers: [{
-                    color: '#98bbce'
-                }]
-            },
+    var mapElem = document.getElementById("googleMap");
+    if (mapElem) {
+        var myLatLng = {
+            lat: 35.527735,
+            lng: 139.699773
+        };
 
-            // {
-            //   featureType: '-----------------',
-            //   elementType: 'geometry.fill',
-            //   stylers: [{color: '#00ff00'}]
-            // },
-            {
-                featureType: 'poi.park',
-                elementType: 'geometry.fill',
-                stylers: [{
-                    color: '#c1d1d9'
-                }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry.fill',
-                stylers: [{
-                    color: '#ffffff'
-                }]
-            },
+        var mapProp = {
+            center: new google.maps.LatLng(myLatLng),
+            zoom: 16,
+            styles: [{
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#7c9eb0'
+                    }]
+                },
+                {
+                    elementType: 'geometry.fill',
+                    stylers: [{
+                        color: '#ecf1f3'
+                    }]
+                },
+                {
+                    elementType: 'geometry.stroke',
+                    stylers: [{
+                        color: '#98bbce'
+                    }]
+                },
 
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry.stroke',
-                stylers: [{
-                    color: '#80a0b2'
-                }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry.fill',
-                stylers: [{
-                    color: '#d5dfe5'
-                }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'geometry',
-                stylers: [{
-                    color: '#638ba1'
-                }]
-            },
-        ]
+                // {
+                //   featureType: '-----------------',
+                //   elementType: 'geometry.fill',
+                //   stylers: [{color: '#00ff00'}]
+                // },
+                {
+                    featureType: 'poi.park',
+                    elementType: 'geometry.fill',
+                    stylers: [{
+                        color: '#c1d1d9'
+                    }]
+                },
+                {
+                    featureType: 'road',
+                    elementType: 'geometry.fill',
+                    stylers: [{
+                        color: '#ffffff'
+                    }]
+                },
 
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-    var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-    });
-    marker.setMap(map);
+                {
+                    featureType: 'road.highway',
+                    elementType: 'geometry.stroke',
+                    stylers: [{
+                        color: '#80a0b2'
+                    }]
+                },
+                {
+                    featureType: 'road.highway',
+                    elementType: 'geometry.fill',
+                    stylers: [{
+                        color: '#d5dfe5'
+                    }]
+                },
+                {
+                    featureType: 'water',
+                    elementType: 'geometry',
+                    stylers: [{
+                        color: '#638ba1'
+                    }]
+                },
+            ]
+
+        };
+        var map = new google.maps.Map(mapElem, mapProp);
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+        });
+        marker.setMap(map);
+    }
 }

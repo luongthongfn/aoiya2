@@ -278,15 +278,30 @@
     }
 
     .title2 {
-        font-size: vwPC(30px);
+        font-size: vwPC(35px);
+        line-height: vwPC(50px);
     }
 
     .subtitle2 {
         font-size: vwPC(20px);
+        &.bird{
+            &-l:before{
+                top: vwPC(7px);
+                right: calc(100% + 7px);
+                width: vwPC(36px);
+                height: vwPC(39px);
+            }
+            &-r:after{
+                top: vwPC(-5px);
+                left: calc(100% + 10px);
+                width: vwPC(36px);
+                height: vwPC(35px);
+            }
+        }
     }
 
     .heading {
-        padding: vwPC(60) 0;
+        padding: vwPC(50px) 0 vwPC(40px);
     }
 
     .title-bg {
@@ -419,11 +434,30 @@
     }
 
     .title2 {
-        font-size: 30px;
+        font-size: (35px);
+        line-height: (50px);
     }
 
     .subtitle2 {
         font-size: (20px);
+        &.bird{
+            &-l:before{
+                top: (7px);
+                right: calc(100% + 7px);
+                width: (36px);
+                height: (39px);
+            }
+            &-r:after{
+                top: (-5px);
+                left: calc(100% + 10px);
+                width: (36px);
+                height: (35px);
+            }
+        }
+    }
+
+    .heading {
+        padding: (50px) 0 (40px);
     }
 
     .title-bg {
@@ -436,10 +470,6 @@
             width: (137px);
             height: (68px);
         }
-    }
-
-    .heading {
-        padding: 60px 0;
     }
 
     %wrapper1 {
