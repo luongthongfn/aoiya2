@@ -42,10 +42,75 @@
     }
 
     .bussiness-department {
-        font-size: 0;
+        position: relative;
+        background: url(../img/depart-bg.png) no-repeat;
+        // background-size: 100% 100%;
+        background-size: cover;
+        background-position: center center;
+        text-align: center;
+        padding: 0 vwSP(15) vwSP(20);
+        transform: perspective(1px) translateZ(0);
+        border: 2px solid #fff;
 
-        img {
-            width: 100%;
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: vwSP(20px);
+            right: vwSP(20px);
+            bottom: vwSP(21px);
+            left: vwSP(20px);
+            border: 3px solid #fff;
+        }
+
+        .department-label {
+            position: relative;
+            display: inline-block;
+
+            >img {
+                box-shadow: -2.5px 1.5px 5px transparentize(#000, .75);
+                width: vwSP(200px);
+                height: vwSP(200px);
+            }
+
+            .dp-mid-center {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include translate(-50%, -50%);
+                color: #fff;
+                font-size: vwSP(20px);
+                text-transform: uppercase;
+
+                h3 {
+                    font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+                    font-size: vwSP(22px);
+                    font-weight: bold;
+                    letter-spacing: 3px;
+                }
+            }
+        }
+
+        .department-summary {
+            font-weight: bold;
+            width: vwSP(480);
+            margin: auto;
+
+            &--heading {
+                font-size: vwSP(30px);
+                color: #358dcc;
+            }
+
+            p {
+                font-size: vwSP(20px);
+            }
+        }
+
+        .arrow-down {
+            img {
+                margin-top: vwSP(10);
+                margin-bottom: vwSP(10);
+            }
         }
     }
 
@@ -538,31 +603,46 @@
                 width: 50%;
                 float: left;
 
-                a {
-                    display: block;
-                    border: 1px solid #fff;
-                    margin-top: -1px;
-                    margin-left: -1px;
+                &:after {
+                    top: vwPC(23px);
+                    right: vwPC(23px);
+                    left: vwPC(23px);
+                    bottom: vwPC(23px);
                 }
 
-                // &:after {
-                //     top: vwPC(22);
-                //     right: vwPC(21);
-                //     left: vwPC(21);
-                //     bottom: vwPC(25);
-                // }
+                .department-label {
+                    margin-bottom: vwPC(0px);
 
-                // .department-label {
-                //     margin-bottom: vwPC(15px);
-                // }
+                    >img {
+                        width: vwPC(200px);
+                        height: vwPC(200px);
+                    }
 
-                // .dp-mid-center {
-                //     font-size: vwPC(21px);
-                // }
+                    .dp-mid-center {
+                        h3 {
+                            font-size: vwPC(20px);
+                            font-weight: bold;
+                        }
+                    }
+                }
 
-                // .department-summary {
-                //     width: vwPC(400);
-                // }
+                .department-summary {
+                    width: vwPC(400px);
+
+                    h4 {
+                        font-size: vwPC(20px);
+                    }
+
+                    p {
+                        font-size: vwPC(13px);
+                    }
+                }
+
+                .arrow-down {
+                    img {
+                        margin: 0;
+                    }
+                }
             }
         }
 
@@ -878,14 +958,44 @@
             flex-wrap: wrap;
 
             .bussiness-department {
-                width: 50%;
-                float: left;
+                &:after {
+                    top: (23px);
+                    right: (23px);
+                    left: (23px);
+                    bottom: (23px);
+                }
 
-                a {
-                    display: block;
-                    border: 1px solid #fff;
-                    margin-top: -1px;
-                    margin-left: -1px;
+                .department-label {
+                    margin-bottom: (0px);
+
+                    >img {
+                        width: (200px);
+                        height: (200px);
+                    }
+
+                    .dp-mid-center {
+                        h3 {
+                            font-size: (20px);
+                        }
+                    }
+                }
+
+                .department-summary {
+                    width: (400px);
+
+                    h4 {
+                        font-size: (20px);
+                    }
+
+                    p {
+                        font-size: (13px);
+                    }
+                }
+
+                .arrow-down {
+                    img {
+                        margin: 0;
+                    }
                 }
             }
         }

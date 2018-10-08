@@ -55,7 +55,7 @@
     }
 
     .about-bottom {
-        .department {
+        .about-department{
             position: relative;
             background: url(../img/depart-bg.png) no-repeat;
             // background-size: 100% 100%;
@@ -295,7 +295,7 @@
         }
 
         .about-bottom {
-            .department {
+            .about-department{
                 width: 50%;
                 float: left;
 
@@ -467,7 +467,7 @@
         }
 
         .about-bottom {
-            .department {
+            .about-department{
                 &:after {
                     top: (23px);
                     right: (23px);
