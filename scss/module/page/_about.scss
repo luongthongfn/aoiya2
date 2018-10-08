@@ -37,7 +37,7 @@
 }
 //pc screen
 @include pc(){
-    .about-page{
+    .about{
         background: url(../img/mes-focus-bg.png);
         margin-top: vwPC(30px);
         &--bg{
@@ -85,7 +85,7 @@
 
 //large screen
 @include lg(){
-    .about-page{
+    .about{
         margin-top: (30px);
         &--bg{
             padding: (100px) (120px) ;
