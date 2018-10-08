@@ -105,12 +105,9 @@
             font-weight: bold;
             width: vwSP(480);
             margin: auto;
-
-<<<<<<< HEAD
                 p {
                     font-size: vwSP(20px);
                 }
-=======
             &--heading {
                 font-size: vwSP(20px);
                 color: #358dcc;
@@ -118,7 +115,6 @@
             }
             p{
                 font-size: 20px;
->>>>>>> parent of 1763f78... 4/10 out
             }
         }
 
@@ -247,8 +243,6 @@
             width: vwPC(1000px);
             height: vwPC(343px);
         }
-<<<<<<< HEAD
-
         &--click {
             .dp-mid-center {
                 img{
@@ -260,8 +254,6 @@
                 }
             }
         }
-=======
->>>>>>> parent of 1763f78... 4/10 out
     }
 
     .about {
@@ -390,7 +382,6 @@
 @include lg() {
     .message {
         &--bg {
-<<<<<<< HEAD
             width: (1000px);
             height: (343px);
         }
@@ -405,10 +396,8 @@
                     font-size: (14px);
                 }
             }
-=======
             width: 1000px;
             height: 343px;
->>>>>>> parent of 1763f78... 4/10 out
         }
     }
 

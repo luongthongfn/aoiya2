@@ -208,11 +208,10 @@ header {
             @include translate(0, -50%);
 
             h2 {
-<<<<<<< HEAD
                 font-size: vwPC(50px);
                 line-height: vwPC(70px);
                 margin-bottom: vwPC(35px);
-=======
+
                 position: relative;
                 font-size: vwPC(40px);
                 color: #00008b;
@@ -227,8 +226,6 @@ header {
                     bottom: -10px;
                     border-bottom: 2px solid #add4c9;
                 }
-
->>>>>>> parent of 1763f78... 4/10 out
             }
         }
     }
