@@ -90,7 +90,9 @@ header {
     justify-content: center;
     align-items: center;
     padding: 0 vwSP(15px) 0 vwSP(12px);
-
+    &:hover{
+        background-color: #84bfae;
+    }
     .fa {
         color: #fff;
         margin-right: vwSP(7px);
