@@ -27,9 +27,10 @@
         //----sticky-header
         if ($('.sticky-header').length) {
             var _this = $('.sticky-header');
-            _this.after("<div class='after-fixed'></div>");
-            if (window.innerWidth < 768) {
-                $('.after-fixed').css('padding-top', $('.fixed').height());
+            var afterFixed = $('.js-after-fixed');
+            // _this.after(afterFixed);
+            if (afterFixed) {
+                afterFixed.css('padding-top', $('.fixed').height());
             }
 
             // var stickyPos = _this.offset().top;

@@ -6,48 +6,48 @@
     }
     &--bg {
         background: transparentize(#fff, .4);
-        padding: vwSP(60px) 0;
+        padding: vwSP(60px) 0 vwSP(100px);
+        @include clear()
     }
 
-    .has-image {
+    .director-box {
+        float: right;
         text-align: center;
         padding: 0 vwSP(65px);
-
-        img {
-            border: 3px solid #fff;
-            box-shadow: 0 0 5px transparentize(#000, .8);
-        }
     }
 
     &--name {
         display: inline-block;
         font-size: vwSP(20px);
-        padding: vwSP(20px) 0;
+        padding: vwSP(10px) 0;
         border-bottom: 2px solid #add4c9;
         margin-bottom: vwSP(20px);
 
         span {
-            font-size: vwSP(40px);
+            font-size: vwSP(32px);
             font-weight: bold;
         }
     }
 
     &--name2 {
+        font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
         font-size: vwSP(25px);
+        font-weight: 500;
         color: #00008b;
-        margin-bottom: vwSP(50px);
     }
 
     &--txt {
         h3 {
-            font-size: vwSP(30px);
+            font-size: vwSP(36px);
+            font-weight: bold;
+            color: #393939;
+            line-height: 1.2;
             padding: vwSP(20px) vwSP(30px);
             border-bottom: 2px solid #add4c9;
-            margin-bottom: vwSP(20px);
         }
 
         p {
-            font-size: vwSP(20px);
+            font-size: vwSP(26px);
             padding: vwSP(20px) vwSP(30px);
         }
     }
@@ -85,6 +85,7 @@
         &:nth-child(even) {
             .message-post-header {
                 .flag {
+                    background-image: url('../img/mes-title-bg-2.png');
                     float: right;
                     padding-right: vwSP(35px);
                     padding-left: vwSP(60px);
@@ -111,8 +112,8 @@
             position: relative;
             color: #fff;
             width: vwSP(354px);
-            background: url(../img/mes-title-bg.png);
-            padding: vwSP(20px);
+            background: url(../img/mes-title-bg.png) center/contain no-repeat;
+            padding: 0 vwSP(20px);
 
             &:before {
                 content: '';
@@ -131,20 +132,22 @@
             }
 
             &--number {
+                font-family:'roboto condensed', sans-serif;
                 display: inline-block;
-                font-size: vwSP(80px);
+                font-size: vwSP(120px);
             }
 
             &--txt {
                 display: inline-block;
 
                 &--big {
-                    font-family: 'aria', sans-serif;
                     font-size: vwSP(50px);
+                    font-weight: bold;
+                    line-height: 1;
                 }
 
                 &--small {
-                    font-size: vwSP(25px);
+                    font-size: vwSP(26px);
                     position: relative;
                     display: block;
                     color: #00008b;
@@ -152,9 +155,7 @@
 
                     &:after {
                         content: '';
-                        background: url(../img/mes-title-bird.png) no-repeat;
-                        background-position: center center;
-                        background-size: contain;
+                        background: url(../img/mes-title-bird.png) center/contain no-repeat;
                         display: inline-block;
                         width: vwSP(43px);
                         height: vwSP(34px);
@@ -166,17 +167,19 @@
         }
 
         h3 {
-            font-size: vwSP(30px);
+            font-size: vwSP(36px);
             font-weight: bold;
-            padding: vwSP(20px);
+            line-height: 1.2;
+            padding: vwSP(30px);
             clear: both;
         }
     }
 
     .message-post-txt {
         clear: both;
-        font-size: vwSP(18px);
-        padding: 0 vwSP(20px);
+        font-size: vwSP(30px);
+        line-height: 1.2;
+        padding: 0 vwSP(30px);
     }
 }
 
@@ -194,15 +197,10 @@
             overflow: auto;
         }
 
-        .has-image {
+        .director-box {
             float: left;
             width: vwPC(500px);
             padding: 0 vwPC(114px);
-
-            img {
-                border: 3px solid #fff;
-                box-shadow: 0 0 5px transparentize(#000, .8);
-            }
         }
 
         &--name {
@@ -220,7 +218,6 @@
         &--name2 {
             font-size: vwPC(20px);
             color: #00008b;
-            margin-bottom: vwPC(10px);
         }
 
         &--txt {
@@ -401,15 +398,10 @@
             overflow: auto;
         }
 
-        .has-image {
+        .director-box {
             float: left;
             width: (500px);
             padding: 0 (114px);
-
-            img {
-                border: 3px solid #fff;
-                box-shadow: 0 0 5px transparentize(#000, .8);
-            }
         }
 
         &--name {
@@ -427,7 +419,6 @@
         &--name2 {
             font-size: (20px);
             color: #00008b;
-            margin-bottom: (10px);
         }
 
         &--txt {

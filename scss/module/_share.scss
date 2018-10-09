@@ -66,7 +66,6 @@ body{
     }
 }
 
-
 .title {
     @extend %title;
 }
@@ -150,14 +149,33 @@ body{
     position: relative;
     height: vwSP(300px);
     overflow: hidden;
-
     .half {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 50%;
-        background: url(../../img/mes-banner-l.png) no-repeat;
+        background-image: url('../img/block-page-name-bg.png');
+        background-repeat: no-repeat;
         background-size: cover;
         background-position: center center 0;
     }
-
+    .page-name-jpn{
+        position: relative;
+        display: inline-block;
+        font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+        font-size: vwSP(45px);
+        color: #fff;
+        font-weight: bold;
+        &:after{
+            content: '';
+            background: url('../img/page-name-after.png') center/contain no-repeat;
+            width: vwSP(76px);
+            height: vwSP(49px);
+            position: absolute;
+            top: vwSP(-26px);
+            right: vwSP(-63px);
+        }
+    }
     .page-name {
         position: absolute;
         display: flex;
@@ -237,6 +255,7 @@ body{
         }
 
         .eng {
+            font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
             color: #fff;
             font-size: vwSP(40px);
             padding: 0 vwSP(10px);
@@ -245,13 +264,29 @@ body{
         .jpn {
             font-size: vwSP(20px);
             color: #add4c9;
+            position: relative;
+            padding: 0 10px;
+            &:after{
+                content: '';
+                position: absolute;
+                display: block;
+                background: url('../img/pagi-icon.png');
+                width: 8px;
+                height: 8px;
+                top: 50%;
+                @include translate(0, -50%);
+            }
         }
     }
 
     .prev {
         justify-content: flex-end;
         border-right: 2px solid #9bbadf;
-
+        .jpn{
+            &:after{
+                right: -5px;
+            }
+        }
         .fa {
             margin-right: auto;
         }
@@ -259,7 +294,11 @@ body{
 
     .next {
         border-left: 2px solid #5781bf;
-
+        .jpn{
+            &:after{
+                left: -5px;
+            }
+        }
         .fa {
             margin-left: auto;
         }
