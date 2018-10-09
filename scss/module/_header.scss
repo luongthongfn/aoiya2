@@ -103,6 +103,7 @@ header {
 .banner {
     position: relative;
     font-size: 0;
+    overflow: hidden;
     >img {
         width: 100%;
     }
@@ -240,11 +241,11 @@ header {
     .banner {
         .box-name {
             font-size: (30px);
-            
+            left: 14%;
             @include translate(0, -50%);
 
             h2 {
-                font-size: (40px);
+                font-size: (50px);
                 margin-bottom: (20px);
                 line-height: 70px;
                 &:after {
@@ -260,7 +261,7 @@ header {
     }
 
     .scrolldown {
-        left: (430px);
+        left: 30.4%;
         bottom: (120px);
 
         span {

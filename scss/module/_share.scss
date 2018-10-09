@@ -4,6 +4,10 @@
 // @import "../import/_placeholder";
 
 //@import "../import/_fonts";
+body{
+    max-width: 1920px;
+    margin: auto;
+}
 %title {
     font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
     font-size: vwSP(32);
