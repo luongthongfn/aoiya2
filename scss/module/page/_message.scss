@@ -188,61 +188,65 @@
 //pc screen
 @include pc() {
     .focus {
-        background: url(../img/mes-focus-bg.png);
-        margin: vwPC(30px) 0;
+        background: url(../img/mes-focus-bg-pc.png) center/cover no-repeat;
+        margin: vwPC(130px) 0;
 
         &--bg {
             background: transparentize(#fff, .4);
-            padding: vwPC(60px) 0;
+            padding: vwPC(70px) vwPC(161px) vwPC(102px);
             overflow: auto;
         }
 
         .director-box {
-            float: left;
-            width: vwPC(500px);
-            padding: 0 vwPC(114px);
+            float: right;
+            // width: vwPC(500px);
+            padding: 0;
         }
 
         &--name {
-            font-size: vwPC(16px);
-            padding: vwPC(10px) 0;
-            margin-bottom: vwPC(20px);
+            font-size: vwPC(12px);
+            padding: vwPC(0px) 0;
+            margin-bottom: vwPC(10px);
 
             span {
-                font-size: vwPC(30px);
+                font-size: vwPC(20px);
                 vertical-align: middle;
                 font-weight: bold;
             }
         }
 
         &--name2 {
-            font-size: vwPC(20px);
+            font-family:'游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+            font-size: vwPC(16px);
             color: #00008b;
         }
 
         &--txt {
             overflow: hidden;
-
+            
             h3 {
-                font-size: vwPC(30px);
+                font-size: vwPC(24px);
                 padding: vwPC(20px) vwPC(30px);
+                max-width: vwPC(516px);
+                white-space: pre-line;
                 padding-left: 0;
-                border-bottom: 2px solid #add4c9;
-                margin-bottom: vwPC(20px);
+                margin-bottom: vwPC(0px);
             }
 
             p {
-                font-size: vwPC(20px);
-                padding: vwPC(20px) vwPC(30px);
+                font-size: vwPC(16px);
+                padding: vwPC(20px) vwPC(30px) vwPC(30px);
                 padding-left: 0;
+                padding-right: 0;
+                
             }
         }
     }
 
     .message-part {
         .message-post {
-            margin-bottom: vwPC(60px);
             min-height: vwPC(300px);
+            margin-bottom: vwPC(100px);
 
             &:nth-child(odd) {
                 .message-post-header {
@@ -318,7 +322,7 @@
                 position: relative;
                 color: #fff;
                 width: vwPC(290px);
-                background: url(../img/mes-title-bg.png);
+                background: url(../img/mes-title-bg.png) center/100% no-repeat;
                 padding: vwPC(20px);
 
                 &:before {
