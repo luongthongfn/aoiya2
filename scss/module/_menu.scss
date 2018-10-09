@@ -242,6 +242,9 @@ nav.nav-container {
     }
 
     .navbar2 {
+        max-width: 1920px;
+        margin: auto;
+
         .logo {
             padding: vwPC(14px) vwPC(25px) vwPC(8px);
             border-bottom-width: 4px;
@@ -261,6 +264,7 @@ nav.nav-container {
 @include lg() {
     .navbar nav.nav-container ul li {
         padding: 0 (23px);
+
         a {
             font-size: 14px;
             padding: (28px) (18px) (23px);
