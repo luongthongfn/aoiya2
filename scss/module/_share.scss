@@ -150,14 +150,24 @@ body{
     height: vwSP(300px);
     overflow: hidden;
     .half {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 50%;
-        background-image: url('../img/block-page-name-bg.png');
+        background-image: url('../img/block-page-name-bg-pc.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center center 0;
+        background-position: center;
+        img{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            object-fit: cover;
+            object-position: center;
+        }
     }
     .page-name-jpn{
         position: relative;
@@ -227,7 +237,6 @@ body{
         padding: vwSP(33px);
 
         .eng {
-            font-size: vwSP(45px);
             font-weight: bold;
             text-transform: uppercase;
             color: #fff;
@@ -256,13 +265,14 @@ body{
 
         .eng {
             font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+            font-size: vwSP(38px);
             color: #fff;
-            font-size: vwSP(40px);
             padding: 0 vwSP(10px);
         }
 
         .jpn {
-            font-size: vwSP(20px);
+            font-size: vwSP(22px);
+            font-weight: bold;
             color: #add4c9;
             position: relative;
             padding: 0 10px;
@@ -372,9 +382,17 @@ body{
     }
 
     .block-page-name {
-        height: vwPC(300px);
+        height: vwPC(200px);
         border-bottom: 2px solid #00008f;
-
+        .page-name-jpn{
+            font-size: vwPC(45px);
+            &:after{
+                width: vwPC(66px);
+                height: vwPC(49px);
+                top: vwPC(-20px);
+                right: vwPC(-70px);
+            }
+        }
         .page-name {
             width: vwPC(234px);
             height: vwPC(121px);
@@ -403,7 +421,7 @@ body{
             padding: vwPC(33px);
 
             .eng {
-                font-size: vwPC(30px);
+                // font-size: vwPC(22px);
                 font-weight: bold;
                 text-transform: uppercase;
                 color: #fff;
@@ -428,12 +446,12 @@ body{
             }
 
             .eng {
-                font-size: vwPC(20px);
+                font-size: vwPC(22px);
                 padding: 0 vwPC(10px);
             }
 
             .jpn {
-                font-size: vwPC(20px);
+                font-size: vwPC(16px);
                 color: #add4c9;
             }
         }
@@ -528,9 +546,17 @@ body{
     }
 
     .block-page-name {
-        height: (300px);
+        height: (200px);
         border-bottom: 2px solid #00008f;
-
+        .page-name-jpn{
+            font-size: (45px);
+            &:after{
+                width: (66px);
+                height: (49px);
+                top: (-20px);
+                right: (-70px);
+            }
+        }
         .page-name {
             width: (234px);
             height: (121px);
@@ -548,33 +574,19 @@ body{
 
     .pagination {
         width: (700px);
-        margin: auto;
         border-radius: (100px);
 
         .entry {
-            display: flex;
-            width: 100%;
-            align-items: center;
             height: (80px);
             padding: (33px);
-
-            .eng {
-                font-size: (30px);
-                font-weight: bold;
-                text-transform: uppercase;
-                color: #fff;
-                margin-left: auto;
-            }
-
             .fa {
                 font-size: (45px);
-                color: #fff;
-                margin-left: auto;
             }
         }
 
         .prev,
-        .next {
+        .next,
+            {
             height: (80px);
             padding: (20px);
 
@@ -583,30 +595,12 @@ body{
             }
 
             .eng {
-                font-size: (20px);
+                font-size: (22px);
                 padding: 0 (10px);
             }
 
             .jpn {
-                font-size: (20px);
-                color: #add4c9;
-            }
-        }
-
-        .prev {
-            justify-content: flex-end;
-            border-right: 2px solid #9bbadf;
-
-            .fa {
-                margin-right: auto;
-            }
-        }
-
-        .next {
-            border-left: 2px solid #5781bf;
-
-            .fa {
-                margin-left: auto;
+                font-size: (16px);
             }
         }
     }
