@@ -161,6 +161,8 @@ body{
         background-position: center;
         img{
             position: absolute;
+            width: 100%;
+            height: 100%;
             top: 0;
             right: 0;
             bottom: 0;
@@ -257,7 +259,9 @@ body{
         width: 50%;
         height: vwSP(120px);
         padding: vwSP(20px);
-
+        &:hover{
+            background-image: linear-gradient(#5a8dc9, #92b3dc);
+        }
         .fa {
             color: #fff;
             font-size: vwSP(50px);
@@ -271,6 +275,7 @@ body{
         }
 
         .jpn {
+            font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
             font-size: vwSP(22px);
             font-weight: bold;
             color: #add4c9;

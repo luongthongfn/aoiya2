@@ -26,6 +26,7 @@
         span {
             font-size: vwSP(32px);
             font-weight: bold;
+            vertical-align: baseline;
         }
     }
 
@@ -77,6 +78,7 @@
                     &--number {
                         order: 1;
                         margin-left: auto;
+                        margin-left: vwSP(20px);
                     }
                 }
             }
@@ -99,6 +101,7 @@
                     &--number {
                         // order: 1;
                         margin-right: auto;
+                        margin-right: vwSP(20px);
                     }
                 }
             }
@@ -111,8 +114,8 @@
             align-items: center;
             position: relative;
             color: #fff;
-            width: vwSP(354px);
-            background: url(../img/mes-title-bg.png) center/contain no-repeat;
+            // width: vwSP(354px);
+            background: url(../img/mes-title-bg.png) center/100% 100% no-repeat;
             padding: 0 vwSP(20px);
 
             &:before {
@@ -210,13 +213,11 @@
 
             span {
                 font-size: vwPC(20px);
-                vertical-align: middle;
-                font-weight: bold;
             }
         }
 
         &--name2 {
-            font-family:'游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+            // font-family:'游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
             font-size: vwPC(16px);
             color: #00008b;
         }
@@ -262,16 +263,17 @@
 
                         &--number {
                             order: 1;
-                            margin-left: auto;
+                            margin-left: unset;
                         }
 
                         &--txt {
+                            margin-right: vwPC(45px);
                             &--small {
                                 font-size: vwPC(14px);
                                 text-align: right;
 
                                 &:after {
-                                    top: vwPC(-20px);
+                                    top: vwPC(-10px);
                                 }
                             }
                         }
@@ -294,16 +296,17 @@
                         }
 
                         &--number {
-                            margin-right: auto;
+                            margin-right: unset;
                         }
 
                         &--txt {
+                            margin-left: vwPC(45px);
                             &--small {
                                 font-size: vwPC(14px);
                                 text-align: left;
 
                                 &:after {
-                                    top: vwPC(-30px);
+                                    top: vwPC(-15px);
                                     right: 100%;
                                 }
                             }
@@ -316,6 +319,7 @@
         .message-post-header {
             .flag {
                 display: flex;
+                justify-content: center;
                 align-items: center;
                 position: relative;
                 color: #fff;
@@ -363,14 +367,14 @@
                             width: vwPC(30px);
                             height: vwPC(24px);
                             position: absolute;
-                            margin: 0 vwPC(5px);
+                            margin: 0 vwPC(10px);
                         }
                     }
                 }
             }
 
             h3 {
-                font-size: vwPC(30px);
+                font-size: vwPC(34px);
                 font-weight: bold;
                 padding: vwPC(20px);
                 clear: none;
@@ -442,10 +446,11 @@
                         border-bottom-right-radius: (200px);
 
                         &--txt {
+                            margin-right: 45px;
                             &--small {
                                 font-size: (14px);
                                 &:after {
-                                    top: (-20px);
+                                    top: (-10px);
                                 }
                             }
                         }
@@ -463,10 +468,11 @@
                         border-bottom-left-radius: (200px);
 
                         &--txt {
+                            margin-left: 45px;
                             &--small {
                                 font-size: (14px);
                                 &:after {
-                                    top: (-30px);
+                                    top: (-15px);
                                 }
                             }
                         }
@@ -501,7 +507,7 @@
             }
 
             h3 {
-                font-size: (30px);
+                font-size: (34px);
                 padding: (20px);
             }
         }

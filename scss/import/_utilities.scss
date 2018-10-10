@@ -250,19 +250,8 @@ p {
 }
 
 .show-pc {
-    @include mq(767, max) {
+    @include mq(768, max) {
         display: none !important;
     }
 }
 
-.hidden-sp {
-    @include mq-mix(0, 992) {
-        display: none;
-    }
-}
-
-.hidden-pc {
-    @include mq(992) {
-        display: none;
-    }
-}
