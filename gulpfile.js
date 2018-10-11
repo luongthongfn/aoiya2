@@ -8,8 +8,7 @@ var gulp = require('gulp'),
     htmlbeautify = require('gulp-html-beautify'),
 
 
-    rootProjectPath = '',
-    /*path from root*/
+    rootProjectPath = '', /*path from root*/
     currentPath = '.',
     sassPath,
     cssPath,
@@ -26,13 +25,13 @@ var gulp = require('gulp'),
 gulp.task('setPath', function () {
     // console.log("~~",process.argv,'~~');
     rootProjectPath = rootProjectPath + process.argv[3];
-    sassPath = (currentPath || rootProjectPath) + '/scss/**/*.scss';
-    includePath = (currentPath || rootProjectPath) + '/layouts/**/*.html';
-    cssPath = (currentPath || rootProjectPath) + '/css/**/*/.css';
-    cssDestPath = (currentPath || rootProjectPath) + '/css';
-    imgPath = (currentPath || rootProjectPath) + '/img';
-    htmlPath = (currentPath || rootProjectPath) + '/*.{html,htm}';
-    jsPath = (currentPath || rootProjectPath) + '/js/*.js';
+    sassPath        = (currentPath || rootProjectPath) + '/scss/**/*.scss';
+    includePath     = (currentPath || rootProjectPath) + '/layouts/**/*.html';
+    cssPath         = (currentPath || rootProjectPath) + '/css/**/*/.css';
+    cssDestPath     = (currentPath || rootProjectPath) + '/css';
+    imgPath         = (currentPath || rootProjectPath) + '/img';
+    htmlPath        = (currentPath || rootProjectPath) + '/*.{html,htm}';
+    jsPath          = (currentPath || rootProjectPath) + '/js/*.js';
 });
 
 // Compile sass into CSS & auto-inject into browsers
