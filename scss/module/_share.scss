@@ -228,7 +228,7 @@ body{
     background: linear-gradient(#92b3dc, #5a8dc9);
     margin: vwSP(40px) 0;
     border-radius: vwSP(100px);
-    // overflow: hidden;
+    overflow: hidden;
     clear: both;
     box-shadow: 0 5px 10px transparentize(#000, .8);
     min-width: vwSP(720px);
@@ -262,6 +262,7 @@ body{
         display: flex;
         align-items: center;
         width: 50%;
+        // overflow: hidden;
         height: vwSP(120px);
         padding: vwSP(20px);
         &:hover{
