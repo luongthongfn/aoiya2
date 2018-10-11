@@ -17,6 +17,7 @@
         }
     }
     .has-image {
+        font-size: 0;
         text-align: center;
         margin: auto;
         img{
@@ -25,28 +26,29 @@
     }
     &--txt{
         color: #393939;
-        padding: vwSP(50px) vwSP(30px);
+        padding: vwSP(45px) vwSP(30px) vwSP(50px);
         h3{
-            font-size: vwSP(30px);
+            font-size: vwSP(36px);
+            line-height: 1.2;
             margin-bottom: vwSP(20px);
         }
         p{
-            font-size: vwSP(20px);
+            font-size: vwSP(26px);
         }
     }
 }
 //pc screen
 @include pc(){
     .about-page{
-        background: url(../img/mes-focus-bg.png);
+        background: url(../img/about-page-bg-pc.png);
         margin-top: vwPC(30px);
         &--bg{
             background: rgba(255,255,255,0.6);
-            padding: vwPC(100px) vwPC(120px) ;
+            padding: vwPC(122px) vwPC(120px) vwPC(100px);
         }
         &--arc{
-            padding-bottom: vwPC(25px);
-            margin-bottom: vwPC(40px);
+            padding-bottom: vwPC(30px);
+            margin-bottom: vwPC(48px);
             clear: both;
             @include clear();
             &:last-child{
@@ -71,13 +73,16 @@
             }
         }
         &--txt{
+            overflow: hidden;
             padding: vwPC(0px) vwPC(0px);
             h3{
-                font-size: vwPC(30px);
-                margin-bottom: vwPC(20px);
+                font-size: vwPC(22px);
+                line-height: vwPC(32px);
+                margin-bottom: vwPC(15px);
             }
             p{
-                font-size: vwPC(20px);
+                font-size: vwPC(14px);
+                line-height: vwPC(30px);
             }
         }
     }
@@ -91,8 +96,8 @@
             padding: (100px) (120px) ;
         }
         &--arc{
-            padding-bottom: (25px);
-            margin-bottom: (60px);
+            padding-bottom: (30px);
+            margin-bottom: (48px);
             @include clear();
             &:last-child{
                border-bottom: 0;
@@ -107,11 +112,13 @@
         &--txt{
             padding: (0px) (0px);
             h3{
-                font-size: (30px);
-                margin-bottom: (20px);
+                font-size: (22px);
+                line-height: (32px);
+                margin-bottom: (15px);
             }
             p{
-                font-size: (20px);
+                font-size: (14px);
+                line-height: (30px);
             }
         }
     }
