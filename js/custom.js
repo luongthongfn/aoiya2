@@ -1,5 +1,5 @@
 (function ($) {
-    
+
     $(function () {
         //go-top button
         $("#go-top, .go-top").click(function () {
@@ -8,7 +8,7 @@
             }, "slow");
             return false;
         });
-        
+
         $posToShow = $('.slide').height() - $(window).height() + 200;
         $(window).scroll(function () {
             if ($(window).scrollTop() >= $posToShow) {
@@ -101,42 +101,51 @@
     })
 
     //select box
-    $(function(){
+    $(function () {
         // $('#test')
         // $('#request')
     })
     //custom-select
-    $(function(){
+    $(function () {
         var input = $('#request'),
+            inputHidden = $('#request_hidden'),
             $select = $('.custom-select'),
-            _open = function(){
-                console.log('open');
+            _open = function (e) {
+                // console.log('open: ', e.target);
                 $select.addClass('select-open')
             },
-            _close = function(){
-                console.log('close');
+            _close = function () {
                 $select.removeClass('select-open')
+                // console.log('close: ', inputHidden.val());
             },
-            _changeSlected = function(elem){
+            _changeSlected = function (elem) {
                 $select.find('li').removeClass('selected');
                 $(elem).addClass('selected');
             },
-            _update = function(val){
+            _update = function (val) {
                 val = val || "葵屋のサービスについて "
-                input.val(val);
+                input.text(val);
+                inputHidden.val(val);
+                if (input.text().trim() == "葵屋のサービスについて") {
+                    input.addClass('error');
+                    inputHidden.val('');
+                }else{
+                    inputHidden.removeClass('has-error');
+                }
             };
 
         //handle
-        input.click(function(){
-            _open();
+        input.on('click', function (e) {
+            _open(e);
         })
 
-        $select.on('click', 'li', function(){
+        $select.on('click', 'li', function (e) {
             var val = $(this).data('value');
             _changeSlected(this);
             _update(val);
             _close();
         })
+
         $(document).click(function (event) {
             // Check if clicked outside target
             if (!($(event.target).closest(".custom-select").length)) {
@@ -144,6 +153,7 @@
                 _close();
             }
         });
+        
     })
     //contact-form
     $(function () {
@@ -206,6 +216,8 @@
             }
         });
         $("#contact--form").validate({
+            focusInvalid: false,
+            ignore: '',
             rules: {
                 //key is name of input
                 request_hidden: "required",
@@ -252,6 +264,7 @@
                 $(element).removeClass("has-error")
             },
             submitHandler: function () {
+                
                 setPreviewValue();
                 $('#js_contact_confirm').addClass('show');
             }

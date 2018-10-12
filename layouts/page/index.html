@@ -347,7 +347,8 @@
                         <label>
                             <span>お問い合わせ項目</span>
                             <div class="custom-select">
-                                <input type="text" name="requests" id="request" value="葵屋のサービスについて" >
+                                <input type="hidden" name="request_hidden" id="request_hidden">
+                                <span class="input" id="request">葵屋のサービスについて</span>
                                 <ul>
                                     <li class="selected" data-value="">葵屋のサービスについて</li>
                                     <li data-value="採用について ">採用について </li>
@@ -355,13 +356,7 @@
                                     <li data-value="その他お問い合わせ">その他お問い合わせ</li>
                                 </ul>
                             </div>
-                            <select name="request" id="request" value="" class="hidden">
-                                <option value="">項目を選択してください</option>
-                                <option value="Lorem ipsum dolor sit.1">Lorem ipsum dolor sit.1</option>
-                                <option value="Lorem ipsum dolor sit.2">Lorem ipsum dolor sit.2</option>
-                                <option value="Lorem ipsum dolor sit.3">Lorem ipsum dolor sit.3</option>
-                                <option value="Lorem ipsum dolor sit.4">Lorem ipsum dolor sit.4</option>
-                            </select>
+                            
                         </label>
 
                         <label>
