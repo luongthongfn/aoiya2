@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>aoiya | home</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 
@@ -395,7 +398,16 @@
                     <form class="contact--form" id="contact--form" action="" method="POST">
                         <label>
                             <span>お問い合わせ項目</span>
-                            <select name="request" id="request" value="" required>
+                            <div class="custom-select">
+                                <input type="text" name="requests" id="request" value="葵屋のサービスについて">
+                                <ul>
+                                    <li class="selected" data-value="">葵屋のサービスについて</li>
+                                    <li data-value="採用について ">採用について </li>
+                                    <li data-value="ビジネスパートナーについて">ビジネスパートナーについて</li>
+                                    <li data-value="その他お問い合わせ">その他お問い合わせ</li>
+                                </ul>
+                            </div>
+                            <select name="request" id="request" value="" class="hidden">
                                 <option value="">項目を選択してください</option>
                                 <option value="Lorem ipsum dolor sit.1">Lorem ipsum dolor sit.1</option>
                                 <option value="Lorem ipsum dolor sit.2">Lorem ipsum dolor sit.2</option>
@@ -406,22 +418,22 @@
 
                         <label>
                             <span>お名前</span>
-                            <input type="text" name="name" id="name" required>
+                            <input type="text" name="name" id="name">
                         </label>
 
                         <label>
                             <span>貴社名/部署名</span>
-                            <input type="text" name="company" id="company" required>
+                            <input type="text" name="company" id="company">
                         </label>
 
                         <label>
                             <span>メールアドレス</span>
-                            <input type="email" name="email" id="email" required>
+                            <input type="email" name="email" id="email">
                         </label>
 
                         <label>
                             <span>お問い合わせ内容</span>
-                            <textarea name="question" id="question" cols="30" rows="7" required></textarea>
+                            <textarea name="question" id="question" cols="30" rows="7"></textarea>
                         </label>
                         <button type="submit" class="contact-submit" id="contact-submit">送信<i class="fa fa-spin"></i></button>
 
@@ -482,7 +494,12 @@
             <a href=""><img src="img/map-view.png" alt="alt_text" class="w1"></a>
         </section>
     </div><!-- End #content-->
-
+    <!-- <script src="js/custom-select-menu.jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#request').customSelectMenu();
+        });
+    </script> -->
     <footer>
         <a href="" id="go-top" class="show-pc"><i class="fa fa-angle-up"></i></a>
         <div class="ft-wrapper">
@@ -534,7 +551,6 @@
 
 
     <!-- footer library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/custom.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->

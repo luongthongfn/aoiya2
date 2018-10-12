@@ -369,7 +369,53 @@
         textarea {
             height: unset;
         }
-
+        .custom-select{
+            position: relative;
+            &.select-open{
+                >ul{
+                    display: block;
+                }
+            }
+            >ul{
+                display: none;
+                position: absolute;
+                background: #fff;
+                z-index: 10;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: vwSP(15px) 0px;
+                border: 1px solid #EDEDED;
+                border-top: 0;
+                li{
+                    font-size: vwSP(20px);
+                    padding: 0px vwSP(30px) 0px;
+                    cursor: pointer;
+                    &:hover{
+                        background: #f1f1f1;
+                    }
+                    &.selected{
+                        position: relative;
+                        color: #fff;
+                        background: #5A8CC9;
+                        &:before{
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: vwSP(8px);
+                            @include translate(0, -50%);
+                            display: block;
+                            width: vwSP(16px);
+                            height: vwSP(16px);
+                            background: url(../img/i-check.png) center/ 100% no-repeat;
+                        }
+                    }
+                }
+            }
+            input{
+                margin-left: 0;
+            }
+        }
         .contact-submit {
             font-size: vwSP(28px);
             font-weight: bold;
@@ -813,7 +859,42 @@
                     width: 1px;
                 }
             }
-
+            .custom-select{
+                flex: 0 0 vwPC(400px);
+                margin-left: vwPC(20px);
+                >ul{
+                    padding: vwPC(7px) 0px;
+                    border: 1px solid #EDEDED;
+                    border-top: 0;
+                    li{
+                        font-size: vwPC(16px);
+                        padding: 0px vwPC(20px) 0px;
+                        cursor: pointer;
+                        &:hover{
+                            background: #f1f1f1;
+                        }
+                        &.selected{
+                            position: relative;
+                            color: #fff;
+                            background: #5A8CC9;
+                            &:before{
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                left: vwPC(6px);
+                                @include translate(0, -50%);
+                                display: block;
+                                width: vwPC(11px);
+                                height: vwPC(11px);
+                                background: url(../img/i-check.png) center/ 100% no-repeat;
+                            }
+                        }
+                    }
+                }
+                input{
+                    margin-left: 0;
+                }
+            }
             .contact-submit {
                 font-size: vwPC(20px);
                 width: vwPC(400px);
@@ -1151,7 +1232,42 @@
                     padding: vwPC(10px) vwPC(10px) vwPC(8px);
                 }
             }
-
+            .custom-select{
+                flex: 0 0 400px;
+                >ul{
+                    padding: (7px) 0px;
+                    border: 1px solid #EDEDED;
+                    border-top: 0;
+                    li{
+                        font-size: 16px;
+                        padding: 0px (30px) 0px;
+                        cursor: pointer;
+                        &:hover{
+                            background: #f1f1f1;
+                        }
+                        &.selected{
+                            position: relative;
+                            
+                            color: #fff;
+                            background: #5A8CC9;
+                            &:before{
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                left: (8px);
+                                @include translate(0, -50%);
+                                display: block;
+                                width: (16px);
+                                height: (16px);
+                                background: url(../img/i-check.png) center/ 100% no-repeat;
+                            }
+                        }
+                    }
+                }
+                input{
+                    margin-left: 0;
+                }
+            }
             .contact-submit {
                 font-size: (20px);
                 width: (400px);

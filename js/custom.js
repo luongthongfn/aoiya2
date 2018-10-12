@@ -100,6 +100,51 @@
         });
     })
 
+    //select box
+    $(function(){
+        // $('#test')
+        // $('#request')
+    })
+    //custom-select
+    $(function(){
+        var input = $('#request'),
+            $select = $('.custom-select'),
+            _open = function(){
+                console.log('open');
+                $select.addClass('select-open')
+            },
+            _close = function(){
+                console.log('close');
+                $select.removeClass('select-open')
+            },
+            _changeSlected = function(elem){
+                $select.find('li').removeClass('selected');
+                $(elem).addClass('selected');
+            },
+            _update = function(val){
+                val = val || "葵屋のサービスについて "
+                input.val(val);
+            };
+
+        //handle
+        input.click(function(){
+            _open();
+        })
+
+        $select.on('click', 'li', function(){
+            var val = $(this).data('value');
+            _changeSlected(this);
+            _update(val);
+            _close();
+        })
+        $(document).click(function (event) {
+            // Check if clicked outside target
+            if (!($(event.target).closest(".custom-select").length)) {
+                // Hide target
+                _close();
+            }
+        });
+    })
     //contact-form
     $(function () {
 
@@ -141,7 +186,7 @@
         }
 
         var setPreviewValue = function () {
-            $reqVal = $('#request').val();
+            $reqVal = $('input[name = "request"]').val(); //from custom-select
             $nameVal = $('#name').val();
             $companyVal = $('#company').val();
             $emailVal = $('#email').val();
@@ -162,7 +207,8 @@
         });
         $("#contact--form").validate({
             rules: {
-                request: "required",
+                //key is name of input
+                request_hidden: "required",
                 name: "required",
                 company: "required",
                 email: {
@@ -175,8 +221,9 @@
                 }
             },
             messages: {
+                //key is name of input
+                request_hidden: "",
                 // request: "お問い合わせ項目を選択してください。",
-                request: "",
                 name: "お名前を入力してください。",
                 company: "貴社名を入力してください。",
                 email: "メールアドレスを入力してください。",
