@@ -338,7 +338,8 @@
         }
 
         .input {
-            display: block !important;
+            display: flex !important;
+            align-items: center;
             font-weight: normal;
             cursor: pointer;
             text-align: left;
@@ -347,19 +348,14 @@
                 content: '';
                 display: inline-block;
                 position: absolute;
-                top: 10px;
-                right: 10px;
+                top: vwSP(21px);
+                right: vwSP(27px);
                 // width: 15px;
-                border: 15px solid transparent;
+                border: vwSP(17px) solid transparent;
                 border-top-color: #5A8CC9;
-                border-left-width: 10px;
-                border-right-width: 10px;
+                border-left-width: vwSP(10px);
+                border-right-width: vwSP(10px);
             }
-
-            // &.error {
-            //     color: #ff0000;
-            //     border: 1px solid red;
-            // }
         }
 
         .has-error~.input {
@@ -922,6 +918,18 @@
                 }
             }
 
+            .input {
+               
+                &:after {
+                    top: vwPC(16px);
+                    right: vwPC(14px);
+                    border: vwPC(12px) solid transparent;
+                    border-top-color: #5A8CC9;
+                    border-left-width: vwPC(7px);
+                    border-right-width: vwPC(7px);
+                }
+            }
+
             .custom-select {
                 flex: 0 0 vwPC(400px);
                 margin-left: vwPC(20px);
@@ -1313,7 +1321,17 @@
                     padding: vwPC(10px) vwPC(10px) vwPC(8px);
                 }
             }
-
+            .input {
+               
+                &:after {
+                    top: (16px);
+                    right: (14px);
+                    border: (12px) solid transparent;
+                    border-top-color: #5A8CC9;
+                    border-left-width: (7px);
+                    border-right-width: (7px);
+                }
+            }
             .custom-select {
                 flex: 0 0 400px;
 

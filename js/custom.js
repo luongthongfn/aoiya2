@@ -100,23 +100,16 @@
         });
     })
 
-    //select box
-    $(function () {
-        // $('#test')
-        // $('#request')
-    })
     //custom-select
     $(function () {
         var input = $('#request'),
             inputHidden = $('#request_hidden'),
             $select = $('.custom-select'),
-            _open = function (e) {
-                // console.log('open: ', e.target);
+            _open = function () {
                 $select.addClass('select-open')
             },
             _close = function () {
                 $select.removeClass('select-open')
-                // console.log('close: ', inputHidden.val());
             },
             _changeSlected = function (elem) {
                 $select.find('li').removeClass('selected');
@@ -126,20 +119,23 @@
                 val = val || "葵屋のサービスについて "
                 input.text(val);
                 inputHidden.val(val);
+                _validate();
+            },
+            _validate = function () {
                 if (input.text().trim() == "葵屋のサービスについて") {
-                    input.addClass('error');
+                    inputHidden.addClass('has-error');
                     inputHidden.val('');
-                }else{
+                } else {
                     inputHidden.removeClass('has-error');
                 }
             };
 
         //handle
-        input.on('click', function (e) {
-            _open(e);
+        input.on('click', function () {
+            _open();
         })
 
-        $select.on('click', 'li', function (e) {
+        $select.on('click', 'li', function () {
             var val = $(this).data('value');
             _changeSlected(this);
             _update(val);
@@ -153,7 +149,7 @@
                 _close();
             }
         });
-        
+
     })
     //contact-form
     $(function () {
@@ -196,7 +192,7 @@
         }
 
         var setPreviewValue = function () {
-            $reqVal = $('input[name = "request"]').val(); //from custom-select
+            $reqVal = $('input[name = "request_hidden"]').val(); //from custom-select
             $nameVal = $('#name').val();
             $companyVal = $('#company').val();
             $emailVal = $('#email').val();
@@ -264,7 +260,6 @@
                 $(element).removeClass("has-error")
             },
             submitHandler: function () {
-                
                 setPreviewValue();
                 $('#js_contact_confirm').addClass('show');
             }
