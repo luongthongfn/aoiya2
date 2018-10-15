@@ -375,7 +375,8 @@
             width: 100%;
             padding: 15px 20px;
             border: 1px solid #EDEDED;
-
+            border-radius: 0;
+            background-clip: padding-box;
             &.has-error {
                 border-color: #ff0000;
             }
@@ -428,7 +429,8 @@
 
                 li {
                     font-size: vwSP(20px);
-                    padding: 0px vwSP(30px) 0px;
+                    line-height: 1.2;
+                    padding: vwSP(9px) vwSP(30px) vwSP(7px);
                     cursor: pointer;
 
                     &:hover {
@@ -941,7 +943,7 @@
 
                     li {
                         font-size: vwPC(16px);
-                        padding: 0px vwPC(20px) 0px;
+                        padding: vwPC(6px) vwPC(20px) vwPC(4px);
                         cursor: pointer;
 
                         &:hover {
@@ -1342,7 +1344,7 @@
 
                     li {
                         font-size: 16px;
-                        padding: 0px (30px) 0px;
+                        padding: 6px (30px) 4px;
                         cursor: pointer;
 
                         &:hover {

@@ -119,7 +119,9 @@
                 val = val || "葵屋のサービスについて "
                 input.text(val);
                 inputHidden.val(val);
+                console.log(inputHidden.val());
                 _validate();
+                
             },
             _validate = function () {
                 if (input.text().trim() == "葵屋のサービスについて") {
