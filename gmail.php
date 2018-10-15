@@ -66,7 +66,7 @@ if (isset($_POST['send_mail'])) {
             . 'メールアドレス: ' . $email . '<br>'
             . 'お問い合わせ内容: ' . $question . '<br>';
         // 'kanemitsu@wiredgroup.co.jp'; // Add a recipient
-        if (sendMail($request, $content, $name, 'kanemitsu@wiredgroup.co.jp')) {
+        if (sendMail($request, $content, $name, 'info@aoiyakk.com')) {
             // if receive then auto reply
             sendMail('title reply', '$content reply', '$name', $email);
         }

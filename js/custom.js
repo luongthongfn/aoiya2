@@ -116,15 +116,15 @@
                 $(elem).addClass('selected');
             },
             _update = function (val) {
-                val = val || "葵屋のサービスについて "
+                val = val || "項目を選択してください"
                 input.text(val);
                 inputHidden.val(val);
-                console.log(inputHidden.val());
+                // console.log(inputHidden.val());
                 _validate();
                 
             },
             _validate = function () {
-                if (input.text().trim() == "葵屋のサービスについて") {
+                if (input.text().trim() == "項目を選択してください") {
                     inputHidden.addClass('has-error');
                     inputHidden.val('');
                 } else {
@@ -223,7 +223,8 @@
                 company: "required",
                 email: {
                     required: true,
-                    email: true
+                    email: true,
+                    maxlength: 255
                 },
                 question: {
                     required: true,
@@ -236,7 +237,11 @@
                 // request: "お問い合わせ項目を選択してください。",
                 name: "お名前を入力してください。",
                 company: "貴社名を入力してください。",
-                email: "メールアドレスを入力してください。",
+                email: {
+                    required: "メールアドレスを入力してください。",
+                    email: "正しいメールアドレスを入力してください。",
+                    maxlength: "正しいメールアドレスを入力してください。"
+                },
                 question: {
                     required: "お問い合わせ内容を入力してください。",
                     minlength: "少なくとも二文字以上"

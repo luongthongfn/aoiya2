@@ -991,7 +991,9 @@
                 right: 0;
                 top: 0;
                 color: #ff0000;
-                padding: 10px;
+                padding: vwPC(10px);
+                user-select: none;
+                cursor: text;
 
             }
 
@@ -1390,7 +1392,7 @@
             .required-notice {
                 font-size: 16px;
                 padding: 10px;
-
+                
                 +.required-notice {
                     display: none;
                 }
