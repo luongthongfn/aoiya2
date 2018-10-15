@@ -193,7 +193,20 @@ p {
     display: block;
     text-align: center;
 }
-
+.show-active{
+    display: none;
+}
+.hide-active{
+    display: block;
+}
+.active{
+    .show-active{
+        display: block;
+    }
+    .hide-active{
+        display: none;
+    }
+}
 //custom-table
 .table-layout {
     border: 1px solid #e4e6e8;

@@ -1,9 +1,11 @@
 .recruit-page {
     margin-top: vwSP(94px);
-    margin-bottom: vwSP(120px);
-    .container{
+    margin-bottom: vwSP(80px);
+
+    .container {
         @extend %wrapper3;
     }
+
     .recruit-tab {
         ul {
             font-size: 0;
@@ -17,6 +19,7 @@
 
                 &.active {
                     a {
+                        font-weight: bold;
                         color: #fff;
                         background: #5a8cc9;
                         height: vwSP(78px);
@@ -24,13 +27,15 @@
                 }
 
                 a {
-                    font-size: vwSP(18px);
+                    font-size: vwSP(20px);
+                    // font-weight: bold;
                     color: #4c8cce;
                     display: flex;
                     align-items: center;
                     width: vwSP(200px);
                     height: vwSP(72px);
                     padding: vwSP(10px) vwSP(20px);
+                    padding-right: vwSP(10px);
                     border: 1px solid #ccc;
                     border-bottom: 0;
                     border-top-left-radius: vwSP(10px);
@@ -38,7 +43,7 @@
 
                     img {
                         width: vwSP(30px);
-                        height: vwSP(30px);
+                        // height: vwSP(30px);
                         margin-right: vwSP(10px);
                         flex-shrink: 0;
                     }
@@ -49,13 +54,14 @@
 
     .table-layout {
         color: #707070;
+        border-width: 2px;
 
         .thead {
-            font-size: vwSP(25px);
+            font-size: vwSP(36px);
             color: #4c8cce;
             font-weight: bold;
             background: #f1f2f3;
-            padding: vwSP(15px);
+            padding: vwSP(12px) vwSP(15px) vwSP(8px);
         }
 
         .trow {
@@ -63,52 +69,71 @@
         }
 
         .tdata {
-            font-size: vwSP(20px);
+            font-size: vwSP(26px);
             padding: vwSP(10px);
+            border-width: 2px;
+            margin-top: -2px;
+            margin-left: -2px;
         }
 
         .tkey {
-            font-size: vwSP(25px);
-            padding-left: vwSP(20px);
-            border-left: 5px solid #4c8cce;
+            font-size: vwSP(28px);
+            line-height: 1;
+            padding-left: vwSP(15px);
+            border-left: 4px solid #4c8cce;
+            margin: vwSP(5px);
+            margin-left: vwSP(7px);
         }
 
         .tvalue {
+            line-height: vwSP(32px);
+            white-space: pre-line;
             padding: vwSP(20px);
+            padding-left: vwSP(30px);
+            &.text-center{
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
         }
     }
 }
-.pagination.in-recruit{
-    margin: 0 vwSP(60px);
-    
+
+.pagination.in-recruit {
+    min-width: 84%;
 }
+
 //pc screen
 @include pc() {
     .recruit-page {
         margin-top: vwPC(94px);
         margin-bottom: vwPC(80px);
+
         .recruit-tab {
             ul {
                 margin-bottom: vwPC(51px);
+
                 li {
-                    margin-right: vwPC(10px);
+                    // min-width: vwPC(220px);
+                    margin-right: vwPC(2px);
 
                     &.active {
                         a {
-                            height: vwPC(78px);
+                            height: vwPC(69px);
                         }
                     }
 
                     a {
-                        font-size: vwPC(18px);
-                        width: vwPC(200px);
-                        height: vwPC(72px);
+                        font-size: vwPC(15px);
+                        width: vwPC(220px);
+                        height: vwPC(63px);
+                        // height: unset;
                         padding: vwPC(10px) vwPC(20px);
+                        padding-right: vwPC(0px);
                         border-top-left-radius: vwPC(10px);
                         border-top-right-radius: vwPC(10px);
+
                         img {
-                            width: vwPC(30px);
-                            height: vwPC(30px);
+                            width: vwPC(16px);
                             margin-right: vwPC(10px);
                         }
                     }
@@ -117,7 +142,7 @@
         }
 
         .table-layout {
-            border-width: 2px;
+
             .thead {
                 font-size: vwPC(18px);
                 padding: vwPC(15px);
@@ -130,11 +155,9 @@
             .tdata {
                 font-size: vwPC(16px);
                 padding: vwPC(10px);
-                border-width: 2px;
-                margin-top: -2px;
-                margin-left: -2px;
-                &:first-child{
-                   flex: 1 0 vwPC(248px);
+
+                &:first-child {
+                    flex: 1 0 vwPC(248px);
                 }
             }
 
@@ -148,7 +171,8 @@
             }
         }
     }
-    .pagination.in-recruit{
+
+    .pagination.in-recruit {
         width: vwPC(552px);
         margin: auto;
     }
@@ -159,9 +183,11 @@
     .recruit-page {
         margin-top: (94px);
         margin-bottom: (80px);
+
         .recruit-tab {
             ul {
                 margin-bottom: (51px);
+
                 li {
                     margin-right: (10px);
 
@@ -178,6 +204,7 @@
                         padding: (10px) (20px);
                         border-top-left-radius: (10px);
                         border-top-right-radius: (10px);
+
                         img {
                             width: (30px);
                             height: (30px);
@@ -190,6 +217,7 @@
 
         .table-layout {
             border-width: 2px;
+
             .thead {
                 font-size: (18px);
                 padding: (15px);
@@ -205,8 +233,9 @@
                 border-width: 2px;
                 margin-top: -2px;
                 margin-left: -2px;
-                &:first-child{
-                   flex: 1 0 (248px);
+
+                &:first-child {
+                    flex: 1 0 (248px);
                 }
             }
 
@@ -220,7 +249,8 @@
             }
         }
     }
-    .pagination.in-recruit{
+
+    .pagination.in-recruit {
         width: (552px);
     }
 }
