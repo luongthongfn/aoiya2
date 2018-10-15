@@ -379,6 +379,13 @@
             background-clip: padding-box;
             &.has-error {
                 border-color: #ff0000;
+                color: #dedede;
+                &:focus{
+                    color: #000;
+                    +.required-notice{
+                        opacity: 0.1;
+                    }
+                }
             }
         }
 
