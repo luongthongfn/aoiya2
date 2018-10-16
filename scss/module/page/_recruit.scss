@@ -8,6 +8,7 @@
 
     .recruit-tab {
         ul {
+            font-family: 'Hiragino Kaku Gothic Pro', '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
             font-size: 0;
             border-bottom: 2px solid #4c8cce;
             margin-bottom: vwSP(51px);
@@ -36,6 +37,7 @@
                     height: vwSP(72px);
                     padding: vwSP(10px) vwSP(20px);
                     padding-right: vwSP(10px);
+                    padding-right: 0;
                     border: 1px solid #E4E6E8;
                     border-bottom: 0;
                     border-top-left-radius: vwSP(10px);
@@ -76,7 +78,7 @@
         .tdata {
             font-size: vwSP(26px);
             padding: vwSP(10px);
-            
+
             border-width: 2px;
             margin-top: -2px;
             margin-left: -2px;
@@ -84,7 +86,7 @@
 
         .tkey {
             font-size: vwSP(28px);
-            line-height: 1;
+            // line-height: 1;
             padding-left: vwSP(15px);
             border-left: 4px solid #4c8cce;
             margin: vwSP(5px);
@@ -168,7 +170,6 @@
                 }
                 &:nth-child(2){
                     .tvalue{
-                        line-height: 1;
                         padding: vwPC(15px) vwPC(5px);
                     }
                 }

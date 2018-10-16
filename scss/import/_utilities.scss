@@ -1,8 +1,9 @@
-body.dev{
-    .fixed{
+body.dev {
+    .fixed {
         position: relative !important;
     }
 }
+
 .overlayBody {
     position: fixed;
     z-index: 2;
@@ -188,8 +189,9 @@ p {
 .text-center {
     text-align: center;
 }
-.text-center-sp{
-    @include mq(768, max){
+
+.text-center-sp {
+    @include mq(768, max) {
         text-align: center;
     }
 }
@@ -198,20 +200,25 @@ p {
     display: block;
     text-align: center;
 }
-.show-active{
+
+.show-active {
     display: none;
 }
-.hide-active{
+
+.hide-active {
     display: block;
 }
-.active{
-    .show-active{
+
+.active {
+    .show-active {
         display: block;
     }
-    .hide-active{
+
+    .hide-active {
         display: none;
     }
 }
+
 //custom-table
 .table-layout {
     border: 1px solid #e4e6e8;
@@ -240,6 +247,10 @@ p {
     >ul {
         li {
             display: inline-block;
+
+            a {
+                cursor: pointer;
+            }
         }
     }
 
@@ -262,10 +273,15 @@ p {
 }
 
 //media_____________________
+
 .show-sp {
     @include mq(768) {
         display: none !important;
     }
+}
+
+.show-pc {
+    display: block !important;
 }
 
 .show-pc {
@@ -274,10 +290,10 @@ p {
     }
 }
 
-.hidden{
+.hidden {
     display: none !important;
 }
 
-.show{
+.show {
     display: block !important;
 }

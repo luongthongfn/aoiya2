@@ -7,6 +7,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     htmlbeautify = require('gulp-html-beautify'),
 
+    babel = require('gulp-babel'),
+    rename = require("gulp-rename"),
 
     rootProjectPath = '', /*path from root*/
     currentPath = '.',
@@ -61,6 +63,17 @@ gulp.task('include', function () {
         .pipe(browserSync.stream());
 });
 
+//js
+gulp.task('babel', () =>
+    gulp.src('js/test.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(rename(function (path) {
+            path.basename += ".dist";
+          }))
+        .pipe(gulp.dest('js'))
+);
 
 // watch
 gulp.task('watch', ['setPath', 'sass', 'include'], function () {
