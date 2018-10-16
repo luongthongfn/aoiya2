@@ -36,7 +36,7 @@
                     height: vwSP(72px);
                     padding: vwSP(10px) vwSP(20px);
                     padding-right: vwSP(10px);
-                    border: 1px solid #ccc;
+                    border: 1px solid #E4E6E8;
                     border-bottom: 0;
                     border-top-left-radius: vwSP(10px);
                     border-top-right-radius: vwSP(10px);
@@ -53,6 +53,7 @@
     }
 
     .table-layout {
+        font-family: 'Hiragino Kaku Gothic Pro', '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
         color: #707070;
         border-width: 2px;
 
@@ -62,6 +63,10 @@
             font-weight: bold;
             background: #f1f2f3;
             padding: vwSP(12px) vwSP(15px) vwSP(8px);
+
+            border-width: 2px;
+            margin-top: -2px;
+            margin-left: -2px;
         }
 
         .trow {
@@ -71,6 +76,7 @@
         .tdata {
             font-size: vwSP(26px);
             padding: vwSP(10px);
+            
             border-width: 2px;
             margin-top: -2px;
             margin-left: -2px;
@@ -90,7 +96,7 @@
             white-space: pre-line;
             padding: vwSP(20px);
             padding-left: vwSP(30px);
-            &.text-center{
+            &.text-center-sp{
                 padding-top: 0px;
                 padding-bottom: 0px;
             }
@@ -142,10 +148,10 @@
         }
 
         .table-layout {
-
+            
             .thead {
                 font-size: vwPC(18px);
-                padding: vwPC(15px);
+                padding: vwPC(9px) vwPC(17px);
             }
 
             .trow {
@@ -154,27 +160,46 @@
 
             .tdata {
                 font-size: vwPC(16px);
-                padding: vwPC(10px);
+                min-height: vwPC(80px);
+                padding: vwPC(7px) vwPC(13px);
 
                 &:first-child {
                     flex: 1 0 vwPC(248px);
                 }
+                &:nth-child(2){
+                    .tvalue{
+                        line-height: 1;
+                        padding: vwPC(15px) vwPC(5px);
+                    }
+                }
             }
 
             .tkey {
-                font-size: vwPC(16px);
-                padding-left: vwPC(20px);
+                font-size: vwPC(14px);
+                padding-left: vwPC(7px);
+                margin: vwPC(15px) vwPC(5px);
             }
 
             .tvalue {
+                font-size: vwPC(14px);
+                line-height: vwPC(24px);
                 padding: vwPC(5px);
+                
             }
         }
     }
 
     .pagination.in-recruit {
-        width: vwPC(552px);
+        min-width: 38.5%;
+        width: auto;
         margin: auto;
+        .entry{
+            .eng{
+                font-family:'roboto condensed', sans-serif;
+                font-size: vwPC(32px);
+                letter-spacing: unset;
+            }
+        }
     }
 }
 
@@ -189,25 +214,25 @@
                 margin-bottom: (51px);
 
                 li {
-                    margin-right: (10px);
+                    margin-right: (2px);
 
                     &.active {
                         a {
-                            height: (78px);
+                            height: (69px);
                         }
                     }
 
                     a {
-                        font-size: (18px);
-                        width: (200px);
-                        height: (72px);
+                        font-size: (15px);
+                        width: (220px);
+                        height: (63px);
                         padding: (10px) (20px);
+                        padding-right: (0px);
                         border-top-left-radius: (10px);
                         border-top-right-radius: (10px);
 
                         img {
-                            width: (30px);
-                            height: (30px);
+                            width: (16px);
                             margin-right: (10px);
                         }
                     }
@@ -216,41 +241,48 @@
         }
 
         .table-layout {
-            border-width: 2px;
 
             .thead {
                 font-size: (18px);
-                padding: (15px);
-            }
-
-            .trow {
-                flex-direction: row;
+                padding: (9px) (17px);
             }
 
             .tdata {
                 font-size: (16px);
-                padding: (10px);
-                border-width: 2px;
-                margin-top: -2px;
-                margin-left: -2px;
+                min-height: (80px);
+                padding: (7px) (13px);
 
                 &:first-child {
                     flex: 1 0 (248px);
                 }
+                &:nth-child(2){
+                    .tvalue{
+                        padding: 15px 5px;
+                    }
+                }
             }
 
             .tkey {
-                font-size: (16px);
-                padding-left: (20px);
+                font-size: (14px);
+                padding-left: (7px);
+                margin: (15px) (5px);
             }
 
             .tvalue {
+                font-size: 14px;
+                line-height: (24px);
                 padding: (5px);
+                
             }
         }
     }
 
     .pagination.in-recruit {
-        width: (552px);
+        min-width: 38.5%;
+        .entry{
+            .eng{
+                font-size: (32px);
+            }
+        }
     }
 }

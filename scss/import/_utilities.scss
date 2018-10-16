@@ -188,6 +188,11 @@ p {
 .text-center {
     text-align: center;
 }
+.text-center-sp{
+    @include mq(768, max){
+        text-align: center;
+    }
+}
 
 .block-center {
     display: block;
@@ -224,6 +229,7 @@ p {
     }
 
     .tdata {
+        flex: 1 1 100%;
         border: 1px solid #e4e6e8;
         margin: -1px 0 0 -1px;
     }
