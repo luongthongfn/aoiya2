@@ -4,7 +4,7 @@
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
-function sendMail($title, $content, $nTo, $mTo, $diachicc = '')
+function sendMail($title, $content, $nTo, $mTo, $adressCC = '')
 {
     $nFrom = 'Aoiya';
     $mFrom = 'webtestwav@gmail.com'; //your mail
@@ -29,7 +29,7 @@ function sendMail($title, $content, $nTo, $mTo, $diachicc = '')
     $mail->SetFrom($mFrom, $nFrom);
 
     //string to array
-    $ccmail = explode(',', $diachicc);
+    $ccmail = explode(',', $adressCC);
     $ccmail = array_filter($ccmail);
     if (!empty($ccmail)) {
         foreach ($ccmail as $k => $v) {
