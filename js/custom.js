@@ -64,7 +64,6 @@ $(function () {
         var _this = $(this);
         var nav = _this.find('.js-tabnav');
         var handleClick = 'ontouchstart' in document.documentElement ? 'touchstart' : 'click';
-        $('body').after(handleClick)
         $(nav).on("click " + handleClick, "a[href^='#']", function (e) {
             // $('body').toggleClass('dev');
             e.preventDefault();
