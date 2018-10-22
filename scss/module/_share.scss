@@ -222,7 +222,7 @@ body{
 .pagination {
     position: relative;
     display: inline-flex;
-    background: linear-gradient(#92b3dc, #5a8dc9);
+    background: url(../img/btn-bg.png) center/100% 100% ;
     margin: vwSP(40px) 0;
     border-radius: vwSP(100px);
     overflow: hidden;
@@ -240,7 +240,7 @@ body{
         height: vwSP(118px);
         padding: vwSP(33px);
         &:hover{
-            background: linear-gradient(#5a8dc9, #92b3dc);
+            background: url(../img/btn-bg-hover.png) center/100% 100% ;
         }
 
         .eng {
@@ -269,7 +269,7 @@ body{
         height: vwSP(120px);
         padding: vwSP(20px);
         &:hover{
-            background-image: linear-gradient(#5a8dc9, #92b3dc);
+            background: url(../img/btn-bg-hover.png) center/100% 100% ;
         }
         .fa {
             color: #fff;
