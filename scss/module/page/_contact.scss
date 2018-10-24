@@ -1,5 +1,7 @@
 /* #region  sp */
 .contact-page {
+    font-family: 'Hiragino Kaku Gothic Pro', '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    border-top: 2px solid #00008B;
     .container{
         @extend %wrapper3;
     }
@@ -13,50 +15,62 @@
     }
 
     .contact-title {
-        font-size: vwSP(40px);
+        font-size: vwSP(50px);
+        font-weight: bold;
         color: #00008b;
         text-align: center;
-        padding: vwSP(60px) 0;
+        padding: vwSP(55px) 0 vwSP(36px);
     }
 
     .contact-notify {
+        color: #707070;
         background: #f9f9eb;
         max-width: vwSP(1000px);
-        padding: vwSP(40px) 0;
+        padding: vwSP(42px) 0;
         margin: auto;
 
         .notify-title {
-            font-size: vwSP(30px);
+            font-size: vwSP(36px);
+            font-weight: bold;
             margin-bottom: vwSP(15px);
         }
 
         ul {
-            list-style-type: disc;
-            list-style-position: inside;
             color: #707070;
-
+            padding-left: vwSP(13px);
             li {
-                font-size: vwSP(20px);
+                font-size: vwSP(32px);
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: vwSP(5px);
+                    height: vwSP(5px);
+                    background: #707070;
+                    border-radius: 100px;
+                    margin-right: 4px;
+                }
             }
         }
     }
 
     .step-box {
         display: flex;
-        background: linear-gradient(#92b4dc, #5a8cc9);
-        margin: vwSP(80px) vwSP(30px) vwSP(70px);
-        box-shadow: 0 5px 5px transparentize(#000, .8);
+        background: url(../img/step-bg.png) center/100% 100%;
+        margin: vwSP(80px) vwSP(30px) vwSP(68px);
+        box-shadow: 0 3px 5px transparentize(#040000, .84);
         border-radius: 20px;
         overflow: hidden;
 
         li {
             color: #fff;
             width: (100/3)+0%;
-            padding: vwSP(20px);
-            padding-right: 0px;
+            text-align: center;
+            padding: vwSP(20px) 0;
+            // padding-right: 0px;
 
             +li {
-                border-left: 2px solid #4976b9;
+                border-left: 2px solid #5A8CC9;
             }
 
             &.active {
@@ -65,24 +79,26 @@
             }
 
             .step {
+                font-family:'roboto', sans-serif;
+                font-weight: bold;
                 display: inline-block;
                 text-transform: uppercase;
-                font-weight: bold;
                 vertical-align: middle;
                 text-align: center;
-                margin-right: vwSP(15px);
+                margin-right: vwSP(5px);
 
                 span {
                     display: block;
                 }
 
                 .num {
-                    font-size: vwSP(30px);
+                    font-size: vwSP(36px);
+                    line-height: 1;
                 }
             }
 
             .step-desc {
-                font-size: vwSP(18px);
+                font-size: vwSP(30px);
                 font-weight: bold;
             }
         }
@@ -95,11 +111,11 @@
         margin-bottom: vwSP(100px);
 
         .thead {
-            font-size: vwSP(30px);
+            font-size: vwSP(36px);
             font-weight: bold;
             color: hsl(213, 51%, 57%);
             background: #f1f2f3;
-            padding: vwSP(10px);
+            padding: vwSP(10px) vwSP(17px);
             border-width: 2px;
             margin-top: -2px;
             margin-left: -2px;
