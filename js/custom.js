@@ -291,6 +291,115 @@ $(function () {
     })
 })
 
+// select date 
+$(function () {
+    if ($('#js-select-date').length) {
+        var Year = $('#year'),
+            Month = $('#month'),
+            Day = $('#day'),
+            daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+            thisYear = new Date().getFullYear(),
+            reCruitFrom = thisYear - 60,
+            reCruitTo = thisYear - 20,
+            listYear = [],
+            isLeapYear = function (year) {
+                return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
+            },
+            appendOption = function (elm, value) {
+                var value = value || '';
+                elm.append(`<option value="${value}" >${value}</option>`);
+            },
+            changeMonth = function () {
+                var yealVal = Year.val(),
+                    monthVal = Month.val(),
+                    dayVal = Day.val(),
+                    dayInMonth;
+                if (monthVal == 2) {
+                    isLeapYear(yealVal) ? daysInMonth[1] = 29 : daysInMonth[1] = 28;
+                }
+                totalDay = daysInMonth[monthVal - 1];
+                if (!dayVal) {
+                    if (!monthVal) {
+                        return;
+                    }
+                    // Day.empty();
+                    // appendOption(Day);
+                    // for (var i = 1; i <= totalDay; i++) {
+                    //     appendOption(Day, i);
+                    // }
+                    var lastOptionVal = Day.find('option').last().val();
+                    if (lastOptionVal < totalDay) {
+                        while (lastOptionVal < totalDay) {
+                            appendOption(Day, ++lastOptionVal)
+                        }
+                    } else if (lastOptionVal > totalDay) {
+                        while (lastOptionVal > totalDay) {
+                            Day.find('option').last().remove();
+                            lastOptionVal--;
+                        }
+                    }
+                } else {
+                    //selected < days in month
+                    var lastOptionVal = Day.find('option').last().val();
+                    if (lastOptionVal < totalDay) {
+                        while (lastOptionVal < totalDay) {
+                            appendOption(Day, ++lastOptionVal)
+                        }
+                    } else if (lastOptionVal > totalDay) {
+                        while (lastOptionVal > totalDay) {
+                            Day.find('option').last().remove();
+                            lastOptionVal--;
+                        }
+                    }
+                    return;
+                }
+            },
+            testSelectDate = function () {
+                $('body').append('<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>');
+                setTimeout(() => {
+                    var yealVal = Year.val(),
+                        monthVal = Month.val(),
+                        dayVal = Day.val(),
+                        date = moment(`${dayVal}.${monthVal}.${yealVal}`, 'DD.MM.YYYY');
+                    console.log('test select :', date.isValid());
+                }, 500);
+            };
+
+        for (var i = reCruitFrom; i <= reCruitTo; i++) {
+            listYear.push(i);
+        }
+
+
+        //init render:
+
+        //-render year
+        appendOption(Year);
+        listYear.forEach(function (item, index) {
+            //render year
+            appendOption(Year, item);
+        })
+
+        //-render month
+        appendOption(Month);
+        for (let i = 1; i <= 12; i++) {
+            appendOption(Month, i)
+        }
+
+        //-render day
+        appendOption(Day);
+        for (let i = 1; i <= 31; i++) {
+            appendOption(Day, i)
+        }
+
+        //handle
+        Year.on('change', changeMonth);
+        Month.on('change', changeMonth);
+
+        //test
+        $('#year, #month, #day').on('change', testSelectDate);
+
+    }
+})
 
 //maps
 function myMap() {

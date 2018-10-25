@@ -94,15 +94,18 @@
                             </div>
                             <div class="tdata">
                                 <label>
-                                    <input type="radio" name="input1" id="test" checked>
+                                    <input type="radio" name="input1" id="test">
+                                    <span class="custom-radio"></span>
                                     テスター
                                 </label>
                                 <label>
                                     <input type="radio" name="input1" id="">
+                                    <span class="custom-radio"></span>
                                     コンテンツオペレーター
                                 </label>
                                 <label>
                                     <input type="radio" name="input1" id="">
+                                    <span class="custom-radio"></span>
                                     テレフォンアポインター
                                 </label>
                             </div>
@@ -114,7 +117,7 @@
                         <div class="trow">
                             <div class="tdata">
 
-                                漢字氏名（全角入力のみ）
+                                漢字氏名 <span class="bracket">（全角入力のみ）</span>
                             </div>
                             <div class="tdata">
                                 <div class="input-wrapper2">
@@ -132,7 +135,7 @@
                         <div class="trow">
                             <div class="tdata">
 
-                                カナ氏名（全角カナ入力のみ）
+                                カナ氏名 <span class="bracket">（全角カナ入力のみ）</span>
                             </div>
                             <div class="tdata">
                                 <div class="input-wrapper2">
@@ -157,26 +160,17 @@
                                 生年月日
                             </div>
                             <div class="tdata">
-                                <div class="input-wrapper3">
-                                    <label for="">
-                                        <select name="" id="">
-                                            <option value="">qwe</option>
-                                            <option value="">qwe</option>
-                                        </select>
+                                <div class="input-wrapper3" id="js-select-date">
+                                    <label>
+                                        <select name="year" id="year"></select>
                                         <span>年</span>
                                     </label>
-                                    <label for="">
-                                        <select name="" id="">
-                                            <option value="">qwe</option>
-                                            <option value="">qwe</option>
-                                        </select>
+                                    <label>
+                                        <select name="month" id="month"></select>
                                         <span>月</span>
                                     </label>
-                                    <label for="">
-                                        <select name="" id="">
-                                            <option value="">qwe</option>
-                                            <option value="">qwe</option>
-                                        </select>
+                                    <label>
+                                        <select name="day" id="day"></select>
                                         <span>日</span>
                                     </label>
                                 </div>
@@ -191,10 +185,12 @@
                                 <div class="input-wrapper7">
                                     <label>
                                         <input type="radio" name="gender" value="male" id="">
+                                        <span class="custom-radio"></span>
                                         男
                                     </label>
                                     <label>
                                         <input type="radio" name="gender" value="female" id="">
+                                        <span class="custom-radio"></span>
                                         女
                                     </label>
                                 </div>
@@ -207,26 +203,22 @@
                         <div class="trow">
                             <div class="tdata">
 
-                                E-mailアドレス（半角入力のみ）
+                                E-mailアドレス <span class="bracket">（半角入力のみ）</span>
                             </div>
                             <div class="tdata">
                                 <div class="input-wrapper4">
-                                    <span><input type="text" name="" id=""></span>
-                                    <span>@</span>
-                                    <span><input type="text" name="" id=""></span>
+                                    <input type="email" name="" id="">
                                 </div>
                             </div>
                         </div>
                         <div class="trow">
                             <div class="tdata">
 
-                                E-mailアドレス（確認用）（半角入力のみ）
+                                E-mailアドレス <span class="bracket">（確認用（半角入力のみ）</span>
                             </div>
                             <div class="tdata">
                                 <div class="input-wrapper4">
-                                    <span><input type="text" name="" id=""></span>
-                                    <span>@</span>
-                                    <span><input type="text" name="" id=""></span>
+                                    <input type="email" name="" id="">
                                 </div>
                             </div>
                         </div>
@@ -237,11 +229,11 @@
                         <div class="trow">
                             <div class="tdata">
 
-                                連絡用電話番号（半角数字のみ）
+                                連絡用電話番号<span class="bracket">（半角数字のみ）</span>
                             </div>
                             <div class="tdata">
                                 <div class="input-wrapper4">
-                                    <span><input type="text"></span>
+                                    <input type="tel">
                                 </div>
                             </div>
                         </div>
@@ -252,12 +244,12 @@
                         <div class="trow">
                             <div class="tdata">
 
-                                郵便番号（半角数字７桁のみ）
+                                郵便番号 <span class="bracket">（半角数字７桁のみ）</span>
                             </div>
                             <div class="tdata">
                                 <div class="input-wrapper4">
                                     <span><input type="text" name="" id=""></span>
-                                    <span>-</span>
+                                    <span>ー</span>
                                     <span><input type="text" name="" id=""></span>
                                     <a href="" class="btn btn-gray">郵便番号で検索</a>
                                 </div>
@@ -291,7 +283,7 @@
                         <div class="trow">
                             <div class="tdata">
 
-                                建物名・部屋番号（全角入力のみ）
+                                建物名・部屋番号 <span class="bracket">（全角入力のみ）</span>
                             </div>
                             <div class="tdata">
                                 <div class="input-wrapper6">

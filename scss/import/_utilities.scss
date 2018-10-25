@@ -2,6 +2,9 @@ body.dev {
     .fixed {
         position: relative !important;
     }
+    .js-after-fixed{
+        display: none !important;
+    }
 }
 
 .overlayBody {
