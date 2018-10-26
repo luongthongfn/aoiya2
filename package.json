@@ -20,6 +20,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^3.1.0",
     "gulp-sass-bulk-import": "^1.0.1",
-    "gulp-sourcemaps": "^2.6.1"
+    "gulp-sourcemaps": "^2.6.1",
+    "japan-postal-code": "^0.2.0"
   }
 }

@@ -26,252 +26,381 @@
                     </ul>
                 </div>
             </div> <!-- end .contact-notify -->
-            <ul class="step-box">
-                <li class="active">
-                    <div class="step">
-                        <span>Step</span>
-                        <span class="num">1</span>
-                    </div>
-                    <span class="step-desc">入力画面</span>
-                </li>
-                <li>
-                    <div class="step">
-                        <span>Step</span>
-                        <span class="num">2</span>
-                    </div>
-                    <span class="step-desc">確認画面</span>
-                </li>
-                <li>
-                    <div class="step">
-                        <span>Step</span>
-                        <span class="num">3</span>
-                    </div>
-                    <span class="step-desc">完了画面</span>
-                </li>
-            </ul>
-            <div class="container">
-                <form action="" class="contact-form">
-                    <div class="table-layout">
-
-                        <div class="thead">
-                            職種
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                応募職種
+            <div class="js-tab">
+                <ul class="step-box js-tabnav">
+                    <li class="active">
+                        <a href="#tab1">
+                            <div class="step">
+                                <span>Step</span>
+                                <span class="num">1</span>
                             </div>
-                            <div class="tdata">
-                                <label>
-                                    <input type="radio" name="input1" id="test">
-                                    <span class="custom-radio"></span>
-                                    テスター
-                                </label>
-                                <label>
-                                    <input type="radio" name="input1" id="">
-                                    <span class="custom-radio"></span>
-                                    コンテンツオペレーター
-                                </label>
-                                <label>
-                                    <input type="radio" name="input1" id="">
-                                    <span class="custom-radio"></span>
-                                    テレフォンアポインター
-                                </label>
+                            <span class="step-desc">入力画面</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab2">
+                            <div class="step">
+                                <span>Step</span>
+                                <span class="num">2</span>
                             </div>
-                        </div>
-
-                        <div class="thead">
-                            お名前
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                漢字氏名 <span class="bracket">（全角入力のみ）</span>
+                            <span class="step-desc">確認画面</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab3">
+                            <div class="step">
+                                <span>Step</span>
+                                <span class="num">3</span>
                             </div>
-                            <div class="tdata">
-                                <div class="input-wrapper2">
-                                    <label for="">
-                                        <span>姓：</span>
-                                        <input type="text" name="" id="">
-                                    </label>
-                                    <label for="">
-                                        <span>名：</span>
-                                        <input type="text" name="" id="">
-                                    </label>
+                            <span class="step-desc">完了画面</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="container">
+                    <form action="" class="contact-form">
+
+                        <div class="js-tab-content">
+                            <div id="tab1" class="tab-panel fade in active">
+                                <div class="table-layout">
+
+                                    <div class="thead">
+                                        職種
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            応募職種
+                                        </div>
+                                        <div class="tdata">
+                                            <label>
+                                                <input type="radio" name="input1" id="test">
+                                                <span class="custom-radio"></span>
+                                                テスター
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="input1" id="">
+                                                <span class="custom-radio"></span>
+                                                コンテンツオペレーター
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="input1" id="">
+                                                <span class="custom-radio"></span>
+                                                テレフォンアポインター
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="thead">
+                                        お名前
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            漢字氏名 <span class="bracket">（全角入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper2">
+                                                <label for="">
+                                                    <span>姓：</span>
+                                                    <input type="text" name="" id="">
+                                                </label>
+                                                <label for="">
+                                                    <span>名：</span>
+                                                    <input type="text" name="" id="">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            カナ氏名 <span class="bracket">（全角カナ入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper2">
+                                                <label for="">
+                                                    <span>セイ：</span>
+                                                    <input type="text" name="" id="">
+                                                </label>
+                                                <label for="">
+                                                    <span>メイ：</span>
+                                                    <input type="text" name="" id="">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="thead">
+                                        生年月日・性別
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            生年月日
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper3" id="js-select-date">
+                                                <label>
+                                                    <select name="year" id="year"></select>
+                                                    <span>年</span>
+                                                </label>
+                                                <label>
+                                                    <select name="month" id="month"></select>
+                                                    <span>月</span>
+                                                </label>
+                                                <label>
+                                                    <select name="day" id="day"></select>
+                                                    <span>日</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            性別
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper7">
+                                                <label>
+                                                    <input type="radio" name="gender" value="male" id="">
+                                                    <span class="custom-radio"></span>
+                                                    男
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="gender" value="female" id="">
+                                                    <span class="custom-radio"></span>
+                                                    女
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="thead">
+                                        メールアドレス
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            E-mailアドレス <span class="bracket">（半角入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper4">
+                                                <input type="email" name="" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            E-mailアドレス <span class="bracket">（確認用（半角入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper4">
+                                                <input type="email" name="" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="thead">
+                                        電話番号
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            連絡用電話番号<span class="bracket">（半角数字のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper4">
+                                                <input type="tel">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+                                    <div class="thead">
+                                        現住所
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            郵便番号 <span class="bracket">（半角数字７桁のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper4">
+                                                <span><input type="text" name="" id="" class="p-postal-code" size="3" maxlength="3"></span>
+                                                <span>ー</span>
+                                                <span><input type="text" name="" id="" class="p-postal-code" size="4" maxlength="4"></span>
+                                                <a href="" class="btn btn-gray">郵便番号で検索</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            都道府県
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper5">
+                                                <select name="" id="">
+                                                    <option value="">qwe qwe</option>
+                                                    <option value="">qwe qwe</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            市区群・地名・番地
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper6">
+                                                <input type="text" name="" id="" class="p-locality">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            建物名・部屋番号 <span class="bracket">（全角入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper6">
+                                                <input type="text" name="" id="" class="p-street-address">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
+                                <section class="step-nav">
+                                    <a href="#tab2" data-toggle="tab" class="next">
+                                        <span class="eng">入力内容確認</span>
+                                        <i class="fa fa-angle-right flr"></i>
+                                    </a>
+                                </section>
                             </div>
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
+                            <div id="tab2" class="tab-panel fade in ">
+                                <div class="table-layout contact-confirm">
 
-                                カナ氏名 <span class="bracket">（全角カナ入力のみ）</span>
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper2">
-                                    <label for="">
-                                        <span>セイ：</span>
-                                        <input type="text" name="" id="">
-                                    </label>
-                                    <label for="">
-                                        <span>メイ：</span>
-                                        <input type="text" name="" id="">
-                                    </label>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            応募職種
+                                        </div>
+                                        <div class="tdata">
+                                            コンテンツオペレーター
+                                        </div>
+                                    </div>
+
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            お名前
+                                        </div>
+                                        <div class="tdata">
+                                            葵屋　葵屋
+                                        </div>
+                                    </div>
+
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            生年月日
+                                        </div>
+                                        <div class="tdata">
+                                            0000年00月00日
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            性別
+                                        </div>
+                                        <div class="tdata">
+                                            男
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            E-mailアドレス
+                                        </div>
+                                        <div class="tdata">
+                                            XXXXXXXXX＠co.jp
+
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            携帯用電話番号（半角数字のみ）
+                                        </div>
+                                        <div class="tdata">
+                                            000-0000-0000
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            郵便番号
+                                        </div>
+                                        <div class="tdata">
+                                            000-0000
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            都道府県
+                                        </div>
+                                        <div class="tdata">
+                                            テキストテキスト
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            市区群・地名・番地
+                                        </div>
+                                        <div class="tdata">
+                                            テキストテキストテキスト
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            建物名・部屋番号
+                                        </div>
+                                        <div class="tdata">
+                                            テキストテキストテキスト
+                                        </div>
+                                    </div>
+
                                 </div>
+                                <section class="step-nav">
+                                    <a href="#tab1" data-toggle="tab" class="back">
+                                        戻る
+                                    </a>
+                                    <a href="#tab3" data-toggle="tab" class="next">
+                                        <span class="eng">送信</span>
+                                        <i class="fa fa-angle-right flr"></i>
+                                    </a>
+                                </section>
                             </div>
-                        </div>
-
-                        <div class="thead">
-                            生年月日・性別
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                生年月日
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper3" id="js-select-date">
-                                    <label>
-                                        <select name="year" id="year"></select>
-                                        <span>年</span>
-                                    </label>
-                                    <label>
-                                        <select name="month" id="month"></select>
-                                        <span>月</span>
-                                    </label>
-                                    <label>
-                                        <select name="day" id="day"></select>
-                                        <span>日</span>
-                                    </label>
+                            <div id="tab3" class="tab-panel fade in ">
+                                <div class="contact-thanks">
+                                    <h2>お問い合わせ <br class="show-sp"> ありがとうございました</h2>
+                                    <p>
+                                        後ほど担当者よりご連絡を <br class="show-sp">
+                                        差し上げますので <br>
+                                        しばらくお待ちください
+                                    </p>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
+                                <section class="step-nav">
 
-                                性別
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper7">
-                                    <label>
-                                        <input type="radio" name="gender" value="male" id="">
-                                        <span class="custom-radio"></span>
-                                        男
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="gender" value="female" id="">
-                                        <span class="custom-radio"></span>
-                                        女
-                                    </label>
-                                </div>
+                                    <a class="next" href="">
+                                        <span class="eng">トップページへ戻る</span>
+                                        <i class="fa fa-angle-right flr"></i>
+                                    </a>
+                                </section>
                             </div>
                         </div>
 
-                        <div class="thead">
-                            メールアドレス
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                E-mailアドレス <span class="bracket">（半角入力のみ）</span>
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper4">
-                                    <input type="email" name="" id="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                E-mailアドレス <span class="bracket">（確認用（半角入力のみ）</span>
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper4">
-                                    <input type="email" name="" id="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="thead">
-                            電話番号
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                連絡用電話番号<span class="bracket">（半角数字のみ）</span>
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper4">
-                                    <input type="tel">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="thead">
-                            現住所
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                郵便番号 <span class="bracket">（半角数字７桁のみ）</span>
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper4">
-                                    <span><input type="text" name="" id=""></span>
-                                    <span>ー</span>
-                                    <span><input type="text" name="" id=""></span>
-                                    <a href="" class="btn btn-gray">郵便番号で検索</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                都道府県
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper5">
-                                    <select name="" id="">
-                                        <option value="">qwe qwe</option>
-                                        <option value="">qwe qwe</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                市区群・地名・番地
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper6">
-                                    <input type="text" name="" id="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="trow">
-                            <div class="tdata">
-
-                                建物名・部屋番号 <span class="bracket">（全角入力のみ）</span>
-                            </div>
-                            <div class="tdata">
-                                <div class="input-wrapper6">
-                                    <input type="text" name="" id="">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </section>
 
-        <section class="step-nav">
-            <a class="next" href="">
-                <span class="eng">入力内容確認</span>
-                <i class="fa fa-angle-right flr"></i>
-            </a>
-        </section>
+
 
         <div class="clb40"></div>
         <div class="clb40"></div>

@@ -60,18 +60,21 @@ $(function () {
     //         #tab2.tab-panel.fade
 
 
+
     $('.js-tab').each(function () {
         var _this = $(this);
         var nav = _this.find('.js-tabnav');
         var handleClick = 'ontouchstart' in document.documentElement ? 'touchstart' : 'click';
-        $(nav).on("click " + handleClick, "a[href^='#']", function (e) {
-            // $('body').toggleClass('dev');
+        $(nav).on(handleClick, "a[href^='#']", function (e) {
+
             e.preventDefault();
             if ($(this).parent().hasClass('active')) {
                 return;
             }
             $(nav).find('.active').removeClass('active');
             $(this).parent().addClass('active');
+
+
             var target = $($(this).attr('href'));
             target.siblings().removeClass('in');
             setTimeout(function () {
@@ -83,6 +86,7 @@ $(function () {
             }, 100);
         })
     })
+
 })
 
 //goto #id
@@ -318,26 +322,9 @@ $(function () {
                     isLeapYear(yealVal) ? daysInMonth[1] = 29 : daysInMonth[1] = 28;
                 }
                 totalDay = daysInMonth[monthVal - 1];
-                if (!dayVal) {
-                    if (!monthVal) {
-                        return;
-                    }
-                    // Day.empty();
-                    // appendOption(Day);
-                    // for (var i = 1; i <= totalDay; i++) {
-                    //     appendOption(Day, i);
-                    // }
-                    var lastOptionVal = Day.find('option').last().val();
-                    if (lastOptionVal < totalDay) {
-                        while (lastOptionVal < totalDay) {
-                            appendOption(Day, ++lastOptionVal)
-                        }
-                    } else if (lastOptionVal > totalDay) {
-                        while (lastOptionVal > totalDay) {
-                            Day.find('option').last().remove();
-                            lastOptionVal--;
-                        }
-                    }
+
+                if (!monthVal) {
+                    return;
                 } else {
                     //selected < days in month
                     var lastOptionVal = Day.find('option').last().val();
@@ -396,11 +383,36 @@ $(function () {
         Month.on('change', changeMonth);
 
         //test
-        $('#year, #month, #day').on('change', testSelectDate);
+        // $('#year, #month, #day').on('change', testSelectDate);
 
     }
 })
 
+var validateInput = function () {
+
+}
+//step nav
+$('.step-nav').on('click', "a", function () {
+    var targetHref = $(this).attr('href');
+    if (targetHref == "#tab2" && !validateInput() ) {
+        return;
+    }
+    var target = $(targetHref);
+    target.siblings().removeClass('in');
+    setTimeout(function () {
+        target.siblings().removeClass('active');
+    }, 100);
+    target.addClass('active');
+    setTimeout(function () {
+        target.addClass('in');
+    }, 100);
+
+    // $(`a[href='${target}']`).trigger('click');
+    var nav = $('.js-tabnav');
+    $(nav).find('.active').removeClass('active');
+    nav.find(`a[href="${targetHref}"]`).parent().addClass('active')
+
+})
 //maps
 function myMap() {
 
@@ -486,3 +498,4 @@ function myMap() {
         marker.setMap(map);
     }
 }
+

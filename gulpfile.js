@@ -65,7 +65,7 @@ gulp.task('include', function () {
 
 //js
 gulp.task('babel', () =>
-    gulp.src('js/test.js')
+    gulp.src('js/custom.js')
         .pipe(babel({
             presets: ['@babel/env']
         }))
