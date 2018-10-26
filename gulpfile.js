@@ -65,14 +65,16 @@ gulp.task('include', function () {
 
 //js
 gulp.task('babel', () =>
-    gulp.src('js/custom.js')
+    gulp.src('js/custom-src.js')
         .pipe(browserify())
         .pipe(babel({
             presets: ['@babel/env']
         }))
-        .pipe(rename(function (path) {
-            path.basename += ".dist";
-          }))
+        // .pipe(rename(function (path) {
+        //     path.basename += ".dist";
+        //   }))
+        .pipe(rename("custom.js"))
+        .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest('js'))
 );
 
