@@ -18,7 +18,7 @@ var gulp = require('gulp'),
     imgPath,
     htmlPath,
     jsPath;
-
+    var browserify = require('gulp-browserify');
 
 
 /*======================================================================= TASK ====*/
@@ -66,6 +66,7 @@ gulp.task('include', function () {
 //js
 gulp.task('babel', () =>
     gulp.src('js/custom.js')
+        .pipe(browserify())
         .pipe(babel({
             presets: ['@babel/env']
         }))

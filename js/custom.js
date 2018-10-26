@@ -394,7 +394,7 @@ var validateInput = function () {
 //step nav
 $('.step-nav').on('click', "a", function () {
     var targetHref = $(this).attr('href');
-    if (targetHref == "#tab2" && !validateInput() ) {
+    if (targetHref == "#tab2" && !validateInput()) {
         return;
     }
     var target = $(targetHref);
@@ -499,3 +499,30 @@ function myMap() {
     }
 }
 
+$('.btn-gray').click(function (e) {
+    e.preventDefault();
+    $.ajax({
+        url: 'https://yubinbango.github.io/yubinbango-data/data/321.js',
+        type: 'GET',
+        headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Access-Control-Allow-Credentials': 'true'
+        },
+        data: {
+            
+        },
+        success: function (res) {
+            $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-check');
+            document.getElementsByClassName("contact--form")[0].reset();
+        }
+    })
+})
+
+var postal_code = require('japan-postal-code');
+
+postal_code.get('1000001', function(address) {
+  console.log(address.prefecture); // => "東京都"
+  console.log(address.city); // => "千代田区"
+  console.log(address.area); // => "千代田"
+  console.log(address.street); // => ""
+});
