@@ -317,7 +317,8 @@ $(function () {
                 var yealVal = Year.val(),
                     monthVal = Month.val(),
                     dayVal = Day.val(),
-                    dayInMonth;
+                    totalDay;
+
                 if (monthVal == 2) {
                     isLeapYear(yealVal) ? daysInMonth[1] = 29 : daysInMonth[1] = 28;
                 }
@@ -388,13 +389,11 @@ $(function () {
     }
 })
 
-var validateInput = function () {
 
-}
 //step nav
-$('.step-nav').on('click', "a", function () {
+$('.step-nav').on('click', "button, a", function () {
     var targetHref = $(this).attr('href');
-    if (targetHref == "#tab2" && !validateInput()) {
+    if (targetHref == "#tab2") {
         return;
     }
     var target = $(targetHref);
@@ -414,7 +413,7 @@ $('.step-nav').on('click', "a", function () {
 
 })
 //maps
-function myMap() {
+window.myMap = function myMap() {
 
     var mapElem = document.getElementById("googleMap");
     if (mapElem) {
@@ -499,30 +498,218 @@ function myMap() {
     }
 }
 
-$('.btn-gray').click(function (e) {
-    e.preventDefault();
-    $.ajax({
-        url: 'https://yubinbango.github.io/yubinbango-data/data/321.js',
-        type: 'GET',
-        headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:3000',
-            'Access-Control-Allow-Credentials': 'true'
+//recruit-form
+$(function () {
+    var postal_code = require('japan-postal-code'),
+        code,
+        code1 = $('#first3'),
+        code2 = $('#last4'),
+        Province = $('#province'),
+        City = $('#city'),
+        area = $('#area'),
+        listProvince = ['愛知県', '秋田県', '青森県', '千葉県', '愛媛県', '福井県', '福岡県', '福島県', '岐阜県', '群馬県', '広島県', '北海道', '兵庫県', '茨城県', '石川県', '岩手県', '香川県', '鹿児島県', '神奈川県', '高知県', '熊本県', '京都府', '三重県', '宮城県', '宮崎県', '長野県', '長崎県', '奈良県', '新潟県', '大分県', '岡山県', '沖縄県', '大阪府', '佐賀県', '埼玉県', '滋賀県', '島根県', '静岡県', '栃木県', '徳島県', '東京都', '鳥取県', '富山県', '和歌山県', '山形県', '山口県', '山梨県'],
+
+        $job, $name, $birthday, $gender, $email, $phone, $zipCode, $province, $city, $addr;
+
+    function setPreview() {
+        function getVal(name) {
+            return $(`input[name="${name}"]`).val();
+        }
+
+        function setText(id, text) {
+            $(`#preview-${id}`).text(`${text}`);
+            // console.log(id, " : ", text);
+        };
+
+        $job = getVal('job');
+        $name = getVal('firstname_kanji') + " " + getVal('lastname_kanji');
+        $gender = $('input[name="gender"]:checked').val();
+        $birthday = $('#year').val() + "年" + $('#month').val() + "月" + $('#day').val() + "日";
+        $email = getVal('email');
+        $phone = getVal('phone');
+        $zipCode = getVal('first3') + getVal('last4');
+        $province = $('#province').val();
+        $city = getVal('city');
+        $addr = getVal('address');
+
+
+        ['job', 'name', 'birthday', 'gender', 'email', 'phone', 'zipCode', 'province', 'city', 'addr']
+        .forEach(item => setText(item, eval(`$${item}`)))
+    }
+
+
+    function goStep(nth) {
+        var targetHref = `#tab${nth}`;
+        var target = $(targetHref);
+        target.siblings().removeClass('in');
+        setTimeout(function () {
+            target.siblings().removeClass('active');
+        }, 100);
+        target.addClass('active');
+        setTimeout(function () {
+            target.addClass('in');
+        }, 100);
+
+        // $(`a[href='${target}']`).trigger('click');
+        var nav = $('.js-tabnav');
+        $(nav).find('.active').removeClass('active');
+        nav.find(`a[href="${targetHref}"]`).parent().addClass('active')
+    }
+
+    listProvince.map(function (item) {
+        Province.append(`<option value="${item}">${item}</option>`);
+    });
+
+    $('.js-find-addr').click(function (e) {
+        e.preventDefault();
+        code = code1.val() + code2.val();
+
+        postal_code.get(code, function (address) {
+            if (Province.find(`option[value="${address.prefecture}"]`)) {
+                Province.find(`option[value="${address.prefecture}"]`).attr('selected', true);
+            } else {
+                Province.append(`<option value="${address.prefecture}" selected >${address.prefecture}</option>`)
+            }
+            City.val(address.city);
+            area.val(address.street + " " + address.area);
+            // console.log('address: ',address);;
+        });
+    })
+    $('#re_email').on("cut copy paste", function (e) {
+        e.preventDefault();
+    });
+    jQuery.validator.addMethod("fullWidthJpnChar", function (value, element) {
+        return this.optional(element) || /^[ぁ-んァ-ン一-龥]+$/.test(value);
+    }, 'full width required');
+    jQuery.validator.addMethod("kataFullWidth", function (value, element) {
+        return this.optional(element) || /^[ァ-ン]+$/.test(value);
+    }, 'kata required');
+
+    $("#recruit-form").validate({
+        focusInvalid: false,
+        ignore: '',
+        rules: {
+            //key is name of input
+            job: "required",
+            firstname_kanji: {
+                required: true,
+                fullWidthJpnChar: true
+            },
+            lastname_kanji: {
+                required: true,
+                fullWidthJpnChar: true
+            },
+            firstname_kata: {
+                required: true,
+                kataFullWidth: true
+            },
+            lastname_kata: {
+                required: true,
+                kataFullWidth: true
+            },
+            year: "required",
+            month: "required",
+            day: "required",
+            gender: "required",
+            email: {
+                required: true,
+                email: true,
+                maxlength: 255
+            },
+            re_email: {
+                required: true,
+                equalTo: "#email"
+            },
+            phone: {
+                required: true,
+                number: true
+            },
+            province: "required",
+            city: "required",
+            address: "required"
         },
-        data: {
-            
+        messages: {
+            //key is name of input
+            request_hidden: "",
+            name: "お名前を入力してください。",
+            company: "貴社名を入力してください。",
+            email: {
+                required: "メールアドレスを入力してください。",
+                email: "正しいメールアドレスを入力してください。",
+                maxlength: "正しいメールアドレスを入力してください。"
+            },
+            question: {
+                required: "お問い合わせ内容を入力してください。",
+                minlength: "少なくとも二文字以上"
+            }
         },
-        success: function (res) {
-            $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-check');
-            document.getElementsByClassName("contact--form")[0].reset();
+
+        errorElement: "span",
+        errorContainer: '.notice-error',
+        errorPlacement: function (error, element) {
+            // Add the class to the error element
+            // error.addClass("required-notice");
+
+            // if (element.prop("type") === "checkbox") {
+            //     error.insertAfter(element.parent("label"));
+            // } else {
+            //     error.insertAfter(element);
+            // }
+        },
+        highlight: function (element, errorClass, validClass) {
+            if ($(element).prop("type") === "radio") {
+                $(element).parent().parent().addClass("has-error");
+            }
+            $(element).addClass("has-error");
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            if ($(element).prop("type") === "radio") {
+                $(element).parent().parent().removeClass("has-error");
+            } else {
+                $(element).removeClass("has-error")
+            }
+        },
+        submitHandler: function () {
+            // e.preventDefault();
+            // console.log('is validated');
+            $('#recruit-form-submit .fa.form-check').addClass('fa-spinner fa-spin');
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/todos/1',
+                data: {
+                    $job,
+                    $name,
+                    $gender,
+                    $birthday,
+                    $email,
+                    $phone,
+                    $zipCode,
+                    $province,
+                    $city,
+                    $addr
+                },
+                success: function (res) {
+                    $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-check');
+                    document.getElementById("recruit-form").reset();
+                    goStep(3)
+                },
+                error: function (xhr, status, err) {
+                    $('.contact-thanks p').text('some thing wrong!');
+                    goStep(3)
+                    // console.log(xhr, status, err);
+                }
+            })
+        }
+    });
+    $('#firstsubmit').click(function () {
+        if ($("#recruit-form").valid()) {
+            setPreview();
+            goStep(2);
         }
     })
+    $('#first3').on('keyup', function (e) {
+        if ($(this).val().length >= 3) {
+            $('#last4').trigger('select')
+        }
+    })
+
 })
-
-var postal_code = require('japan-postal-code');
-
-postal_code.get('1000001', function(address) {
-  console.log(address.prefecture); // => "東京都"
-  console.log(address.city); // => "千代田区"
-  console.log(address.area); // => "千代田"
-  console.log(address.street); // => ""
-});

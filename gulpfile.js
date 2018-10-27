@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     includeTag = require('gulp-include-tag'),
     browserSync = require('browser-sync').create(),
     htmlbeautify = require('gulp-html-beautify'),
+    gutil = require('gulp-util'),
 
     babel = require('gulp-babel'),
     rename = require("gulp-rename"),
@@ -33,6 +34,7 @@ gulp.task('setPath', function () {
     cssDestPath     = (currentPath || rootProjectPath) + '/css';
     imgPath         = (currentPath || rootProjectPath) + '/img';
     htmlPath        = (currentPath || rootProjectPath) + '/*.{html,htm}';
+    jsPathSrc          = (currentPath || rootProjectPath) + '/js/src/*.js';
     jsPath          = (currentPath || rootProjectPath) + '/js/*.js';
 });
 
@@ -54,7 +56,7 @@ gulp.task('sass', function () {
 
 
 gulp.task('include', function () {
-    return gulp.src('layouts/page/*.html')
+    return gulp.src('./layouts/page/*.html')
         .pipe(includeTag())
         .pipe(htmlbeautify({
             indentSize: 4
@@ -64,22 +66,29 @@ gulp.task('include', function () {
 });
 
 //js
+function handleError (error) {
+    console.log(error.toString());
+    this.emit('end');
+}
 gulp.task('babel', () =>
-    gulp.src('js/custom-src.js')
-        .pipe(browserify())
+    gulp.src('./js/src/*.js')
+        .pipe(browserify({
+            global : true
+        })).on('error', gutil.log)
+        .pipe(sourcemaps.init())
         .pipe(babel({
-            presets: ['@babel/env']
-        }))
-        // .pipe(rename(function (path) {
-        //     path.basename += ".dist";
-        //   }))
-        .pipe(rename("custom.js"))
+            presets: ['@babel/env'],
+            minified: true,
+            comments: false
+        })).on('error', gutil.log)
+        // .pipe(rename("custom.js"))
         .pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest('js'))
+        .pipe(gulp.dest('./js'))
+        .pipe(browserSync.stream())
 );
 
 // watch
-gulp.task('watch', ['setPath', 'sass', 'include'], function () {
+gulp.task('watch', ['setPath', 'sass', 'babel',  'include'], function () {
     // Static Server + watching scss/html/js files
     browserSync.init({
         server: currentPath || rootProjectPath,
@@ -87,14 +96,15 @@ gulp.task('watch', ['setPath', 'sass', 'include'], function () {
     });
 
     gulp.watch(sassPath, ['sass']);
+    gulp.watch(jsPathSrc, ['babel']);
     gulp.watch(includePath, ['include']);
     // gulp.watch(cssPath).on('change', browserSync.reload);
     gulp.watch(sassPath).on('change', browserSync.reload);
     gulp.watch(imgPath).on('change', browserSync.reload);
     // gulp.watch(htmlPath).on('change', browserSync.reload);
-    gulp.watch(jsPath).on('change', browserSync.reload);
+    gulp.watch(jsPathSrc).on('change', browserSync.reload);
 
 });
 
-gulp.task('build', ['setPath', 'sass']);
+gulp.task('build', ['setPath', 'sass', 'babel', 'include']);
 gulp.task('default', ['watch']);
