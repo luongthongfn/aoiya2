@@ -688,7 +688,7 @@ $(function () {
                     $addr
                 },
                 success: function (res) {
-                    $('.contact-submit .fa').removeClass('fa-spinner fa-spin').addClass('fa-check');
+                    $('#recruit-form-submit .fa').removeClass('fa-spinner fa-spin');
                     document.getElementById("recruit-form").reset();
                     goStep(3)
                 },
