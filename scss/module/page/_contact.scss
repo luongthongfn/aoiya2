@@ -153,11 +153,14 @@
             border-width: 2px;
             margin-top: -2px;
             margin-left: -2px;
-
+            &:first-child{
+                flex-wrap: wrap;
+            }
+            
         }
     }
 
-    .contact-form {
+    .recruit-form {
         label {
             position: relative;
             display: inline-block;
@@ -168,7 +171,17 @@
         input[type="radio"] {
             display: none;
         }
-
+        .has-error{
+            border: 1px solid #ff0000;
+            &.js_radio_wrapper{
+                border: 0;
+            }
+            .custom-radio{
+                &:before{
+                    border-color: #ff0000;
+                }
+            }
+        }
         .custom-radio {
             position: relative;
             display: inline-block;
@@ -194,11 +207,9 @@
                 content: '';
                 display: none;
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                @include translate(-50%, -50%);
-                width: vwSP(21px);
-                height: vwSP(21px);
+                width: 100% !important;
+                height: 100% !important;
+                box-shadow: inset 0 0 0px 2px #fff;
                 background: #5a8cc9;
                 border-radius: 100px;
 
@@ -347,7 +358,9 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-
+    button{
+        border: 0;
+    }
     .back,
     .next {
         height: vwSP(118px);
@@ -521,10 +534,13 @@
                     display: flex;
 
                 }
+                .bracket{
+                    width: 100%;
+                }
             }
         }
 
-        .contact-form {
+        .recruit-form {
             label {
                 padding: 0 vwPC(10px);
                 margin-right: vwPC(30px);
@@ -538,11 +554,6 @@
                 &:before {
                     width: vwPC(16px);
                     height: vwPC(16px);
-                }
-
-                &:after {
-                    width: vwPC(11);
-                    height: vwPC(11px);
                 }
             }
 
@@ -791,7 +802,7 @@
             }
         }
 
-        .contact-form {
+        .recruit-form {
             label {
                 padding: 0 (10px);
                 margin-right: (30px);
@@ -805,11 +816,6 @@
                 &:before {
                     width: (16px);
                     height: (16px);
-                }
-
-                &:after {
-                    width: (11);
-                    height: (11px);
                 }
             }
 

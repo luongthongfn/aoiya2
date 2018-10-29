@@ -88,8 +88,8 @@
                     </li>
                 </ul>
                 <div class="container">
-                    <!-- <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script> -->
-                    <form action="" class="contact-form h-adr">
+
+                    <form action="" method="POST" class="recruit-form" id="recruit-form">
                         <span class="p-country-name" style="display:none;">Japan</span>
                         <div class="js-tab-content">
                             <div id="tab1" class="tab-panel fade in active">
@@ -103,22 +103,24 @@
 
                                             応募職種
                                         </div>
-                                        <div class="tdata">
-                                            <label>
-                                                <input type="radio" name="input1" id="test">
-                                                <span class="custom-radio"></span>
-                                                テスター
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="input1" id="">
-                                                <span class="custom-radio"></span>
-                                                コンテンツオペレーター
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="input1" id="">
-                                                <span class="custom-radio"></span>
-                                                テレフォンアポインター
-                                            </label>
+                                        <div class="tdata ">
+                                            <div class="js_radio_wrapper">
+                                                <label>
+                                                    <input type="radio" name="job" id="" value="テスター">
+                                                    <span class="custom-radio"></span>
+                                                    テスター
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="job" id="" value="コンテンツオペレーター">
+                                                    <span class="custom-radio"></span>
+                                                    コンテンツオペレーター
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="job" id="" value="テレフォンアポインター">
+                                                    <span class="custom-radio"></span>
+                                                    テレフォンアポインター
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -134,29 +136,29 @@
                                             <div class="input-wrapper2">
                                                 <label for="">
                                                     <span>姓：</span>
-                                                    <input type="text" name="" id="">
+                                                    <input type="text" name="firstname_kanji" id="">
                                                 </label>
                                                 <label for="">
                                                     <span>名：</span>
-                                                    <input type="text" name="" id="">
+                                                    <input type="text" name="lastname_kanji" id="">
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
-
-                                            カナ氏名 <span class="bracket">（全角カナ入力のみ）</span>
+                                            カナ氏名
+                                            <span class="bracket">（全角カナ入力のみ）</span>
                                         </div>
                                         <div class="tdata">
                                             <div class="input-wrapper2">
                                                 <label for="">
                                                     <span>セイ：</span>
-                                                    <input type="text" name="" id="">
+                                                    <input type="text" name="firstname_kata" id="">
                                                 </label>
                                                 <label for="">
                                                     <span>メイ：</span>
-                                                    <input type="text" name="" id="">
+                                                    <input type="text" name="lastname_kata" id="">
                                                 </label>
                                             </div>
                                         </div>
@@ -170,7 +172,7 @@
                                             生年月日
                                         </div>
                                         <div class="tdata">
-                                            <div class="input-wrapper3" id="js-select-date">
+                                            <div class="input-wrapper3 js_radio_wrapper" id="js-select-date">
                                                 <label>
                                                     <select name="year" id="year"></select>
                                                     <span>年</span>
@@ -188,18 +190,17 @@
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
-
                                             性別
                                         </div>
                                         <div class="tdata">
-                                            <div class="input-wrapper7">
+                                            <div class="input-wrapper7 js_radio_wrapper">
                                                 <label>
-                                                    <input type="radio" name="gender" value="male" id="">
+                                                    <input type="radio" name="gender" value="男" id="">
                                                     <span class="custom-radio"></span>
                                                     男
                                                 </label>
                                                 <label>
-                                                    <input type="radio" name="gender" value="female" id="">
+                                                    <input type="radio" name="gender" value="女" id="">
                                                     <span class="custom-radio"></span>
                                                     女
                                                 </label>
@@ -212,12 +213,11 @@
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
-
                                             E-mailアドレス <span class="bracket">（半角入力のみ）</span>
                                         </div>
                                         <div class="tdata">
                                             <div class="input-wrapper4">
-                                                <input type="email" name="" id="">
+                                                <input type="email" name="email" id="email">
                                             </div>
                                         </div>
                                     </div>
@@ -228,7 +228,7 @@
                                         </div>
                                         <div class="tdata">
                                             <div class="input-wrapper4">
-                                                <input type="email" name="" id="">
+                                                <input type="email" name="re_email" id="re_email">
                                             </div>
                                         </div>
                                     </div>
@@ -238,12 +238,11 @@
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
-
                                             連絡用電話番号<span class="bracket">（半角数字のみ）</span>
                                         </div>
                                         <div class="tdata">
                                             <div class="input-wrapper4">
-                                                <input type="tel">
+                                                <input type="tel" name="phone">
                                             </div>
                                         </div>
                                     </div>
@@ -254,44 +253,40 @@
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
-
                                             郵便番号 <span class="bracket">（半角数字７桁のみ）</span>
                                         </div>
                                         <div class="tdata">
                                             <div class="input-wrapper4">
                                                 <span>
-                                                    <input type="text" name="" id="p-code1" class="p-postal-code" size="3" maxlength="3">
+                                                    <input type="text" name="first3" id="first3" class="p-postal-code" size="3" maxlength="3">
                                                 </span>
                                                 <span>ー</span>
                                                 <span>
-                                                    <input type="text" name="" id="p-code2" class="p-postal-code" size="4" maxlength="4">
+                                                    <input type="text" name="last4" id="last4" class="p-postal-code" size="4" maxlength="4">
                                                 </span>
-                                                <a href="" class="btn btn-gray">郵便番号で検索</a>
+                                                <a href="" class="btn btn-gray js-find-addr">郵便番号で検索</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
-
                                             都道府県
                                         </div>
                                         <div class="tdata">
                                             <div class="input-wrapper5">
-                                                <select name="" id="">
-                                                    <option value="">qwe qwe</option>
-                                                    <option value="">qwe qwe</option>
+                                                <select name="province" id="province">
+                                                    <option value=""></option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
-
                                             市区群・地名・番地
                                         </div>
                                         <div class="tdata">
                                             <div class="input-wrapper6">
-                                                <input type="text" name="" id="" class="p-locality">
+                                                <input type="text" name="city" id="city" class="p-locality">
                                             </div>
                                         </div>
                                     </div>
@@ -301,18 +296,19 @@
                                         </div>
                                         <div class="tdata">
                                             <div class="input-wrapper6">
-                                                <input type="text" name="" id="" class="p-street-address">
+                                                <input type="text" name="address" id="area" class="p-street-address">
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
                                 <section class="step-nav">
-                                    <a href="#tab2" data-toggle="tab" class="next">
+                                    <button type="button" href="#tab2" data-toggle="tab" class="next" id="firstsubmit">
                                         <span class="eng">入力内容確認</span>
                                         <i class="fa fa-angle-right flr"></i>
-                                    </a>
+                                    </button>
                                 </section>
+
                             </div>
                             <div id="tab2" class="tab-panel fade in ">
                                 <div class="table-layout contact-confirm">
@@ -321,84 +317,63 @@
                                         <div class="tdata">
                                             応募職種
                                         </div>
-                                        <div class="tdata">
-                                            コンテンツオペレーター
-                                        </div>
+                                        <div class="tdata" id="preview-job"></div>
                                     </div>
 
                                     <div class="trow">
                                         <div class="tdata">
                                             お名前
                                         </div>
-                                        <div class="tdata">
-                                            葵屋　葵屋
-                                        </div>
+                                        <div class="tdata" id="preview-name"></div>
                                     </div>
 
                                     <div class="trow">
                                         <div class="tdata">
                                             生年月日
                                         </div>
-                                        <div class="tdata">
-                                            0000年00月00日
-                                        </div>
+                                        <div class="tdata" id="preview-birthday"></div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
                                             性別
                                         </div>
-                                        <div class="tdata">
-                                            男
-                                        </div>
+                                        <div class="tdata" id="preview-gender"></div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
                                             E-mailアドレス
                                         </div>
-                                        <div class="tdata">
-                                            XXXXXXXXX＠co.jp
-
-                                        </div>
+                                        <div class="tdata" id="preview-email"></div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
-                                            携帯用電話番号（半角数字のみ）
+                                            携帯用電話番号<span class="bracket">（半角数字のみ）</span>
                                         </div>
-                                        <div class="tdata">
-                                            000-0000-0000
-                                        </div>
+                                        <div class="tdata" id="preview-phone"></div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
                                             郵便番号
                                         </div>
-                                        <div class="tdata">
-                                            000-0000
-                                        </div>
+                                        <div class="tdata" id="preview-zipCode"></div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
                                             都道府県
                                         </div>
-                                        <div class="tdata">
-                                            テキストテキスト
-                                        </div>
+                                        <div class="tdata" id="preview-province"></div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
                                             市区群・地名・番地
                                         </div>
-                                        <div class="tdata">
-                                            テキストテキストテキスト
-                                        </div>
+                                        <div class="tdata" id="preview-city"></div>
                                     </div>
                                     <div class="trow">
                                         <div class="tdata">
                                             建物名・部屋番号
                                         </div>
-                                        <div class="tdata">
-                                            テキストテキストテキスト
-                                        </div>
+                                        <div class="tdata" id="preview-addr"></div>
                                     </div>
 
                                 </div>
@@ -406,10 +381,10 @@
                                     <a href="#tab1" data-toggle="tab" class="back">
                                         戻る
                                     </a>
-                                    <a href="#tab3" data-toggle="tab" class="next">
-                                        <span class="eng">送信</span>
+                                    <button type="submit" href="#tab3" data-toggle="tab" class="next" id="recruit-form-submit">
+                                        <span class="eng">送信 <i class="fa form-check"></i></span>
                                         <i class="fa fa-angle-right flr"></i>
-                                    </a>
+                                    </button>
                                 </section>
                             </div>
                             <div id="tab3" class="tab-panel fade in ">
@@ -423,7 +398,7 @@
                                 </div>
                                 <section class="step-nav">
 
-                                    <a class="next" href="">
+                                    <a class="next" href="#tab1">
                                         <span class="eng">トップページへ戻る</span>
                                         <i class="fa fa-angle-right flr"></i>
                                     </a>
@@ -491,11 +466,11 @@
     </footer>
 
     <!-- footer library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script src="js/jquery.validate.js"></script>
     <script src="js/custom.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA4GSO0mBdxjmaNM-e30bVTrz_RrSeJJA&callback=myMap"></script> -->
+
+
 </body>
 
 </html>
