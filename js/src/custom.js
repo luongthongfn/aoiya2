@@ -509,10 +509,13 @@ $(function () {
             // console.log(id, " : ", text);
         };
 
-        function numberFormat(number, nDecimal, slice, sepatate) {
-            return number.toFixed(nDecimal).replace(/./g, function (c, i, a) {
-                return i > 0 && c !== "." && (a.length - i) % slice === 0 ? sepatate + c : c;
-            });
+        function numberFormat(number, slice, sepatate) {
+            var arr = [],
+                temp = number.split('').reverse();
+            temp.forEach(function(el, i) {
+                (i + 1) % slice == 0 && i != 0?  arr.push(el) && arr.push(sepatate) : arr.push(el)
+            })
+            return arr.reverse().join('');
         }
 
         function phoneFormat(text) {
@@ -528,9 +531,9 @@ $(function () {
         $birthday = $('#year').val() + "年" + $('#month').val() + "月" + $('#day').val() + "日";
         $email = getVal('email');
         $phone = getVal('phone');
-        $phone = phoneFormat(($phone), 0, 4, '-');
+        $phone = numberFormat(($phone), 4, '-');
         $zipCode = getVal('first3') + getVal('last4');
-        $zipCode = zipCodeFormat(($zipCode), 0, 4, '-');
+        $zipCode = numberFormat(($zipCode), 4, '-');
         $pref = Prefecture.val();
         $city = getVal('city');
         $addr = getVal('address');
