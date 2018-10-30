@@ -45,7 +45,7 @@
                 font-size: vwSP(32px);
 
                 &:first-child {
-                    color: #BD271A;
+                    color: #bd271a;
                 }
 
                 &:before {
@@ -82,7 +82,7 @@
         }
         li {
             color: #fff;
-            width: (100/3)+0%;
+            flex: 1 0 10%;
             text-align: center;
             padding: vwSP(20px) 0;
             // padding-right: 0px;
@@ -167,7 +167,13 @@
             padding: vwSP(10px) 0 vwSP(14px);
             margin-right: vwSP(25px);
         }
-
+        input, select{
+            box-shadow: 0;
+            // appearance: none;
+            background: #fff;
+            background-clip: padding-box;
+            background-image: none;
+        }
         input[type="radio"] {
             display: none;
         }
@@ -249,6 +255,7 @@
 
             &.btn-gray {
                 background: #e4e6e8;
+                color: #707070;
                 font-size: vwSP(18px);
                 margin-left: vwSP(15px);
             }
@@ -280,7 +287,7 @@
                 float: left;
                 margin-right: 0;
             }
-
+            
             input,
             select {
                 width: vwSP(100px);
@@ -300,8 +307,19 @@
             align-items: center;
             padding: vwSP(10px) vwSP(5px);
 
+            &.get-zipcode{
+                width: 100%;
+                [type="number"]::-webkit-outer-spin-button,
+                [type="number"]::-webkit-inner-spin-button{
+                    appearance: none;
+                }
+                input{
+                    width: vwSP(150px);
+                    max-width: 100%;
+                }
+            }
             span {
-                margin: 0 vwSP(5px);
+                margin-right: vwSP(5px);
             }
         }
 
@@ -334,7 +352,7 @@
 
 .contact-thanks {
     text-align: center;
-    margin: 0px vwSP(-15px) vwSP(100px);
+    margin: 0px vwSP(-20px) vwSP(100px);
     padding-top: 15px;
     h2 {
         font-size: vwSP(60px);
@@ -354,12 +372,22 @@
     font-family: 'Hiragino Kaku Gothic Pro', '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
     font-weight: bold;
     // width: vwSP(630px);
-    margin: 0 vwSP(-25px);
+    margin: 0 vwSP(0px);
     display: flex;
     align-items: center;
     justify-content: space-around;
+    &.step2{
+        margin-left: vwSP(-20px);
+        margin-right: vwSP(-20px);
+        .next{
+            .fa{
+                margin-right: 0;
+            }
+        }
+    }
     button{
         border: 0;
+        outline: 0 !important;
     }
     .back,
     .next {
@@ -382,14 +410,14 @@
         box-shadow: 0 3px 5px transparentize(#000, .8);
         transition: all .3s;
 
-        &:hover {
+        &:focus, &:active {
             color: #fff;
-            background: #4976b9;
+            background: #5a8cc9;
         }
     }
 
     .next {
-        background: url(../img/btn-bg.png) center/100% 100%;
+        background: url(../img/btn-step-bg.png) center/100% 100%;
         display: flex;
         flex-grow: 1;
         align-items: center;
@@ -397,13 +425,8 @@
         border-radius: vwSP(100px);
         box-shadow: 0 3px 5px transparentize(#000, .8);
 
-        &:hover {
-            background: #fff;
-            border: 1px solid #4976b9;
-            span,
-            .fa {
-                color: #4976b9;
-            }
+        &:focus, &:active {
+            background: #5a8cc9;
         }
 
         span {
@@ -416,6 +439,7 @@
             font-size: vwSP(45px);
             color: #fff;
             margin-left: auto;
+            margin-right: vwSP(20px);
         }
     }
 }
@@ -447,7 +471,7 @@
 
             .notify-title {
                 font-size: vwPC(18px);
-                margin-bottom: vwPC(15px);
+                margin-bottom: vwPC(18px);
             }
 
             ul {
@@ -560,7 +584,7 @@
             input,
             select {
                 height: vwPC(35px);
-                border-radius: 5px;
+                border-radius: vwPC(5px);
             }
 
             .btn {
@@ -568,11 +592,13 @@
 
                 &.btn-gray {
                     font-size: vwPC(14px);
+                    margin-left: vwPC(50px);
                 }
             }
 
             span.bracket {
                 display: block;
+                font-size: vwPC(12px);
             }
 
             .input-wrapper2 {
@@ -603,7 +629,7 @@
 
             .input-wrapper3 {
                 white-space: nowrap;
-                padding: vwPC(0px) vwPC(20px);
+                padding: vwPC(0px) vwPC(10px);
 
                 label {
                     float: left;
@@ -620,19 +646,24 @@
             .input-wrapper4 {
                 width: vwPC(434px);
                 padding: vwPC(0px) vwPC(15px);
-
+                &.get-zipcode{
+                    input{
+                        width: vwPC(175px);
+                    }
+                }
                 span {
-                    margin: 0 vwPC(10px);
+                    margin-right: vwPC(10px);
                 }
             }
 
             .input-wrapper5 {
                 width: vwPC(150px);
-                padding: vwPC(10px) vwPC(5px);
+                padding: vwPC(0px) vwPC(15px);
+                
             }
 
             .input-wrapper6 {
-                padding: vwPC(10px) vwPC(5px);
+                padding: vwPC(0px) vwPC(15px);
                 width: vwPC(660px);
             }
 
@@ -662,13 +693,13 @@
         margin-bottom: vwPC(70px);
 
         h2 {
-            font-size: vwPC(40px);
+            font-size: vwPC(35px);
             color: #5c95d2;
             margin-bottom: vwPC(50px);
         }
 
         p {
-            font-size: vwPC(30px);
+            font-size: vwPC(18px);
             color: #393939;
         }
     }
@@ -676,6 +707,17 @@
     .step-nav {
         // width: vwPC(482px);
         justify-content: center;
+        &.step2{
+            margin-left: auto;
+            margin-right: auto;
+            .next{
+                height: vwPC(50px);
+                max-width: vwPC(300px);
+                span{
+                    font-size: vwPC(20px);
+                }
+            }
+        }
         .back,
         .next {
             height: vwPC(50px);
@@ -693,12 +735,16 @@
         }
 
         .next {
-            max-width: 300px;
+            max-width: vwPC(550px);
+            height: vwPC(80px);
             padding: 0 vwPC(20px);
             border-radius: vwPC(100px);
-
-            .fa {
+            .eng{
                 font-size: vwPC(25px);
+            }
+            .fa {
+                font-size: vwPC(35px);
+                margin-right: vwPC(10px);
             }
         }
     }
@@ -830,11 +876,13 @@
 
                 &.btn-gray {
                     font-size: (14px);
+                    margin-left: 50px;
                 }
             }
 
             span.bracket {
                 display: block;
+                font-size: 12px;
             }
 
             .input-wrapper2 {
@@ -856,7 +904,7 @@
             }
 
             .input-wrapper3 {
-                padding: (0px) (20px);
+                padding: (0px) (10px);
                 input,
                 select {
                     width: (100px);
@@ -866,19 +914,23 @@
             .input-wrapper4 {
                 width: (434px);
                 padding: (0px) (15px);
-
                 span {
-                    margin: 0 (10px);
+                    margin-right: (10px);
+                }
+                &.get-zipcode{
+                    input{
+                        width: (175px);
+                    }
                 }
             }
 
             .input-wrapper5 {
                 width: (150px);
-                padding: (10px) (5px);
+                padding: (0px) (15px);
             }
 
             .input-wrapper6 {
-                padding: (10px) (5px);
+                padding: (0px) (15px);
                 width: (660px);
             }
 
@@ -901,16 +953,25 @@
         margin-bottom: (70px);
 
         h2 {
-            font-size: (40px);
+            font-size: (35px);
             margin-bottom: (50px);
         }
 
         p {
-            font-size: (30px);
+            font-size: (18px);
         }
     }
 
     .step-nav {
+        &.step2{
+            .next{
+                max-width: (300px);
+                height: (50px);
+                span{
+                    font-size: (20px);
+                }
+            }
+        }
         .back,
         .next {
             height: (50px);
@@ -928,12 +989,14 @@
         }
 
         .next {
-            max-width: 300px;
+            max-width: 550px;
+            height: 80px;
             padding: 0 (20px);
             border-radius: (100px);
 
             .fa {
-                font-size: (25px);
+                font-size: (35px);
+                margin-right: 10px;
             }
         }
     }

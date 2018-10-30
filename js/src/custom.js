@@ -7,7 +7,13 @@ $(function () {
         }, "slow");
         return false;
     });
-
+    //add maxlength attr to input[number]
+    $("input[type='number'][maxlength]").on('keyup keydown keypress blur change input', function (e) {
+        if (e.keyCode === 8 || e.keyCode === 9) {
+            return true
+        }
+        return this.value.length < +this.attributes.maxlength.value;
+    });
     // var $posToShow = $('.slide').height() - $(window).height() + 200;
     // $(window).scroll(function () {
     //     if ($(window).scrollTop() >= $posToShow) {
@@ -302,8 +308,11 @@ $(function () {
             Month = $('#month'),
             Day = $('#day'),
             daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-            thisYear = new Date().getFullYear(),
-            reCruitFrom = thisYear - 60,
+            thisYear = new Date().getFullYear();
+            // $(document).click(function(){
+                // alert(thisYear);
+            // })
+            var reCruitFrom = thisYear - 60,
             reCruitTo = thisYear - 20,
             listYear = [],
             isLeapYear = function (year) {
@@ -359,7 +368,7 @@ $(function () {
 
 
         //init render:
-
+        Year.empty();Month.empty();Day.empty();
         //-render year
         appendOption(Year);
         listYear.forEach(function (item, index) {
@@ -390,28 +399,7 @@ $(function () {
 })
 
 
-//step nav
-$('.step-nav').on('click', "button, a", function () {
-    var targetHref = $(this).attr('href');
-    if (targetHref == "#tab2") {
-        return;
-    }
-    var target = $(targetHref);
-    target.siblings().removeClass('in');
-    setTimeout(function () {
-        target.siblings().removeClass('active');
-    }, 100);
-    target.addClass('active');
-    setTimeout(function () {
-        target.addClass('in');
-    }, 100);
 
-    // $(`a[href='${target}']`).trigger('click');
-    var nav = $('.js-tabnav');
-    $(nav).find('.active').removeClass('active');
-    nav.find(`a[href="${targetHref}"]`).parent().addClass('active')
-
-})
 //maps
 window.myMap = function myMap() {
 
@@ -500,16 +488,16 @@ window.myMap = function myMap() {
 
 //recruit-form
 $(function () {
-    var postal_code = require('japan-postal-code'),
+    var Postal_code = require('japan-postal-code'),
         code,
         code1 = $('#first3'),
         code2 = $('#last4'),
-        Province = $('#province'),
+        Prefecture = $('#prefecture'),
         City = $('#city'),
-        area = $('#area'),
-        listProvince = ['愛知県', '秋田県', '青森県', '千葉県', '愛媛県', '福井県', '福岡県', '福島県', '岐阜県', '群馬県', '広島県', '北海道', '兵庫県', '茨城県', '石川県', '岩手県', '香川県', '鹿児島県', '神奈川県', '高知県', '熊本県', '京都府', '三重県', '宮城県', '宮崎県', '長野県', '長崎県', '奈良県', '新潟県', '大分県', '岡山県', '沖縄県', '大阪府', '佐賀県', '埼玉県', '滋賀県', '島根県', '静岡県', '栃木県', '徳島県', '東京都', '鳥取県', '富山県', '和歌山県', '山形県', '山口県', '山梨県'],
+        // area = $('#area'),
+        listPrefecture = ['愛知県', '秋田県', '青森県', '千葉県', '愛媛県', '福井県', '福岡県', '福島県', '岐阜県', '群馬県', '広島県', '北海道', '兵庫県', '茨城県', '石川県', '岩手県', '香川県', '鹿児島県', '神奈川県', '高知県', '熊本県', '京都府', '三重県', '宮城県', '宮崎県', '長野県', '長崎県', '奈良県', '新潟県', '大分県', '岡山県', '沖縄県', '大阪府', '佐賀県', '埼玉県', '滋賀県', '島根県', '静岡県', '栃木県', '徳島県', '東京都', '鳥取県', '富山県', '和歌山県', '山形県', '山口県', '山梨県'],
 
-        $job, $name, $birthday, $gender, $email, $phone, $zipCode, $province, $city, $addr;
+        $job, $name, $birthday, $gender, $email, $phone, $zipCode, $pref, $city, $addr;
 
     function setPreview() {
         function getVal(name) {
@@ -521,73 +509,74 @@ $(function () {
             // console.log(id, " : ", text);
         };
 
+        function numberFormat(number, nDecimal, slice, sepatate) {
+            return number.toFixed(nDecimal).replace(/./g, function (c, i, a) {
+                return i > 0 && c !== "." && (a.length - i) % slice === 0 ? sepatate + c : c;
+            });
+        }
+
+        function phoneFormat(text) {
+            return text.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+        }
+
+        function zipCodeFormat(text) {
+            return text.replace(/(\d{3})(\d{4})/, '$1-$2');
+        }
         $job = getVal('job');
         $name = getVal('firstname_kanji') + " " + getVal('lastname_kanji');
         $gender = $('input[name="gender"]:checked').val();
         $birthday = $('#year').val() + "年" + $('#month').val() + "月" + $('#day').val() + "日";
         $email = getVal('email');
         $phone = getVal('phone');
+        $phone = phoneFormat(($phone), 0, 4, '-');
         $zipCode = getVal('first3') + getVal('last4');
-        $province = $('#province').val();
+        $zipCode = zipCodeFormat(($zipCode), 0, 4, '-');
+        $pref = Prefecture.val();
         $city = getVal('city');
         $addr = getVal('address');
 
 
-        ['job', 'name', 'birthday', 'gender', 'email', 'phone', 'zipCode', 'province', 'city', 'addr']
+        ['job', 'name', 'birthday', 'gender', 'email', 'phone', 'zipCode', 'pref', 'city', 'addr']
         .forEach(item => setText(item, eval(`$${item}`)))
     }
 
 
-    function goStep(nth) {
-        var targetHref = `#tab${nth}`;
+    function goStep(nth, e) {
+        var pos = $('.js-tabnav').offset().top;
+        $('html, body').scrollTop(pos);
+        e && e.preventDefault ? e.preventDefault() : '';
+
+        var targetHref = `.tab${nth}`;
+        var targetHrefHash = `#tab${nth}`;
         var target = $(targetHref);
         target.siblings().removeClass('in');
         setTimeout(function () {
             target.siblings().removeClass('active');
         }, 100);
-        target.addClass('active');
         setTimeout(function () {
+            target.addClass('active');
             target.addClass('in');
         }, 100);
 
         // $(`a[href='${target}']`).trigger('click');
         var nav = $('.js-tabnav');
         $(nav).find('.active').removeClass('active');
-        nav.find(`a[href="${targetHref}"]`).parent().addClass('active')
+        nav.find(`a[href="${targetHrefHash}"]`).parent().addClass('active')
     }
 
-    listProvince.map(function (item) {
-        Province.append(`<option value="${item}">${item}</option>`);
+    listPrefecture.map(function (item) {
+        Prefecture.append(`<option value="${item}">${item}</option>`);
     });
 
-    $('.js-find-addr').click(function (e) {
-        e.preventDefault();
-        code = code1.val() + code2.val();
-
-        postal_code.get(code, function (address) {
-            if (Province.find(`option[value="${address.prefecture}"]`)) {
-                Province.find(`option[value="${address.prefecture}"]`).attr('selected', true);
-            } else {
-                Province.append(`<option value="${address.prefecture}" selected >${address.prefecture}</option>`)
-            }
-            City.val(address.city);
-            area.val(address.street + " " + address.area);
-            // console.log('address: ',address);;
-        });
-    })
-    $('#re_email').on("cut copy paste", function (e) {
-        e.preventDefault();
-    });
     jQuery.validator.addMethod("fullWidthJpnChar", function (value, element) {
-        return this.optional(element) || /^[ぁ-んァ-ン一-龥]+$/.test(value);
+        return this.optional(element) || /^[ぁ-ん一-龥]+$/.test(value);
     }, 'full width required');
     jQuery.validator.addMethod("kataFullWidth", function (value, element) {
         return this.optional(element) || /^[ァ-ン]+$/.test(value);
     }, 'kata required');
-
     $("#recruit-form").validate({
         focusInvalid: false,
-        ignore: '',
+        ignore: '#first3, #last4',
         rules: {
             //key is name of input
             job: "required",
@@ -624,26 +613,11 @@ $(function () {
                 required: true,
                 number: true
             },
-            province: "required",
+            prefecture: "required",
             city: "required",
             address: "required"
         },
-        messages: {
-            //key is name of input
-            request_hidden: "",
-            name: "お名前を入力してください。",
-            company: "貴社名を入力してください。",
-            email: {
-                required: "メールアドレスを入力してください。",
-                email: "正しいメールアドレスを入力してください。",
-                maxlength: "正しいメールアドレスを入力してください。"
-            },
-            question: {
-                required: "お問い合わせ内容を入力してください。",
-                minlength: "少なくとも二文字以上"
-            }
-        },
-
+        messages: {},
         errorElement: "span",
         errorContainer: '.notice-error',
         errorPlacement: function (error, element) {
@@ -669,9 +643,9 @@ $(function () {
                 $(element).removeClass("has-error")
             }
         },
-        submitHandler: function () {
-            // e.preventDefault();
+        submitHandler: function (e) {
             // console.log('is validated');
+            e.preventdefault();
             $('#recruit-form-submit .fa.form-check').addClass('fa-spinner fa-spin');
             $.ajax({
                 url: 'https://jsonplaceholder.typicode.com/todos/1',
@@ -683,33 +657,67 @@ $(function () {
                     $email,
                     $phone,
                     $zipCode,
-                    $province,
+                    $Prefecture,
                     $city,
                     $addr
                 },
                 success: function (res) {
                     $('#recruit-form-submit .fa').removeClass('fa-spinner fa-spin');
+                    $('.contact-thanks p').html('後ほど担当者よりご連絡を <br class="show-sp"/> 差し上げますので <br/> しばらくお待ちください');
                     document.getElementById("recruit-form").reset();
                     goStep(3)
                 },
                 error: function (xhr, status, err) {
-                    $('.contact-thanks p').text('some thing wrong!');
+                    $('#recruit-form-submit .fa').removeClass('fa-spinner fa-spin');
+                    $('.contact-thanks p').html('some thing wrong!');
                     goStep(3)
                     // console.log(xhr, status, err);
                 }
             })
         }
     });
-    $('#firstsubmit').click(function () {
+
+    //handle event--------------------------
+
+    //get address from postal-code
+    $('.js-find-addr').click(function (e) {
+        e.preventDefault();
+        code = code1.val() + code2.val();
+
+        Postal_code.get(code, function (address) {
+            if (Prefecture.find(`option[value="${address.prefecture}"]`)) {
+                Prefecture.find(`option[value="${address.prefecture}"]`).prop('selected', true);
+            } else {
+                Prefecture.append(`<option value="${address.prefecture}" selected >${address.prefecture}</option>`)
+            }
+            City.val(address.city + " " + address.area + " " + address.street);
+            // area.val(address.street + " " + address.area);
+            // console.log('address: ',address);;
+        });
+    })
+    // prevent paste 
+    $('#re_email').on("cut copy paste", function (e) {
+        e.preventDefault();
+    });
+    //step nav
+    $('.step-nav').on('click', "a:not(.link)", function (e) {
+        var href = $(this).attr('href');
+        var nth = href.replace('#tab', '');
+        goStep(nth, e)
+    })
+    $('#firstsubmit').click(function (e) {
         if ($("#recruit-form").valid()) {
             setPreview();
-            goStep(2);
+            goStep(2, e);
         }
     })
     $('#first3').on('keyup', function (e) {
         if ($(this).val().length >= 3) {
             $('#last4').trigger('select')
         }
+    })
+    $('#last4').on('keyup', function (e) {
+        this.value = this.value.split('').slice(0,4).join('');
     })
 
 })
