@@ -109,6 +109,23 @@ header {
     >img {
         width: 100%;
     }
+    .banner-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: vwSP(670px);
+        height: vwSP(700px);
+        @include translate(-50%,-50%);
+        // background: url(../img/banner-textbox-sp.png) center/100% no-repeat;
+        p{
+            padding-top: vwSP(240px);
+            font-size: vwSP(34px);
+            color: #fff;
+            white-space: pre-line;
+            line-height: 2.4;
+            text-align: center;
+        }
+    }
     .box-name {
         font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
         font-size: vwSP(30px);
@@ -172,6 +189,15 @@ header {
     }
 
     .banner {
+        .banner-text{
+            width: vwPC(480px);
+            height: vwPC(480px);
+            // background-image: url(../img/banner-textbox.png);
+            p{
+                padding-top: vwPC(180px);
+                font-size: vwPC(20px);
+            }
+        }
         .box-name {
             font-size: vwPC(30px);
             top: 41%;
@@ -241,6 +267,14 @@ header {
     }
 
     .banner {
+        .banner-text{
+            width: (480px);
+            height: (480px);
+            p{
+                padding-top: (180px);
+                font-size: (20px);
+            }
+        }
         .box-name {
             font-size: (30px);
             left: 14%;

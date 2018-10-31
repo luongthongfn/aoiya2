@@ -57,7 +57,7 @@ gulp.task('sass', function () {
 
 gulp.task('include', function () {
     return gulp.src('./layouts/page/*.html')
-        .pipe(includeTag())
+        .pipe(includeTag()).on('error',gulti.log)
         .pipe(htmlbeautify({
             indentSize: 4
         }))
