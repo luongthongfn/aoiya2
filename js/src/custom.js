@@ -647,7 +647,7 @@ $(function () {
             }
         },
         submitHandler: function () {
-            console.log('is validated');
+            // console.log('is validated');
             
             $('#recruit-form-submit .fa.form-check').addClass('fa-spinner fa-spin');
             $.ajax({
@@ -667,7 +667,7 @@ $(function () {
                     $addr
                 },
                 success: function (res) {
-                    console.log(res);
+                    
                     $('#recruit-form-submit .fa').removeClass('fa-spinner fa-spin');
                     $('.contact-thanks p').html('後ほど担当者よりご連絡を <br class="show-sp"/> 差し上げますので <br/> しばらくお待ちください');
                     document.getElementById("recruit-form").reset();
