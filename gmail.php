@@ -98,6 +98,7 @@ if (isset($_POST['recruit_form'])) {
 
     try {
         //Content
+        $title = 'recruitment request';
         $content = '応募職種 : ' . $job . '<br>'
                  . 'お名前: ' . $name . '<br>'
                  . '生年月日: ' . $gender . '<br>'
@@ -109,7 +110,7 @@ if (isset($_POST['recruit_form'])) {
                  . '市区群・地名・番地: ' . $city . '<br>'
                  . '建物名・部屋番号: ' . $addr . '<br>';
         // 'kanemitsu@wiredgroup.co.jp'; // Add a recipient
-        if (sendMail($request, $content, $name, 'info@aoiyakk.com')) {
+        if (sendMail($title, $content, $name, 'info@aoiyakk.com')) {
         // if (sendMail($request, $content, $name, 'webtestwav@gmail.com')) {
             // if receive then auto reply
             sendMail('title reply', '$content reply', '$name', $email);
