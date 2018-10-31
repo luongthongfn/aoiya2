@@ -118,6 +118,7 @@ header {
         @include translate(-50%,-50%);
         // background: url(../img/banner-textbox-sp.png) center/100% no-repeat;
         p{
+            font-family: 'yumin', '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
             padding-top: vwSP(240px);
             font-size: vwSP(34px);
             color: #fff;
@@ -194,7 +195,7 @@ header {
             height: vwPC(480px);
             // background-image: url(../img/banner-textbox.png);
             p{
-                padding-top: vwPC(180px);
+                padding-top: vwPC(220px);
                 font-size: vwPC(20px);
             }
         }

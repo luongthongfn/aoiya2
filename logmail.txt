@@ -11,3 +11,4 @@
 ---log: 01/10/2018 05:54:09 PM--log content: お問い合わせ項目: select2<br>お名前: qweqwe<br>貴社名/部署名: qeqweq<br>メールアドレス: thonglv@wav.vn<br>お問い合わせ内容: qwqweqwe<br>
 ---log: 02/10/2018 08:35:54 AM--log content: お問い合わせ項目: select4<br>お名前: Giang<br>貴社名/部署名: WAV<br>メールアドレス: giangnt@wav.vn<br>お問い合わせ内容: Hello. How are you?<br>
 ---log: 02/10/2018 11:19:07 AM--log content: お問い合わせ項目: select2<br>お名前: abc1<br>貴社名/部署名: abc2<br>メールアドレス: hung@wav.vn<br>お問い合わせ内容: abc3<br>
+---log: 31/10/2018 02:24:55 PM--log content: 応募職種 : テスター<br>お名前: 漢字氏名 漢字氏名<br>生年月日: 男<br>性別: 1959年3月4日<br>E-mailアドレス: luongthongvfu@gmail.com<br>携帯用電話番号: 03-5914-7285<br>郵便番号: 020-0101<br>都道府県: 岩手県<br>市区群・地名・番地: 盛岡市 岩脇町 <br>建物名・部屋番号: 13f, asdas<br>

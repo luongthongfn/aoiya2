@@ -50,6 +50,7 @@ function sendMail($title, $content, $nTo, $mTo, $adressCC = '')
     }
 }
 
+//form contact home
 if (isset($_POST['send_mail'])) {
     $request = $_POST['request'];
     $name = $_POST['name'];
@@ -67,6 +68,49 @@ if (isset($_POST['send_mail'])) {
             . 'お問い合わせ内容: ' . $question . '<br>';
         // 'kanemitsu@wiredgroup.co.jp'; // Add a recipient
         if (sendMail($request, $content, $name, 'info@aoiyakk.com')) {
+            // if receive then auto reply
+            sendMail('title reply', '$content reply', '$name', $email);
+        }
+
+        logMail($content);
+        // replyMail($name, $email);
+        echo 'success!';
+
+    } catch (Exception $e) {
+
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    }
+}
+
+// form recruit
+if (isset($_POST['recruit_form'])) {
+    $job = $_POST['$job'];
+    $name = $_POST['$name'];
+    $gender = $_POST['$gender'];
+    $birthday = $_POST['$birthday'];
+    $email = $_POST['$email'];
+    $phone = $_POST['$phone'];
+    $zipCode = $_POST['$zipCode'];
+    $Prefecture = $_POST['$pref'];
+    $city = $_POST['$city'];
+    $addr = $_POST['$addr'];
+
+    try {
+        //Content
+        $content = '応募職種 : ' . $job . '<br>'
+                 . 'お名前: ' . $name . '<br>'
+                 . '生年月日: ' . $gender . '<br>'
+                 . '性別: ' . $birthday . '<br>'
+                 . 'E-mailアドレス: ' . $email . '<br>'
+                 . '携帯用電話番号: ' . $phone . '<br>'
+                 . '郵便番号: ' . $zipCode . '<br>'
+                 . '都道府県: ' . $Prefecture . '<br>'
+                 . '市区群・地名・番地: ' . $city . '<br>'
+                 . '建物名・部屋番号: ' . $addr . '<br>';
+        // 'kanemitsu@wiredgroup.co.jp'; // Add a recipient
+        // if (sendMail($request, $content, $name, 'info@aoiyakk.com')) {
+        if (sendMail($request, $content, $name, 'webtestwav@gmail.com')) {
             // if receive then auto reply
             sendMail('title reply', '$content reply', '$name', $email);
         }

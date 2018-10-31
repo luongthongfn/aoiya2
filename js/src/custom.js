@@ -646,13 +646,15 @@ $(function () {
                 $(element).removeClass("has-error")
             }
         },
-        submitHandler: function (e) {
-            // console.log('is validated');
-            e.preventdefault();
+        submitHandler: function () {
+            console.log('is validated');
+            
             $('#recruit-form-submit .fa.form-check').addClass('fa-spinner fa-spin');
             $.ajax({
-                url: 'https://jsonplaceholder.typicode.com/todos/1',
+                url: 'gmail.php',
+                method: 'POST',
                 data: {
+                    recruit_form:true,
                     $job,
                     $name,
                     $gender,
@@ -660,11 +662,12 @@ $(function () {
                     $email,
                     $phone,
                     $zipCode,
-                    $Prefecture,
+                    $pref,
                     $city,
                     $addr
                 },
                 success: function (res) {
+                    console.log(res);
                     $('#recruit-form-submit .fa').removeClass('fa-spinner fa-spin');
                     $('.contact-thanks p').html('後ほど担当者よりご連絡を <br class="show-sp"/> 差し上げますので <br/> しばらくお待ちください');
                     document.getElementById("recruit-form").reset();
@@ -677,6 +680,7 @@ $(function () {
                     // console.log(xhr, status, err);
                 }
             })
+            return false;
         }
     });
 
