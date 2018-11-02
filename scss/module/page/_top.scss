@@ -248,7 +248,7 @@
             border-radius: 100px;
             transition: all .2s;
             overflow: hidden;
-            &:hover {
+            &:focus {
                 background: #00008f;
                 color: #fff;
             }
@@ -416,17 +416,8 @@
 
             .read-entry {
                 font-size: vwPC(20px);
-                font-weight: bold;
-                color: #00008f;
-                text-align: center;
-                display: block;
-                background: #fff;
                 padding: vwPC(18px);
-                // margin-top: vwPC(50px);
                 margin-top: auto;
-                border-radius: 100px;
-                transition: all .2s;
-
                 &:hover {
                     background: #00008f;
                     color: #fff;

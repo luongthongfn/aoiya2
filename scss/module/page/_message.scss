@@ -181,7 +181,7 @@
     .message-post-txt {
         clear: both;
         font-size: vwSP(30px);
-        line-height: 1.2;
+        line-height: 1.8;
         padding: 0 vwSP(30px);
     }
 }
@@ -237,6 +237,7 @@
                 padding: vwPC(10px) vwPC(30px) vwPC(30px);
                 padding-left: 0;
                 padding-right: 0;
+                line-height: unset;
                 
             }
         }
