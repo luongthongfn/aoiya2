@@ -165,29 +165,20 @@
 
 .recruit {
     .recruit-box {
+        font-size: 0;
         position: relative;
+        overflow: hidden;
 
-        .recruit-link1,
-        .recruit-link2 {
+        .recruit-link {
             position: absolute;
-            font-size: vwSP(30);
-            text-align: center;
-            width: vwSP(340);
-            color: #fff;
-
-            a {
-                color: #fff;
-            }
-        }
-
-        .recruit-link1 {
-            top: vwSP(450);
-            left: vwSP(100);
-        }
-
-        .recruit-link2 {
-            top: vwSP(300);
-            right: vwSP(100);
+            top: 47%;
+            left: 8%;
+            width: 55%;
+            height: 54.5%;
+            display: block;
+            @include rotate(45);
+            transform-origin: 50% 50%;
+            // border: 1px solid #000;
         }
     }
 }
@@ -377,12 +368,15 @@
             border: 1px solid #EDEDED;
             border-radius: 0;
             background-clip: padding-box;
+
             &.has-error {
                 border-color: #ff0000;
                 color: #dedede;
-                &:focus{
+
+                &:focus {
                     color: #000;
-                    +.required-notice{
+
+                    +.required-notice {
                         opacity: 0.1;
                     }
                 }
@@ -792,21 +786,11 @@
     .recruit {
         .recruit-box {
 
-            .recruit-link1,
-            .recruit-link2 {
-                text-transform: uppercase;
-                font-size: vwPC(25px);
-                width: vwPC(378px);
-            }
-
-            .recruit-link1 {
-                top: vwPC(200px);
-                left: vwPC(300px);
-            }
-
-            .recruit-link2 {
-                top: vwPC(282px);
-                right: vwPC(260px);
+            .recruit-link {
+                top: 15%;
+                left: 19%;
+                width: 29%;
+                height: 71%;
             }
         }
     }
@@ -928,7 +912,7 @@
             }
 
             .input {
-               
+
                 &:after {
                     top: vwPC(16px);
                     right: vwPC(14px);
@@ -1210,25 +1194,7 @@
     }
 
     .recruit {
-        .recruit-box {
-
-            .recruit-link1,
-            .recruit-link2 {
-                text-transform: uppercase;
-                font-size: (25px);
-                width: (378px);
-            }
-
-            .recruit-link1 {
-                top: (200px);
-                left: (300px);
-            }
-
-            .recruit-link2 {
-                top: (282px);
-                right: (260px);
-            }
-        }
+        .recruit-box {}
     }
 
     .outline {
@@ -1332,8 +1298,9 @@
                     padding: vwPC(10px) vwPC(10px) vwPC(8px);
                 }
             }
+
             .input {
-               
+
                 &:after {
                     top: (16px);
                     right: (14px);
@@ -1343,6 +1310,7 @@
                     border-right-width: (7px);
                 }
             }
+
             .custom-select {
                 flex: 0 0 400px;
 
@@ -1399,7 +1367,7 @@
             .required-notice {
                 font-size: 16px;
                 padding: 10px;
-                
+
                 +.required-notice {
                     display: none;
                 }

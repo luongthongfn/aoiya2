@@ -284,10 +284,6 @@ p {
 }
 
 .show-pc {
-    display: block !important;
-}
-
-.show-pc {
     @include mq(768, max) {
         display: none !important;
     }
@@ -298,5 +294,5 @@ p {
 }
 
 .show {
-    display: block !important;
+    display: initial !important;
 }
